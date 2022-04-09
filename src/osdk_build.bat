@@ -20,7 +20,8 @@ CALL osdk_prebuild.bat
 CALL %OSDK%\bin\make.bat %OSDKFILE%
 
 MOVE BUILD\%OSDKNAME%.tap BUILD\main.tap
-COPY /B BUILD\loader.tap+BUILD\splash.tap+BUILD\charset_std.tap+build\main.tap BUILD\%OSDKNAME%.tap
+COPY /B BUILD\loader.tap+BUILD\splash.tap+BUILD\charset_std.tap+build\charset_alt.tap+BUILD\bottom_panel.tap+build\main.tap BUILD\%OSDKNAME%.tap
+REM COPY /B BUILD\loader.tap+build\charset_alt.tap+build\main.tap BUILD\%OSDKNAME%.tap
 
 
 GOTO End
