@@ -3,3 +3,5 @@ src/image_s.txt
 src/image_s.s
 src/BUILD/*
 src/charset_std_s.txt
+tools/__pycache__/*
+src/old/*

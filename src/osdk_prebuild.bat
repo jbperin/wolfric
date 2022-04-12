@@ -15,7 +15,7 @@ SET OUTTAP=charset_alt.tap
 SET AUTOFLAG=0
 %osdk%\bin\header.exe -a%AUTOFLAG% %INPUTFN% BUILD\%OUTTAP% %STARTADDR%
 
-SET STARTADDR=$BF40
+SET STARTADDR=$BF68
 SET INPUTFN=..\data\botpan.bin
 SET OUTTAP=bottom_panel.tap
 SET AUTOFLAG=0
