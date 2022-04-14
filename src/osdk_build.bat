@@ -1,5 +1,5 @@
 @ECHO OFF
-
+if not exist "BUILD" mkdir BUILD
 ::
 :: Initial check.
 :: Verify if the SDK is correctly configurated
