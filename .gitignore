@@ -5,3 +5,4 @@ src/BUILD/*
 src/charset_std_s.txt
 tools/__pycache__/*
 src/old/*
+tools/bottompan/BUILD/*
