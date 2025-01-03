@@ -1,5 +1,5 @@
 
-# import config 
+import config 
 import struct
 
 def buffer2asmCode(theName, theType, theBuffer):
@@ -58,9 +58,9 @@ def buffer2pyCode(theName, theBuffer):
     theCode += "]\n"
     return theCode
 
-# COEFF = config.TEXTURE_SIZE/ config.WALL_HEIGHT 
+COEFF = config.TEXTURE_SIZE/ config.WALL_HEIGHT 
 def main ():
-    # stWall = buffer2cCode("idxWall", "unsigned char", [0 for ii in range(config.NUMBER_OF_SLICE)])
+    stWall = buffer2cCode("idxWall", "unsigned char", [0 for ii in range(config.NUMBER_OF_SLICE)])
     stTexCol = buffer2cCode("tabTexCol", "unsigned char", [ii for ii in range(40)])
     stMulti40 = buffer2cCode("multi40", "unsigned int", [40*ii for ii in range(200)])
     stMulti120 = buffer2cCode("multi120", "unsigned int", [120*ii for ii in range(64)])

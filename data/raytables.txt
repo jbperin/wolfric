@@ -1,0 +1,59 @@
+$d9d5	64	64	_multi120_low
+$da15	64	64	_multi120_high
+$da55	32	32	_multi32_high
+$da75	32	32	_multi32_low
+$da95	45	45	_multiCoeff
+$dac2	256	256	_atan_tab
+$dbc2	8	8	_octant_adjust
+$dbca	256	256	_tab_exp
+$dcca	33	33	_tab_exp_extended
+$dceb	18	18	_tab_exp_extended2
+$dcfd	13	13	_tab_exp_extended3
+$dd0a	256	256	_log2_tab
+$de0a	64	64	_tabRightRed
+$de4a	64	64	_tabLeftRed
+$de8a	64	64	_tabRightGreen
+$deca	64	64	_tabLeftGreen
+$df0a	64	64	_tabRightBlue
+$df4a	64	64	_tabLeftBlue
+$df8a	2016	2016	_tabIdxRdTexture
+$e76a	64	64	_tab3Sin
+$e7aa	256	256	_tab3Cos
+$e8aa	64	64	_tabLog2Sin
+$e8ea	256	256	_tabLog2Cos
+$e9ea	64	64	_tab_1oversin
+$ea2a	256	256	_tab_1overcos
+$eb2a	
+
+
+_multi120_low           .dsb 64 
+_multi120_high          .dsb 64
+_multi32_high           .dsb 32
+_multi32_low            .dsb 32
+_multiCoeff         .dsb 45
+_atan_tab           .dsb 256
+_octant_adjust          .dsb 8
+_tab_exp            .dsb 256
+_tab_exp_extended           .dsb 33
+_tab_exp_extended2          .dsb 18
+_tab_exp_extended3          .dsb 13
+_log2_tab           .dsb 256
+
+; coltexture
+; *= $DE0A
+_tabRightRed            .dsb 64
+_tabLeftRed         .dsb 64
+_tabRightGreen          .dsb 64
+_tabLeftGreen           .dsb 64
+_tabRightBlue           .dsb 64
+_tabLeftBlue            .dsb 64
+_tabIdxRdTexture            .dsb 2016
+
+
+; *= $E76A
+_tab3Sin            .dsb 64
+_tab3Cos            .dsb 256
+_tabLog2Sin         .dsb 64
+_tabLog2Cos         .dsb 256
+_tab_1oversin           .dsb 64
+_tab_1overcos           .dsb 256
