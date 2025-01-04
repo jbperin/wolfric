@@ -23,7 +23,7 @@ REM COPY /Y prod\castoric\proto\c\ code\raycast\
 
 COPY /Y prod\castoric\proto\c\collision.c  code\raycast\
 COPY /Y prod\castoric\proto\c\collision_s.s  code\raycast\
-COPY /Y prod\castoric\proto\c\config.h  code\raycast\
+REM COPY /Y prod\castoric\proto\c\config.h  code\raycast\
 COPY /Y prod\castoric\proto\c\dda_s.s  code\raycast\
 COPY /Y prod\castoric\proto\c\dichobuf.c  code\raycast\
 COPY /Y prod\castoric\proto\c\dichobuf_s.s  code\raycast\
@@ -51,7 +51,7 @@ COPY /Y prod\castoric\proto\c\foreground_s.s  code\raycast\
 COPY /Y prod\castoric\proto\c\sprite.c  code\raycast\
 COPY /Y prod\castoric\proto\c\sprite_s.s  code\raycast\
 @REM COPY /Y prod\castoric\proto\c\tab3trigo.s  code\raycast\
-COPY /Y prod\castoric\proto\c\tabAdrTabIdxRd.h  code\raycast\
+COPY /Y prod\castoric\proto\c\raycast\tabAdrTabIdxRd.h  code\raycast\
 @REM COPY /Y prod\castoric\proto\c\tabIdxRdTexture.h  code\raycast\
 
 @REM BINARY  COPY /Y prod\castoric\proto\c\tabMulti.h  code\raycast\

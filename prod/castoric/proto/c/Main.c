@@ -33,7 +33,7 @@
 #include "dichobuf.c"
 #include "engine.c"
 #ifdef USE_SPRITE
-#include "dist.c"
+// #include "dist.c"
 #include "sprite.c"
 #include "texture_key.h"
 #include "texture_tree.h"
@@ -174,7 +174,7 @@ void gameLoop() {
         if ((objPosX[1] == 0) && (objPosY[1] == -5)) running = 0;
 #endif // PROFILER_ENABLE
 
-        if (refreshNeeded) {
+        // if (refreshNeeded) {
             rayInitCasting();
 
             rayProcessPoints();
@@ -195,12 +195,12 @@ void gameLoop() {
             // drawSprites ();
 #endif
             PROFILE_LEAVE(ROUTINE_DRAWWALLS);
-            refreshNeeded = 0;
+            // refreshNeeded = 0;
 #ifndef PROFILER_ENABLE            
             printf("\n(X=%d Y=%d) [a=%d] [t=%d]\n\n", rayCamPosX, rayCamPosY, rayCamRotZ, 65535-deek(630));
             if (hasKey) printf ("Key");
 #endif
-        }
+        // }
 
 
         // for (ii = 0; ii <= VIEWPORT_HEIGHT; ii++) {
