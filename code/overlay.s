@@ -1,30 +1,44 @@
     .bss
 ; textures
 * = $C000
-_texture_wall:
-_texture_bluewall:
-_texture_metalwall:
-_texture_gridwall:
-_texture_bigbricks .dsb 1024
-_texture_door:
-_texture_smily_front .dsb 1024
-_texture_01:
-_texture_smily_back .dsb 1024
-_texture_02:
-_texture_smily_left .dsb 1024
-_texture_03:
-_texture_smily_right .dsb 1024
-_texture_04:
-_texture_tree .dsb 1024
 
-_texture_05:
-_texture_fire_frame_0 .dsb 1024
-_texture_06:
-_texture_fire_frame_1 .dsb 1024
-_texture_07:
-_texture_fire_frame_2 .dsb 1024
-_texture_08:
-_texture_fire_frame_3 .dsb 1024
+_bluewall               .dsb 1024
+_door_1                 .dsb 1024
+_metalwall              .dsb 1024
+_lamp_1                 .dsb 1024
+_soldier_back           .dsb 1024
+_soldier_front          .dsb 1024
+_soldier_left           .dsb 1024
+_soldier_right          .dsb 1024
+_pieceofmeat            .dsb 1024
+_gridwall               .dsb 1024
+_sprite_deadsoldier     .dsb 1024
+
+
+; _texture_wall:
+; _texture_bluewall:
+; :
+; _texture_gridwall:
+; _texture_bigbricks .dsb 1024
+; _texture_door:
+; _texture_smily_front .dsb 1024
+; _texture_01:
+; _texture_metalwall:
+; _texture_smily_back .dsb 1024
+; _texture_02:
+; _texture_smily_left .dsb 1024
+; _texture_03:
+; _texture_smily_right .dsb 1024
+; _texture_04:
+; _texture_tree .dsb 1024
+; _texture_05:
+; _texture_fire_frame_0 .dsb 1024
+; _texture_06:
+; _texture_fire_frame_1 .dsb 1024
+; _texture_07:
+; _texture_fire_frame_2 .dsb 1024
+; _texture_08:
+; _texture_fire_frame_3 .dsb 1024
 
 
 ; raytables.bin 4437 octets

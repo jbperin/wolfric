@@ -8,15 +8,15 @@
 // #include "textures/texture_bigleaves.h"
 // #include "textures/texture_bigsquares.h"
 // #include "textures/texture_dentwall.h"
-extern unsigned char texture_bigbricks[];
-extern unsigned char texture_bluewall[];
-extern unsigned char texture_metalwall[];
-extern unsigned char texture_gridwall[];
-extern unsigned char texture_door[];
-extern unsigned char texture_smily_front[];
-extern unsigned char texture_smily_back[];
-extern unsigned char texture_smily_left[];
-extern unsigned char texture_smily_right[];
+
+extern unsigned char bluewall[];
+extern unsigned char metalwall[];
+extern unsigned char gridwall[];
+extern unsigned char door_1[];
+extern unsigned char soldier_front[];
+extern unsigned char soldier_back[];
+extern unsigned char soldier_left[];
+extern unsigned char soldier_right[];
 
 unsigned char wallTexture_high[NB_MAX_WALL] ;
 unsigned char wallTexture_low[NB_MAX_WALL] ;
@@ -149,64 +149,64 @@ signed char scene_00[] = {
 
 // [ref texture_file2buffer]
 unsigned char *texture_00[]= {
-	  texture_bluewall // texture_texture_bluewall		// W0
-	, texture_bluewall // , texture_bigleaves		// W1
-	, texture_bluewall //, texture_bigsquares		// W2
-	, texture_bluewall // , texture_dentwall			// W3
-	, texture_bluewall // , texture_dentwall			// W4
-	, texture_bluewall // , texture_dentwall			// W5
-	, texture_bluewall // , texture_dentwall			// W6
-	, texture_bluewall // , texture_dentwall			// W7
-	, texture_bluewall // , texture_dentwall			// W8
-	, texture_metalwall // , texture_dentwall			// W9
-	, texture_metalwall // , texture_dentwall			// W10
-	, texture_door
-	, texture_bluewall // , texture_dentwall			// W12
-	, texture_bluewall // , texture_dentwall			// W13
-	, texture_bluewall // , texture_dentwall			// W14
-	, texture_metalwall // , texture_dentwall			// W15
-	, texture_door      // , texture_dentwall			// W16
-	, texture_metalwall // , texture_dentwall			// W17
-	, texture_bluewall // , texture_dentwall			// W18
-	, texture_bluewall // , texture_dentwall			// W19
-	, texture_metalwall // , texture_dentwall			// W20
-	, texture_door       // , texture_dentwall			// W21
-	, texture_metalwall // , texture_dentwall			// W22
-	, texture_bluewall // , texture_dentwall			// W23
-	, texture_bluewall // , texture_dentwall			// W24
-	, texture_metalwall // , texture_dentwall			// W25
-	, texture_door       // , texture_dentwall			// W26
-	, texture_metalwall // , texture_dentwall			// W27
-	, texture_bluewall // , texture_dentwall			// W28
-	, texture_bluewall // , texture_dentwall			// W29
-	, texture_metalwall // , texture_dentwall			// W30
-	, texture_door       // , texture_dentwall			// W31
-	, texture_metalwall // , texture_dentwall			// W32
-	, texture_bluewall // , texture_dentwall			// W33
-	, texture_bluewall // , texture_dentwall			// W34
-	, texture_bluewall // , texture_dentwall			// W35
-	, texture_bluewall // , texture_dentwall			// W36
-	, texture_bluewall // , texture_dentwall			// W37
-	, texture_bluewall // , texture_dentwall			// W38
-	, texture_gridwall // , texture_dentwall			// W39
-	, texture_bluewall // , texture_dentwall			// W40
-	, texture_gridwall // , texture_dentwall			// W41
-	, texture_bluewall // , texture_dentwall			// W42
-	, texture_gridwall // , texture_dentwall			// W43
-	, texture_bluewall // , texture_dentwall			// W44
-	, texture_gridwall // , texture_dentwall			// W45
-	, texture_bluewall // , texture_dentwall			// W46
-	, texture_gridwall // , texture_dentwall			// W47
-	, texture_bluewall // , texture_dentwall			// W48
-	, texture_gridwall // , texture_dentwall			// W49
-	, texture_bluewall // , texture_dentwall			// W50
-	, texture_gridwall // , texture_dentwall			// W51
-	, texture_bluewall // , texture_dentwall			// W52
-	, texture_bluewall // , texture_dentwall			// W53
-	, texture_bluewall // , texture_dentwall			// W54
-	, texture_bluewall // , texture_dentwall			// W55
-	, texture_bluewall // , texture_dentwall			// W56
-	, texture_bluewall // , texture_dentwall			// W57
+	  bluewall // texture_bluewall		// W0
+	, bluewall // , texture_bigleaves		// W1
+	, bluewall //, texture_bigsquares		// W2
+	, bluewall // , texture_dentwall			// W3
+	, bluewall // , texture_dentwall			// W4
+	, bluewall // , texture_dentwall			// W5
+	, bluewall // , texture_dentwall			// W6
+	, bluewall // , texture_dentwall			// W7
+	, bluewall // , texture_dentwall			// W8
+	, metalwall // , texture_dentwall			// W9
+	, metalwall // , texture_dentwall			// W10
+	, door_1
+	, bluewall // , texture_dentwall			// W12
+	, bluewall // , texture_dentwall			// W13
+	, bluewall // , texture_dentwall			// W14
+	, metalwall // , texture_dentwall			// W15
+	, door_1      // , texture_dentwall			// W16
+	, metalwall // , texture_dentwall			// W17
+	, bluewall // , texture_dentwall			// W18
+	, bluewall // , texture_dentwall			// W19
+	, metalwall // , texture_dentwall			// W20
+	, door_1       // , texture_dentwall			// W21
+	, metalwall // , texture_dentwall			// W22
+	, bluewall // , texture_dentwall			// W23
+	, bluewall // , texture_dentwall			// W24
+	, metalwall // , texture_dentwall			// W25
+	, door_1       // , texture_dentwall			// W26
+	, metalwall // , texture_dentwall			// W27
+	, bluewall // , texture_dentwall			// W28
+	, bluewall // , texture_dentwall			// W29
+	, metalwall // , texture_dentwall			// W30
+	, door_1       // , texture_dentwall			// W31
+	, metalwall // , texture_dentwall			// W32
+	, bluewall // , texture_dentwall			// W33
+	, bluewall // , texture_dentwall			// W34
+	, bluewall // , texture_dentwall			// W35
+	, bluewall // , texture_dentwall			// W36
+	, bluewall // , texture_dentwall			// W37
+	, bluewall // , texture_dentwall			// W38
+	, gridwall // , texture_dentwall			// W39
+	, bluewall // , texture_dentwall			// W40
+	, gridwall // , texture_dentwall			// W41
+	, bluewall // , texture_dentwall			// W42
+	, gridwall // , texture_dentwall			// W43
+	, bluewall // , texture_dentwall			// W44
+	, gridwall // , texture_dentwall			// W45
+	, bluewall // , texture_dentwall			// W46
+	, gridwall // , texture_dentwall			// W47
+	, bluewall // , texture_dentwall			// W48
+	, gridwall // , texture_dentwall			// W49
+	, bluewall // , texture_dentwall			// W50
+	, gridwall // , texture_dentwall			// W51
+	, bluewall // , texture_dentwall			// W52
+	, bluewall // , texture_dentwall			// W53
+	, bluewall // , texture_dentwall			// W54
+	, bluewall // , texture_dentwall			// W55
+	, bluewall // , texture_dentwall			// W56
+	, bluewall // , texture_dentwall			// W57
 
 };
 
