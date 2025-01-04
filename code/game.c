@@ -6,7 +6,7 @@
 #include "scene/scene.h"
 #include "util.h"
 #include "raycast/raycast.h"
-
+#include "engine/engine.h"
 #define ROT_ANGLE_STEP 16
 
 
@@ -43,6 +43,17 @@ void initCamera(){
 
 }
 
+extern unsigned char sprite_deadsoldier[];
+extern unsigned char lamp_1[];
+extern unsigned char soldier_back[];
+extern unsigned char soldier_front[];
+extern unsigned char soldier_left[];
+extern unsigned char soldier_right[];
+extern unsigned char pieceofmeat[];
+
+signed  char doorData[] = {0, 36}; // state 0  36 = 17(point n17)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+signed char soldierData [] = {0};
+
 
 void gameInit(void){
 
@@ -58,6 +69,45 @@ void gameInit(void){
     initCamera();
 
     initScene (scene_00, texture_00);
+
+    engInitObjects();
+
+    engObjType = OBJ_DEAD_SOLDIER;
+    engObjX     = 0;
+    engObjY     = 5;
+    engObjData  = 0;
+    engAddObjectASM();
+    objTexture[0] = sprite_deadsoldier;
+
+    engObjType = OBJ_LAMP;
+    engObjX     = 0;
+    engObjY     = 7;
+    engObjData  = 0;
+    engAddObjectASM();
+    objTexture[1] = lamp_1;
+
+    engObjType = OBJ_PIECE_OF_MEAT;
+    engObjX     = 0;
+    engObjY     = 9;
+    engObjData  = 0;
+    engAddObjectASM();
+    objTexture[2] = pieceofmeat;
+
+    engObjType = OBJ_SOLDIER;
+    engObjX     = 2;
+    engObjY     = 0;
+    engObjData  = soldierData;
+    engAddObjectASM();
+    objTexture[3] = soldier_front;
+
+    engObjType = OBJ_DOOR;
+    engObjX     = 0;
+    engObjY     = 21;
+    engObjData  = doorData;
+    engAddObjectASM();
+    objTexture[4] = 0;
+
+
 }
 
 void gamePulse(void){

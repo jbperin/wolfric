@@ -2,9 +2,13 @@
 #define ENGINE_H
 
 // objects
-#define OBJ_KEY         1
-#define OBJ_TREE        2
-#define OBJ_SOLDIER     3
+
+#define OBJ_DOOR                1
+#define OBJ_LAMP                2
+#define OBJ_SOLDIER             3
+#define OBJ_DEAD_SOLDIER        4
+#define OBJ_PIECE_OF_MEAT       5
+
 // #define OBJ_LETTER      4
 // #define OBJ_DOOR        5
 // #define OBJ_CREATURE    6

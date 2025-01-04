@@ -3,9 +3,7 @@
 
 
 // objects
-#define OBJ_KEY 1
-#define OBJ_TREE 2
-#define OBJ_SOLDIER 3
+#include "engine.h"
 
 unsigned char   objType     [OBJECTS_MAX];
 unsigned char   objActive   [OBJECTS_MAX];
@@ -42,14 +40,22 @@ void soldierUpdate();
 // Oupt : objAngle, objLogDistance
 extern void computeLogDistance ();
 #endif
+
+void doorUpdate()
+{
+}
 void engObjectPulse()
 {
     switch (objType[engCurrentObjectIdx])
     {
-        case OBJ_KEY:
-        case OBJ_TREE:
+        case OBJ_LAMP:
+        case OBJ_PIECE_OF_MEAT:
+        case OBJ_DEAD_SOLDIER:
             computeLogDistance();
             dichoInsert (engCurrentObjectIdx, objLogDistance[engCurrentObjectIdx]);
+            break;
+        case OBJ_DOOR:
+            doorUpdate();
             break;
         case OBJ_SOLDIER:
             soldierUpdate();
@@ -100,44 +106,47 @@ void soldierUpdate()
     // unsigned char ldist;
     unsigned char displaystate;
     signed char direction;
-    signed char sex, sey;
+    // signed char sex, sey;
 	signed char ex = objPosX[engCurrentObjectIdx];
     signed char ey = objPosY[engCurrentObjectIdx];
-    sex = ex;
-    sey = ey;
+    // sex = ex;
+    // sey = ey;
     direction = *(objData[engCurrentObjectIdx]);
-    if (-112 >= direction) {
-        ex--;
-    } else if ((-112 < direction) && (-80 >= direction)) {
-        ex--; ey--;
-    } else if ((-80 < direction) && (-48 >= direction)) {
-        ey--;
-    } else if ((-48 < direction) && (-16 >= direction)) {
-        ex++; ey--;
-    } else if ((-16 < direction) && (16 >= direction)) {
-        ex++;
-    } else if ((16 < direction) && (48 >= direction)) {
-        ex++; ey++;
-    } else if ((48 < direction) && (80 >= direction)) {
-        ey++;
-    } else if ((80 < direction) && (112 >= direction)) {
-        ex--; ey++;
+    if (ex == 6) { //(ex == 24) 
+        if (direction == -128){
+            ex --;
+        } else {
+            direction += 16;
+        }
+    } else if (ex == -6) {
+        if (direction == 0){
+            ex ++;
+        } else {
+            direction += 16;
+        }
     } else {
-        ex--;
+        if (direction == -128){
+            ex --;
+        } else {
+            ex ++;;
+        }
     }
-    if (isInWall(ex, ey)) {
-         direction += 16;
-         *(objData[engCurrentObjectIdx]) = direction;
-         ex = sex;
-         ey = sey;
-    }
+    *(objData[engCurrentObjectIdx]) = direction;
+    // if (isInWall(ex, ey)) {
+    //      direction += 16;
+    //      *(objData[engCurrentObjectIdx]) = direction;
+    //      ex = sex;
+    //      ey = sey;
+    // }
     objPosX[engCurrentObjectIdx] = ex;
     objPosY[engCurrentObjectIdx] = ey;
-    // ldist = computeLogDist (ex, ey);
-    computeLogDistance();
-    dichoInsert (engCurrentObjectIdx, objLogDistance[engCurrentObjectIdx]);
 
-    // computeRelativeOrientation (*(objData[engCurrentObjectIdx]));
+    computeLogDistance();
+
+    dichoInsertVal = objLogDistance[engCurrentObjectIdx];
+    dichoInsertIdx = engCurrentObjectIdx;
+    dichoASMInsert();
+
 #ifdef USE_SPRITE    
     displaystate = computeRelativeOrientation (direction, rayCamRotZ);
     switch (displaystate) {
@@ -155,7 +164,6 @@ void soldierUpdate()
             break;
     }
 #endif
-    // refreshNeeded = 1;
 }
 #ifdef USE_C_ENGINEPULSE
 void engInitObjects()
@@ -165,21 +173,25 @@ void engInitObjects()
 }
 #endif USE_C_ENGINEPULSE
 
-void engAddObject(char type, signed char x, signed char y, char *data)
-{
-    for (engCurrentObjectIdx = 0; engCurrentObjectIdx < OBJECTS_MAX; engCurrentObjectIdx++)
-    {
-        if (objActive[engCurrentObjectIdx] == 0) break;
-    }
-    if (engCurrentObjectIdx != OBJECTS_MAX) {
-        objActive[engCurrentObjectIdx] = 1;
-        objType[engCurrentObjectIdx] = type;
-        objPosX[engCurrentObjectIdx] = x;
-        objPosY[engCurrentObjectIdx] = y;
-        objData[engCurrentObjectIdx] = data;
-    };
+unsigned char engObjType;
+signed char engObjX, engObjY;
+signed char *engObjData;
 
-}
+// void engAddObject(char type, signed char x, signed char y, char *data)
+// {
+//     for (engCurrentObjectIdx = 0; engCurrentObjectIdx < OBJECTS_MAX; engCurrentObjectIdx++)
+//     {
+//         if (objActive[engCurrentObjectIdx] == 0) break;
+//     }
+//     if (engCurrentObjectIdx != OBJECTS_MAX) {
+//         objActive[engCurrentObjectIdx] = 1;
+//         objType[engCurrentObjectIdx] = type;
+//         objPosX[engCurrentObjectIdx] = x;
+//         objPosY[engCurrentObjectIdx] = y;
+//         objData[engCurrentObjectIdx] = data;
+//     };
+
+// }
 
 // void engDeleteObject(unsigned char objectNumber) {
 //     objActive[objectNumber] = 0;
