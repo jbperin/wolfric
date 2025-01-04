@@ -2,6 +2,9 @@
 ; textures
 * = $C000
 _texture_wall:
+_texture_bluewall:
+_texture_metalwall:
+_texture_gridwall:
 _texture_bigbricks .dsb 1024
 _texture_door:
 _texture_smily_front .dsb 1024
@@ -22,8 +25,6 @@ _texture_07:
 _texture_fire_frame_2 .dsb 1024
 _texture_08:
 _texture_fire_frame_3 .dsb 1024
-
-
 
 
 ; raytables.bin 4437 octets

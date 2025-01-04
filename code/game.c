@@ -36,9 +36,9 @@ void onKey(unsigned char c){
 void onIT(){;}
 
 void initCamera(){
-    rayCamPosX               = 71;
-    rayCamPosY               = 9; 
-    rayCamRotZ               = 0x80;
+    rayCamPosX               = 0;
+    rayCamPosY               = 0; 
+    rayCamRotZ               = 64;
     RayLeftAlpha            = rayCamRotZ + HALF_FOV_FIX_ANGLE;
 
 }
