@@ -33,3 +33,16 @@ assets/E9LzHe/*
 assets/bank4g/*
 assets/0xWR6B/*
 assets/dog/*
+prod/RomlessDataDump/build/RomlessGame.dsk
+prod/RomlessDataDump/build/symbols_RomlessGame
+prod/RomlessDataDump/build/files/Font6x8.hir
+prod/RomlessDataDump/build/files/loader.o
+prod/RomlessDataDump/build/files/RomlessGame.o
+prod/RomlessDataDump/build/files/sector_1-jasmin.o
+prod/RomlessDataDump/build/files/sector_2-microdisc.o
+prod/RomlessDataDump/build/files/sector_3.o
+prod/RomlessDataDump/code/floppy_description.h
+prod/RomlessDataDump/code/BUILD/final.out
+prod/RomlessDataDump/code/BUILD/RomlessGame.tap
+prod/RomlessDataDump/code/BUILD/symbols
+prod/RomlessDataDump/code/BUILD/xaerr.txt
