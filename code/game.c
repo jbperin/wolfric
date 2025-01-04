@@ -10,11 +10,28 @@
 #define ROT_ANGLE_STEP 16
 
 
+
 void onKey(unsigned char c){
-
+    if (c == KEY_UP) {
+            forward(); 
+    } else if (c == KEY_DOWN) {
+            backward();
+    } else if (c == KEY_LEFT) {
+            rayCamRotZ      += ROT_ANGLE_STEP;
+            RayLeftAlpha    = rayCamRotZ + HALF_FOV_FIX_ANGLE;
+    } else if (c == KEY_RIGHT) {
+            rayCamRotZ      -= ROT_ANGLE_STEP; 
+            RayLeftAlpha    = rayCamRotZ + HALF_FOV_FIX_ANGLE;
+    } else if (c == KEY_J) {
+            shiftRight();
+    } else if (c == KEY_H) {
+            shiftLeft();
+    } else if (c == KEY_SPACE) {
+        ;
+    } else if (c == KEY_E) {
+        ;
+    }
 }
-
-
 
 void onIT(){;}
 
@@ -23,12 +40,6 @@ void initCamera(){
     rayCamPosY               = 9; 
     rayCamRotZ               = 0x80;
     RayLeftAlpha            = rayCamRotZ + HALF_FOV_FIX_ANGLE;
-
-    // glCamPosX   = rayCamPosX;
-    // glCamPosY   = rayCamPosY;
-    // glCamPosZ   = 0;
-    // glCamRotZ   = rayCamRotZ;
-
 
 }
 
@@ -44,7 +55,6 @@ void gameInit(void){
     // LoadFileAt(LOADER_ANIM, 0xd800);
     LoadFileAt(LOADER_HRSCREEN, 0x9800);
 	
-    // PRINTS(3,17,"Salud: ");
     initCamera();
 
     initScene (scene_00, texture_00);

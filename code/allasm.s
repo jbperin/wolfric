@@ -27,3 +27,5 @@
 #include "raycast/raycast_s.s"
 #include "raycast/foreground_s.s"
 #include "raycast/drawWalls_s.s"
+
+#include "play/player_s.s"

@@ -36,3 +36,5 @@
 #include "engine/engine.c"
 
 #include "raycast/sprite.c"
+
+#include "play/player.c"
