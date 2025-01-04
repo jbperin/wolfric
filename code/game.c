@@ -9,7 +9,11 @@
 #include "engine/engine.h"
 #define ROT_ANGLE_STEP 16
 
-
+signed char health          = 100;
+signed char score           = 0;
+signed char level           = 1;
+signed char lives           = 3;
+signed char ammo            = 4;
 
 void onKey(unsigned char c){
     if (c == KEY_UP) {
@@ -70,6 +74,12 @@ void gameInit(void){
 
     initScene (scene_00, texture_00);
 
+    health          = 100;
+    score           = 0;
+    level           = 1;
+    lives           = 3;
+    ammo            = 4;
+
     engInitObjects();
 
     engObjType = OBJ_DEAD_SOLDIER;
@@ -121,4 +131,17 @@ void gamePulse(void){
     rayProcessWalls();
     drawWalls();
 
+    // PRINTN(24,26,level);
+    // PRINTN(24,27,level);
+
+    PRINTN(6,26,score);
+    PRINTN(6,27,score);
+
+    // PRINTN(14,26,lives);
+    // PRINTN(14,27,lives);
+
+    PRINTN(24,26,health);
+    PRINTN(24,27,health);
+
+  
 }
