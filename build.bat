@@ -41,7 +41,12 @@ REM python .\tools\texture2buf.py assets\sprites01_tiles\tile_4_1.png --name sku
 REM python .\tools\texture2buf.py assets\sprites01_tiles\tile_7_1.png --name skeleton > .\prod\RomlessDataDump\code\textures\skeleton.h
 
 python tools\tile.py  assets\BasicGun.png 1 5 -skipgrid 1
-python .\tools\texture2buf.py assets\BasicGun_tiles\tile_0_0.png --name basicgun > .\prod\RomlessDataDump\code\textures\basicgun.h
+COPY /Y assets\BasicGun_tiles\tile_0_0.png prod\castoric\img\basic_gun_1.png
+pushd prod\castoric
+python tools\img2forgrnd.py img\basic_gun_1.png > proto\c\fg_gun.h
+popd 
+COPY /Y prod\castoric\proto\c\fg_gun.h  code\raycast\
+@REM python .\tools\texture2buf.py assets\BasicGun_tiles\tile_0_0.png --name basicgun > .\prod\RomlessDataDump\code\textures\basicgun.h
 
 python tools\tile.py  assets\BasicKnife.png 1 5 -skipgrid 1
 python .\tools\texture2buf.py assets\BasicKnife_tiles\tile_0_0.png --name basicknife > .\prod\RomlessDataDump\code\textures\basicknife.h
