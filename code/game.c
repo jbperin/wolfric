@@ -15,6 +15,8 @@ unsigned char level           = 1;
 unsigned char lives           = 3;
 unsigned char ammo            = 8;
 
+extern unsigned char texture_gun[];
+
 void onKey(unsigned char c){
     if (c == KEY_UP) {
             forward(); 
@@ -30,10 +32,18 @@ void onKey(unsigned char c){
             shiftRight();
     } else if (c == KEY_H) {
             shiftLeft();
+    } else if (c == KEY_1) {
+        LoadFileAt(LOADER_FG_KNIFE, texture_gun);
+    } else if (c == KEY_2) {
+        if (ammo != 0) {
+            LoadFileAt(LOADER_FG_GUN, texture_gun);
+        }
     } else if (c == KEY_SPACE) {
-        ;
     } else if (c == KEY_E) {
         if (ammo !=0) ammo--;
+        if (ammo == 0) {
+            LoadFileAt(LOADER_FG_KNIFE, texture_gun);
+        }
     } else if (c == KEY_LEFT_CONTROL) {
         if (ammo !=0) ammo--;
     }
@@ -80,7 +90,7 @@ void gameInit(void){
     score           = 0;
     level           = 1;
     lives           = 3;
-    ammo            = 4;
+    ammo            = 8;
 
     engInitObjects();
 

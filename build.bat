@@ -43,13 +43,18 @@ REM python .\tools\texture2buf.py assets\sprites01_tiles\tile_7_1.png --name ske
 python tools\tile.py  assets\BasicGun.png 1 5 -skipgrid 1
 COPY /Y assets\BasicGun_tiles\tile_0_0.png prod\castoric\img\basic_gun_1.png
 pushd prod\castoric
-python tools\img2forgrnd.py img\basic_gun_1.png > proto\c\fg_gun.h
+python tools\img2forgrnd.py img\basic_gun_1.png --name texture_gun > proto\c\fg_gun.h
 popd 
 COPY /Y prod\castoric\proto\c\fg_gun.h  code\raycast\
 @REM python .\tools\texture2buf.py assets\BasicGun_tiles\tile_0_0.png --name basicgun > .\prod\RomlessDataDump\code\textures\basicgun.h
 
 python tools\tile.py  assets\BasicKnife.png 1 5 -skipgrid 1
-python .\tools\texture2buf.py assets\BasicKnife_tiles\tile_0_0.png --name basicknife > .\prod\RomlessDataDump\code\textures\basicknife.h
+COPY /Y assets\BasicKnife_tiles\tile_0_2.png prod\castoric\img\basic_knife_1.png
+pushd prod\castoric
+python tools\img2forgrnd.py img\basic_knife_1.png --name texture_knife > proto\c\fg_knife.h
+popd 
+@REM COPY /Y prod\castoric\proto\c\fg_knife.h  code\raycast\
+@REM python .\tools\texture2buf.py assets\BasicKnife_tiles\tile_0_0.png --name basicknife > .\prod\RomlessDataDump\code\textures\basicknife.h
 
 
 

@@ -85,6 +85,12 @@ AddDefine LOADER_HRSCREEN {FileIndex}
 AddFile ..\data\texture_base.bin
 AddDefine LOADER_TEXTURES {FileIndex}
 
+AddFile ..\data\fg_gun.bin
+AddDefine LOADER_FG_GUN {FileIndex}
+
+AddFile ..\data\fg_knife.bin
+AddDefine LOADER_FG_KNIFE {FileIndex}
+
 ;
 ; Some reserved sectors
 ;

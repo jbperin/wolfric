@@ -2,6 +2,17 @@
 #ifndef KEYBOARD_H
 #define KEYBOARD_H
 
+#define KEY_0       0x30
+#define KEY_1       0x31
+#define KEY_2       0x32
+#define KEY_3       0x33
+#define KEY_4       0x34
+#define KEY_5       0x35
+#define KEY_6       0x36
+#define KEY_7       0x37
+#define KEY_8       0x38
+#define KEY_9       0x39
+
 #define KEY_Q       0x41
 #define KEY_C       0x43
 #define KEY_D       0x44
