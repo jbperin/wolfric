@@ -9,11 +9,11 @@
 #include "engine/engine.h"
 #define ROT_ANGLE_STEP 16
 
-signed char health          = 100;
-signed char score           = 0;
-signed char level           = 1;
-signed char lives           = 3;
-signed char ammo            = 4;
+unsigned char health          = 100;
+unsigned char score           = 0;
+unsigned char level           = 1;
+unsigned char lives           = 3;
+unsigned char ammo            = 8;
 
 void onKey(unsigned char c){
     if (c == KEY_UP) {
@@ -33,7 +33,9 @@ void onKey(unsigned char c){
     } else if (c == KEY_SPACE) {
         ;
     } else if (c == KEY_E) {
-        ;
+        if (ammo !=0) ammo--;
+    } else if (c == KEY_LEFT_CONTROL) {
+        if (ammo !=0) ammo--;
     }
 }
 
@@ -131,17 +133,26 @@ void gamePulse(void){
     rayProcessWalls();
     drawWalls();
 
-    // PRINTN(24,26,level);
-    // PRINTN(24,27,level);
 
-    PRINTN(6,26,score);
-    PRINTN(6,27,score);
 
-    // PRINTN(14,26,lives);
-    // PRINTN(14,27,lives);
+    *((unsigned char*)0xBF95) = (unsigned char)0x30+level;
+    *((unsigned char*)0xBFBD) = (unsigned char)0x30+level; // *((int*)0xBFA0);
+
+    PRINTN(9,26,score);
+    PRINTN(9,27,score);
+
+    *((unsigned char*)0xBFA0) = (unsigned char)0x30+lives;
+    *((unsigned char*)0xBFC8) = (unsigned char)0x30+lives; // *((int*)0xBFA0);
 
     PRINTN(24,26,health);
     PRINTN(24,27,health);
 
-  
+
+    PRINTN(29,26,ammo);
+    PRINTN(29,27,ammo);
+    *((unsigned char*)0xBFD5) = (unsigned char)0x0A;
+    *((unsigned char*)0xBFAD) = (unsigned char)0x0A; // *((int*)0xBFA0);
+    *((unsigned char*)0xBFD8) = (unsigned char)0x09;
+    *((unsigned char*)0xBFB0) = (unsigned char)0x09; // *((int*)0xBFA0);
+ 
 }

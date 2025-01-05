@@ -31,6 +31,11 @@
 #define KEY_SPACE   0x20
 #define KEY_DELETE  0x7F
 
+#define KEY_LEFT_CONTROL     20        // Control key (left one on PC)
+#define KEY_LEFT_SHIFT       36        // Left Shift key
+#define KEY_RIGHT_SHIFT      60        // Right Shift key
+#define KEY_FUNCTION          4        // Function key (right Control key on PC)
+
 extern char keyForward;
 extern char keyBackward;
 extern char keyTurnLeft;
