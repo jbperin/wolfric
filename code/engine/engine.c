@@ -43,6 +43,37 @@ extern void computeLogDistance ();
 
 void doorUpdate()
 {
+    char *doorData = objData[engCurrentObjectIdx];
+    unsigned char state = (unsigned char)(doorData[0]); // *(objData[engCurrentObjectIdx]);
+    unsigned char pt1 = (unsigned char)(doorData[1]);
+    unsigned char pt2 = (unsigned char)(doorData[2]);
+    signed char increm = doorData[3];
+    if (state != 0 && state < 7) {
+        state ++;
+        scene_00[pt1] += increm;
+        scene_00[pt2] += increm;
+        // *(objData[engCurrentObjectIdx])=state;
+        doorData[0] = state;
+        initScene (scene_00, texture_00);
+    }
+    if (state == 7) {
+        // objActive[engCurrentObjectIdx]=0;
+        doorData[4]=6;
+        doorData[0]=8;
+    }
+    if (state == 8) {
+        // TODO: check if player not in
+        doorData[4] -= 1;
+        if (doorData[4] == 0){
+            doorData[0]=9;
+        }
+    }
+    if (state >= 9 && state < 15) {
+        doorData[0] +=1;
+        scene_00[pt1] -= increm;
+        scene_00[pt2] -= increm;
+        initScene (scene_00, texture_00);
+    }
 }
 void engObjectPulse()
 {

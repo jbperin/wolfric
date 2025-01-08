@@ -15,6 +15,16 @@ unsigned char level           = 1;
 unsigned char lives           = 3;
 unsigned char ammo            = 8;
 
+signed  char doorData[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        26,     
+        28,
+        1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 26 = 12(point n12)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+signed char soldierData [] = {0};
+
 extern unsigned char texture_gun[];
 
 void onKey(unsigned char c){
@@ -39,6 +49,7 @@ void onKey(unsigned char c){
             LoadFileAt(LOADER_FG_GUN, texture_gun);
         }
     } else if (c == KEY_SPACE) {
+        doorData[0]=1;
     } else if (c == KEY_E) {
         if (ammo !=0) ammo--;
         if (ammo == 0) {
@@ -67,8 +78,7 @@ extern unsigned char soldier_left[];
 extern unsigned char soldier_right[];
 extern unsigned char pieceofmeat[];
 
-signed  char doorData[] = {0, 36}; // state 0  36 = 17(point n17)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
-signed char soldierData [] = {0};
+
 
 
 void gameInit(void){
