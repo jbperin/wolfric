@@ -15,7 +15,10 @@ unsigned char level           = 1;
 unsigned char lives           = 3;
 unsigned char ammo            = 8;
 
-signed  char doorData[] = {
+unsigned char openDoorRequest;
+unsigned char sceneUpdateRequest;
+
+signed  char door1Data[] = {
         0,      // state 0 : close,  1..6 : opening, 7: opened ,
         // Points to animate are indexes in scene data of coordinate to change
         26,     
@@ -49,7 +52,7 @@ void onKey(unsigned char c){
             LoadFileAt(LOADER_FG_GUN, texture_gun);
         }
     } else if (c == KEY_SPACE) {
-        doorData[0]=1;
+        openDoorRequest = 1;
     } else if (c == KEY_E) {
         if (ammo !=0) ammo--;
         if (ammo == 0) {
@@ -96,11 +99,15 @@ void gameInit(void){
 
     initScene (scene_00, texture_00);
 
-    health          = 100;
-    score           = 0;
-    level           = 1;
-    lives           = 3;
-    ammo            = 8;
+    health              = 100;
+    score               = 0;
+    level               = 1;
+    lives               = 3;
+    ammo                = 8;
+
+    openDoorRequest     = 0;
+    sceneUpdateRequest  = 0;
+
 
     engInitObjects();
 
@@ -134,8 +141,8 @@ void gameInit(void){
 
     engObjType = OBJ_DOOR;
     engObjX     = 0;
-    engObjY     = 21;
-    engObjData  = doorData;
+    engObjY     = 15;
+    engObjData  = door1Data;
     engAddObjectASM();
     objTexture[4] = 0;
 
@@ -147,6 +154,13 @@ void gamePulse(void){
     dichoInit();
     engPulse();
 
+    if (openDoorRequest == 1) {
+        openDoorRequest=0;
+    }
+    if (sceneUpdateRequest !=0) {
+        initScene (scene_00, texture_00);
+        sceneUpdateRequest = 0;
+    }
     rayInitCasting();
 
     rayProcessPoints();

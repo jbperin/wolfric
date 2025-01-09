@@ -41,40 +41,55 @@ void soldierUpdate();
 extern void computeLogDistance ();
 #endif
 
+extern unsigned char openDoorRequest;
+extern unsigned char sceneUpdateRequest;
+char *doorData;
+unsigned char doorState; // *(objData[engCurrentObjectIdx]);
+unsigned char doorPt1;
+unsigned char doorPt2;
+signed char doorIncrem;
+
 void doorUpdate()
 {
-    char *doorData = objData[engCurrentObjectIdx];
-    unsigned char state = (unsigned char)(doorData[0]); // *(objData[engCurrentObjectIdx]);
-    unsigned char pt1 = (unsigned char)(doorData[1]);
-    unsigned char pt2 = (unsigned char)(doorData[2]);
-    signed char increm = doorData[3];
-    if (state != 0 && state < 7) {
-        state ++;
-        scene_00[pt1] += increm;
-        scene_00[pt2] += increm;
-        // *(objData[engCurrentObjectIdx])=state;
-        doorData[0] = state;
-        initScene (scene_00, texture_00);
+    doorData        = objData[engCurrentObjectIdx];
+    doorState       = (unsigned char)(doorData[0]); // *(objData[engCurrentObjectIdx]);
+    doorPt1         = (unsigned char)(doorData[1]);
+    doorPt2         = (unsigned char)(doorData[2]);
+    doorIncrem      = doorData[3];
+    computeLogDistance();
+    if ((doorState == 0) && (openDoorRequest == 1) && (objLogDistance[engCurrentObjectIdx] < 40 )){ 
+        openDoorRequest     = 0;
+        doorState           = 1;
     }
-    if (state == 7) {
+    if (doorState != 0 && doorState < 7) {
+        doorState ++;
+        scene_00[doorPt1] += doorIncrem;
+        scene_00[doorPt2] += doorIncrem;
+        // *(objData[engCurrentObjectIdx])=state;
+        doorData[0] = doorState;
+        sceneUpdateRequest = 1;
+        // initScene (scene_00, texture_00);
+    } else if (doorState == 7) {
         // objActive[engCurrentObjectIdx]=0;
         doorData[4]=6;
         doorData[0]=8;
-    }
-    if (state == 8) {
+    } else if (doorState == 8) {
         // TODO: check if player not in
         doorData[4] -= 1;
         if (doorData[4] == 0){
             doorData[0]=9;
         }
-    }
-    if (state >= 9 && state < 15) {
+    } else if (doorState >= 9 && doorState < 15) {
         doorData[0] +=1;
-        scene_00[pt1] -= increm;
-        scene_00[pt2] -= increm;
-        initScene (scene_00, texture_00);
+        scene_00[doorPt1] -= doorIncrem;
+        scene_00[doorPt2] -= doorIncrem;
+        sceneUpdateRequest = 1;
+        // initScene (scene_00, texture_00);
+    } else if (doorState == 15) {
+        doorData[0] = 0;
     }
 }
+
 void engObjectPulse()
 {
     switch (objType[engCurrentObjectIdx])
