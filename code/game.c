@@ -151,28 +151,28 @@ void gameInit(void){
 
     engObjType = OBJ_DEAD_SOLDIER;
     engObjX     = 0;
-    engObjY     = 5;
+    engObjY     = 10;
     engObjData  = 0;
     engAddObjectASM();
     objTexture[0] = sprite_deadsoldier;
 
     engObjType = OBJ_LAMP;
     engObjX     = 0;
-    engObjY     = 7;
+    engObjY     = 27;
     engObjData  = 0;
     engAddObjectASM();
     objTexture[1] = lamp_1;
 
     engObjType = OBJ_PIECE_OF_MEAT;
-    engObjX     = 0;
-    engObjY     = 9;
+    engObjX     = 28;
+    engObjY     = 27;
     engObjData  = 0;
     engAddObjectASM();
     objTexture[2] = pieceofmeat;
 
     engObjType = OBJ_SOLDIER;
-    engObjX     = 2;
-    engObjY     = 0;
+    engObjX     = -10; // 2; // 
+    engObjY     = 27; // 0; // 
     engObjData  = soldierData;
     engAddObjectASM();
     objTexture[3] = soldier_front;
@@ -210,7 +210,14 @@ void gameInit(void){
     engObjY     = 39;
     engObjData  = door5Data;
     engAddObjectASM();
-    objTexture[7] = 0;
+    objTexture[8] = 0;
+
+    engObjType = OBJ_LAMP;
+    engObjX     = -24;
+    engObjY     = 27;
+    engObjData  = 0;
+    engAddObjectASM();
+    objTexture[9] = lamp_1;
 
 }
 

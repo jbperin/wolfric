@@ -158,13 +158,13 @@ void soldierUpdate()
     // sex = ex;
     // sey = ey;
     direction = *(objData[engCurrentObjectIdx]);
-    if (ex == 6) { //(ex == 24) 
+    if (ex == 12) { //(ex == 24) 
         if (direction == -128){
             ex --;
         } else {
             direction += 16;
         }
-    } else if (ex == -6) {
+    } else if (ex == -12) {
         if (direction == 0){
             ex ++;
         } else {
