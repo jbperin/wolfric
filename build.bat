@@ -1,4 +1,12 @@
 
+
+
+python tools\tile.py  assets\GunNAmmo.png 1 3 -skipgrid 1
+
+python tools\tile.py  assets\health.png 1 3 -skipgrid 1
+
+python tools\tile.py  assets\Soldier.png 2 2
+
 python tools\tile.py  assets\sprites02.png 7 8 -skipgrid 1
 COPY assets\sprites02_tiles\tile_5_4.png assets\textures\sprite_deadsoldier.png
 python .\tools\texture2buf.py assets\textures\sprite_deadsoldier.png --name deadsoldier > .\prod\RomlessDataDump\code\textures\deadsoldier.h
@@ -33,6 +41,23 @@ python .\tools\texture2buf.py assets\textures\texture_gridwall.png --name textur
 python .\tools\texture2buf.py assets\textures\texture_door_1.png --name door_1 > .\prod\RomlessDataDump\code\textures\door_1.h
 python .\tools\texture2buf.py assets\textures\texture_metalwall.png --name metalwall > .\prod\RomlessDataDump\code\textures\metalwall.h
 python .\tools\texture2buf.py assets\textures\sprite_ammo_1.png --replace_color 0 0 0 12 --name ammo_1 > .\prod\RomlessDataDump\code\textures\ammo_1.h
+
+
+python .\tools\texture2buf.py assets\textures\bluewall.png --name texture_bluewall > .\prod\RomlessDataDump\code\textures\bluewall.h
+python .\tools\texture2buf.py assets\textures\texture_door.bmp --name door_1 > .\prod\RomlessDataDump\code\textures\door_1.h
+python .\tools\texture2buf.py assets\textures\texture_metalwall.bmp --name metalwall > .\prod\RomlessDataDump\code\textures\metalwall.h
+python .\tools\texture2buf.py assets\textures\Lamp.png --name lamp_1 > .\prod\RomlessDataDump\code\textures\lamp_1.h
+python .\tools\texture2buf.py assets\textures\sprite_soldier_front.png --name soldier_front > .\prod\RomlessDataDump\code\textures\soldier_front.h
+python .\tools\texture2buf.py assets\textures\sprite_soldier_back.png --name soldier_back > .\prod\RomlessDataDump\code\textures\soldier_back.h
+python .\tools\texture2buf.py assets\textures\sprite_soldier_left.png --name soldier_left > .\prod\RomlessDataDump\code\textures\soldier_left.h
+python .\tools\texture2buf.py assets\textures\sprite_soldier_right.png --name soldier_right > .\prod\RomlessDataDump\code\textures\soldier_right.h
+python .\tools\texture2buf.py assets\textures\meat.png --name pieceofmeat > .\prod\RomlessDataDump\code\textures\pieceofmeat.h
+python .\tools\texture2buf.py assets\textures\gridwall.png --name texture_gridwall > .\prod\RomlessDataDump\code\textures\gridwall.h
+python .\tools\texture2buf.py assets\textures\dead_soldier.png --name deadsoldier > .\prod\RomlessDataDump\code\textures\deadsoldier.h
+
+@REM python .\tools\texture2buf.py assets\textures\texture_door_1.png --name door_1 > .\prod\RomlessDataDump\code\textures\door_1.h
+@REM python .\tools\texture2buf.py assets\textures\sprite_ammo_1.png --replace_color 0 0 0 12 --name ammo_1 > .\prod\RomlessDataDump\code\textures\ammo_1.h
+
 
 python tools\tile.py  assets\Objects_01.png 1 4 -skipgrid 1
 COPY assets\Objects_01_tiles\tile_0_3.png assets\textures\sprite_lamp_1.png
