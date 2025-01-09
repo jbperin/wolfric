@@ -2,7 +2,7 @@
 #define CONFIGRAY_H
 
 // #include "constants.h"
-#define OBJECTS_MAX 8
+#define OBJECTS_MAX 16
 #define USE_SPRITE
 #define USE_FOREGROUND
 #define USE_GENERIC_COLLISION

@@ -26,6 +26,44 @@ signed  char door1Data[] = {
         1,  // Direction to animate: 1 or -1
         0,  // Place holder for temporisation
         };    // 26 = 12(point n12)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+signed  char door2Data[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        38,     
+        40,
+        1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 38 = 18(point n18)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+signed  char door3Data[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        48,     
+        50,
+        1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 26 = 12(point n12)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+signed  char door4Data[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        58,     
+        60,
+        1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 26 = 12(point n12)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+signed  char door5Data[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        68,     
+        70,
+        1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 26 = 12(point n12)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+
+
+
+
+
+
 signed char soldierData [] = {0};
 
 extern unsigned char texture_gun[];
@@ -146,6 +184,33 @@ void gameInit(void){
     engAddObjectASM();
     objTexture[4] = 0;
 
+    engObjType = OBJ_DOOR;
+    engObjX     = -24;
+    engObjY     = 15;
+    engObjData  = door2Data;
+    engAddObjectASM();
+    objTexture[5] = 0;
+
+    engObjType = OBJ_DOOR;
+    engObjX     = -36;
+    engObjY     = 27;
+    engObjData  = door3Data;
+    engAddObjectASM();
+    objTexture[6] = 0;
+
+    engObjType = OBJ_DOOR;
+    engObjX     = -24;
+    engObjY     = 39;
+    engObjData  = door4Data;
+    engAddObjectASM();
+    objTexture[7] = 0;
+
+    engObjType = OBJ_DOOR;
+    engObjX     = 0;
+    engObjY     = 39;
+    engObjData  = door5Data;
+    engAddObjectASM();
+    objTexture[7] = 0;
 
 }
 
