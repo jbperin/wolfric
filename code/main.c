@@ -16,7 +16,8 @@ void main()
     // INPUTS(12, 4+18, 10, gameData.name);
     // PRINTS(4,14,"Your name is: ");
     // PRINTS(4+15,14,gameData.name);
-
+	LoadFileAt(LOADER_SPLASH, 0xA000);
+	GETKEY();
 	gameInit();
 	while(1){
 		lsys();

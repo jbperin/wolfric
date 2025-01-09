@@ -91,6 +91,9 @@ AddDefine LOADER_FG_GUN {FileIndex}
 AddFile ..\data\fg_knife.bin
 AddDefine LOADER_FG_KNIFE {FileIndex}
 
+AddFile ..\data\splash.bin
+AddDefine LOADER_SPLASH {FileIndex}
+
 ;
 ; Some reserved sectors
 ;
