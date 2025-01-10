@@ -58,7 +58,7 @@ python .\tools\texture2buf.py assets\textures\gridwall.png --name texture_gridwa
 python .\tools\texture2buf.py assets\textures\dead_soldier.png --name deadsoldier > .\prod\RomlessDataDump\code\textures\deadsoldier.h
 
 @REM python .\tools\texture2buf.py assets\textures\texture_door_1.png --name door_1 > .\prod\RomlessDataDump\code\textures\door_1.h
-@REM python .\tools\texture2buf.py assets\textures\sprite_ammo_1.png --replace_color 0 0 0 12 --name ammo_1 > .\prod\RomlessDataDump\code\textures\ammo_1.h
+python .\tools\texture2buf.py assets\textures\ammo.png --replace_color 0 0 0 12 --name ammo_1 > .\prod\RomlessDataDump\code\textures\ammo_1.h
 
 
 python tools\tile.py  assets\Objects_01.png 1 4 -skipgrid 1

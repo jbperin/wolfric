@@ -72,7 +72,7 @@ signed char soldier1Data [] = {
     };
 
 extern unsigned char texture_gun[];
-
+extern unsigned char texture_ammo_1[];
 void onKey(unsigned char c){
     if (c == KEY_UP) {
             forward(); 
@@ -226,6 +226,13 @@ void gameInit(void){
     engObjData  = 0;
     engAddObjectASM();
     objTexture[9] = lamp_1;
+
+    engObjType = OBJ_AMMO;
+    engObjX     = 28;
+    engObjY     = 54;
+    engObjData  = 0;
+    engAddObjectASM();
+    objTexture[10] = texture_ammo_1;
 
 }
 

@@ -46,6 +46,7 @@ extern unsigned char openDoorRequest;
 extern unsigned char sceneUpdateRequest;
 extern unsigned char shootRequest;
 extern unsigned char score;
+extern unsigned char ammo;
 
 void engObjectPulse()
 {
@@ -57,6 +58,18 @@ void engObjectPulse()
             computeLogDistance();
             dichoInsert (engCurrentObjectIdx, objLogDistance[engCurrentObjectIdx]);
             break;
+        case OBJ_AMMO:
+            computeLogDistance();
+            if (objLogDistance[engCurrentObjectIdx] < 30){
+                ammo += 4;
+                objActive[engCurrentObjectIdx] = 0;
+            } else {
+                dichoInsert (engCurrentObjectIdx, objLogDistance[engCurrentObjectIdx]);
+                dichoInsertVal = objLogDistance[engCurrentObjectIdx];
+                dichoInsertIdx = engCurrentObjectIdx;
+                dichoASMInsert();
+
+            }
         case OBJ_DOOR:
             doorUpdate();
             break;

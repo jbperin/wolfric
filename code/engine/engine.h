@@ -8,6 +8,7 @@
 #define OBJ_SOLDIER             3
 #define OBJ_DEAD_SOLDIER        4
 #define OBJ_PIECE_OF_MEAT       5
+#define OBJ_AMMO                6
 
 // #define OBJ_LETTER      4
 // #define OBJ_DOOR        5
