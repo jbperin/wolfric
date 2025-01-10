@@ -2,6 +2,8 @@
 
 
 python tools\tile.py  assets\GunNAmmo.png 1 3 -skipgrid 1
+python tools\tile.py  assets\HurtSoldier.png 1 4 -skipgrid 1
+python .\tools\texture2buf.py assets\textures\hurt_soldier.png --name hurt_soldier > .\prod\RomlessDataDump\code\textures\hurt_soldier.h
 
 python tools\tile.py  assets\health.png 1 3 -skipgrid 1
 

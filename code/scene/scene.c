@@ -17,7 +17,7 @@ extern unsigned char soldier_front[];
 extern unsigned char soldier_back[];
 extern unsigned char soldier_left[];
 extern unsigned char soldier_right[];
-
+#include "textures/hurt_soldier.h"
 unsigned char wallTexture_high[NB_MAX_WALL] ;
 unsigned char wallTexture_low[NB_MAX_WALL] ;
 

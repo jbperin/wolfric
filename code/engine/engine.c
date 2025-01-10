@@ -43,6 +43,7 @@ extern void computeLogDistance ();
 
 extern unsigned char openDoorRequest;
 extern unsigned char sceneUpdateRequest;
+extern unsigned char shootRequest;
 char *doorData;
 unsigned char doorState; // *(objData[engCurrentObjectIdx]);
 unsigned char doorPt1;
@@ -157,59 +158,63 @@ void soldierUpdate()
     signed char ey = objPosY[engCurrentObjectIdx];
     // sex = ex;
     // sey = ey;
-    direction = *(objData[engCurrentObjectIdx]);
-    if (ex == 12) { //(ex == 24) 
-        if (direction == -128){
-            ex --;
-        } else {
-            direction += 16;
-        }
-    } else if (ex == -12) {
-        if (direction == 0){
-            ex ++;
-        } else {
-            direction += 16;
-        }
-    } else {
-        if (direction == -128){
-            ex --;
-        } else {
-            ex ++;;
-        }
-    }
-    *(objData[engCurrentObjectIdx]) = direction;
-    // if (isInWall(ex, ey)) {
-    //      direction += 16;
-    //      *(objData[engCurrentObjectIdx]) = direction;
-    //      ex = sex;
-    //      ey = sey;
-    // }
-    objPosX[engCurrentObjectIdx] = ex;
-    objPosY[engCurrentObjectIdx] = ey;
 
     computeLogDistance();
 
+
+    if ((shootRequest == 1) && (abs (objAngle[engCurrentObjectIdx]) < 16)) { // && (abs (objAngle[engCurrentObjectIdx]) < 16)
+        objTexture[engCurrentObjectIdx] = texture_hurt_soldier;
+
+    } else {
+        direction = *(objData[engCurrentObjectIdx]);
+        if (ex == 12) { //(ex == 24) 
+            if (direction == -128){
+                ex --;
+            } else {
+                direction += 16;
+            }
+        } else if (ex == -12) {
+            if (direction == 0){
+                ex ++;
+            } else {
+                direction += 16;
+            }
+        } else {
+            if (direction == -128){
+                ex --;
+            } else {
+                ex ++;;
+            }
+        }
+        *(objData[engCurrentObjectIdx]) = direction;
+        // if (isInWall(ex, ey)) {
+        //      direction += 16;
+        //      *(objData[engCurrentObjectIdx]) = direction;
+        //      ex = sex;
+        //      ey = sey;
+        // }
+        objPosX[engCurrentObjectIdx] = ex;
+        objPosY[engCurrentObjectIdx] = ey;
+        displaystate = computeRelativeOrientation (direction, rayCamRotZ);
+        switch (displaystate) {
+            case 0:
+                objTexture[engCurrentObjectIdx] = soldier_back; // ptrTextureSoldierBack;
+                break;
+            case 1:
+                objTexture[engCurrentObjectIdx] = soldier_left; // ptrTextureSoldierRight;
+                break;
+            case 2:
+                objTexture[engCurrentObjectIdx] = soldier_front; // ptrTextureSoldierFront;
+                break;
+            case 3:
+                objTexture[engCurrentObjectIdx] = soldier_right; // ptrTextureSoldierLeft;
+                break;
+        }
+    }
     dichoInsertVal = objLogDistance[engCurrentObjectIdx];
     dichoInsertIdx = engCurrentObjectIdx;
     dichoASMInsert();
 
-#ifdef USE_SPRITE    
-    displaystate = computeRelativeOrientation (direction, rayCamRotZ);
-    switch (displaystate) {
-        case 0:
-            objTexture[engCurrentObjectIdx] = soldier_back; // ptrTextureSoldierBack;
-            break;
-        case 1:
-            objTexture[engCurrentObjectIdx] = soldier_left; // ptrTextureSoldierRight;
-            break;
-        case 2:
-            objTexture[engCurrentObjectIdx] = soldier_front; // ptrTextureSoldierFront;
-            break;
-        case 3:
-            objTexture[engCurrentObjectIdx] = soldier_right; // ptrTextureSoldierLeft;
-            break;
-    }
-#endif
 }
 #ifdef USE_C_ENGINEPULSE
 void engInitObjects()

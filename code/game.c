@@ -16,6 +16,7 @@ unsigned char lives           = 3;
 unsigned char ammo            = 8;
 
 unsigned char openDoorRequest;
+unsigned char shootRequest;
 unsigned char sceneUpdateRequest;
 
 signed  char door1Data[] = {
@@ -92,7 +93,10 @@ void onKey(unsigned char c){
     } else if (c == KEY_SPACE) {
         openDoorRequest = 1;
     } else if (c == KEY_E) {
-        if (ammo !=0) ammo--;
+        if (ammo !=0) {
+            ammo--;
+            shootRequest = 1;
+        }
         if (ammo == 0) {
             LoadFileAt(LOADER_FG_KNIFE, texture_gun);
         }
@@ -233,6 +237,7 @@ void gamePulse(void){
         initScene (scene_00, texture_00);
         sceneUpdateRequest = 0;
     }
+    shootRequest = 0;
     rayInitCasting();
 
     rayProcessPoints();
