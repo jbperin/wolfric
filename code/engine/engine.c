@@ -34,6 +34,7 @@ unsigned char engCurrentObjectIdx;
 // void itemUpdate();
 // char soldier_data [] = {32};
 void soldierUpdate();
+void doorUpdate();
 
 #ifdef USE_C_COMPUTELOGDIST
 // Input : objPosX/Y[engCurrentObjectIdx], rayCamPosX/Y
@@ -44,52 +45,7 @@ extern void computeLogDistance ();
 extern unsigned char openDoorRequest;
 extern unsigned char sceneUpdateRequest;
 extern unsigned char shootRequest;
-char *doorData;
-unsigned char doorState; // *(objData[engCurrentObjectIdx]);
-unsigned char doorPt1;
-unsigned char doorPt2;
-signed char doorIncrem;
-
-void doorUpdate()
-{
-    doorData        = objData[engCurrentObjectIdx];
-    doorState       = (unsigned char)(doorData[0]); // *(objData[engCurrentObjectIdx]);
-    doorPt1         = (unsigned char)(doorData[1]);
-    doorPt2         = (unsigned char)(doorData[2]);
-    doorIncrem      = doorData[3];
-    computeLogDistance();
-    if ((doorState == 0) && (openDoorRequest == 1) && (objLogDistance[engCurrentObjectIdx] < 40 )){ 
-        openDoorRequest     = 0;
-        doorState           = 1;
-    }
-    if (doorState != 0 && doorState < 7) {
-        doorState ++;
-        scene_00[doorPt1] += doorIncrem;
-        scene_00[doorPt2] += doorIncrem;
-        // *(objData[engCurrentObjectIdx])=state;
-        doorData[0] = doorState;
-        sceneUpdateRequest = 1;
-        // initScene (scene_00, texture_00);
-    } else if (doorState == 7) {
-        // objActive[engCurrentObjectIdx]=0;
-        doorData[4]=6;
-        doorData[0]=8;
-    } else if (doorState == 8) {
-        // TODO: check if player not in
-        doorData[4] -= 1;
-        if (doorData[4] == 0){
-            doorData[0]=9;
-        }
-    } else if (doorState >= 9 && doorState < 15) {
-        doorData[0] +=1;
-        scene_00[doorPt1] -= doorIncrem;
-        scene_00[doorPt2] -= doorIncrem;
-        sceneUpdateRequest = 1;
-        // initScene (scene_00, texture_00);
-    } else if (doorState == 15) {
-        doorData[0] = 0;
-    }
-}
+extern unsigned char score;
 
 void engObjectPulse()
 {
@@ -147,7 +103,8 @@ unsigned char computeRelativeOrientation (signed char dirP, signed char dirC) {
 //     // objPosY[engCurrentObjectIdx] = ey;
 // }
 
-
+char *soldierData;
+extern unsigned char sprite_deadsoldier[];
 void soldierUpdate()
 {
     // unsigned char ldist;
@@ -158,57 +115,68 @@ void soldierUpdate()
     signed char ey = objPosY[engCurrentObjectIdx];
     // sex = ex;
     // sey = ey;
-
+    soldierData        = objData[engCurrentObjectIdx];
     computeLogDistance();
 
-
-    if ((shootRequest == 1) && (abs (objAngle[engCurrentObjectIdx]) < 16)) { // && (abs (objAngle[engCurrentObjectIdx]) < 16)
-        objTexture[engCurrentObjectIdx] = texture_hurt_soldier;
-
+    if (soldierData[0]==0) {
+        
     } else {
-        direction = *(objData[engCurrentObjectIdx]);
-        if (ex == 12) { //(ex == 24) 
-            if (direction == -128){
-                ex --;
+        if ((shootRequest == 1) && (abs (objAngle[engCurrentObjectIdx]) < 16)) { // && (abs (objAngle[engCurrentObjectIdx]) < 16)
+            // health
+            soldierData[2] -= 1;
+            if (soldierData[2] == 0){
+                // state = dead
+                soldierData[0]=0;
+                objTexture[engCurrentObjectIdx] = sprite_deadsoldier;
+                score += 2;
             } else {
-                direction += 16;
-            }
-        } else if (ex == -12) {
-            if (direction == 0){
-                ex ++;
-            } else {
-                direction += 16;
+                objTexture[engCurrentObjectIdx] = texture_hurt_soldier;
             }
         } else {
-            if (direction == -128){
-                ex --;
+            direction = (signed char )(soldierData[1]);
+            if (ex == 12) { //(ex == 24) 
+                if (direction == -128){
+                    ex --;
+                } else {
+                    direction += 16;
+                }
+            } else if (ex == -12) {
+                if (direction == 0){
+                    ex ++;
+                } else {
+                    direction += 16;
+                }
             } else {
-                ex ++;;
+                if (direction == -128){
+                    ex --;
+                } else {
+                    ex ++;;
+                }
             }
-        }
-        *(objData[engCurrentObjectIdx]) = direction;
-        // if (isInWall(ex, ey)) {
-        //      direction += 16;
-        //      *(objData[engCurrentObjectIdx]) = direction;
-        //      ex = sex;
-        //      ey = sey;
-        // }
-        objPosX[engCurrentObjectIdx] = ex;
-        objPosY[engCurrentObjectIdx] = ey;
-        displaystate = computeRelativeOrientation (direction, rayCamRotZ);
-        switch (displaystate) {
-            case 0:
-                objTexture[engCurrentObjectIdx] = soldier_back; // ptrTextureSoldierBack;
-                break;
-            case 1:
-                objTexture[engCurrentObjectIdx] = soldier_left; // ptrTextureSoldierRight;
-                break;
-            case 2:
-                objTexture[engCurrentObjectIdx] = soldier_front; // ptrTextureSoldierFront;
-                break;
-            case 3:
-                objTexture[engCurrentObjectIdx] = soldier_right; // ptrTextureSoldierLeft;
-                break;
+            soldierData[1] = direction;
+            // if (isInWall(ex, ey)) {
+            //      direction += 16;
+            //      *(objData[engCurrentObjectIdx]) = direction;
+            //      ex = sex;
+            //      ey = sey;
+            // }
+            objPosX[engCurrentObjectIdx] = ex;
+            objPosY[engCurrentObjectIdx] = ey;
+            displaystate = computeRelativeOrientation (direction, rayCamRotZ);
+            switch (displaystate) {
+                case 0:
+                    objTexture[engCurrentObjectIdx] = soldier_back; // ptrTextureSoldierBack;
+                    break;
+                case 1:
+                    objTexture[engCurrentObjectIdx] = soldier_left; // ptrTextureSoldierRight;
+                    break;
+                case 2:
+                    objTexture[engCurrentObjectIdx] = soldier_front; // ptrTextureSoldierFront;
+                    break;
+                case 3:
+                    objTexture[engCurrentObjectIdx] = soldier_right; // ptrTextureSoldierLeft;
+                    break;
+            }
         }
     }
     dichoInsertVal = objLogDistance[engCurrentObjectIdx];
@@ -216,6 +184,56 @@ void soldierUpdate()
     dichoASMInsert();
 
 }
+
+
+char *doorData;
+unsigned char doorState; // *(objData[engCurrentObjectIdx]);
+unsigned char doorPt1;
+unsigned char doorPt2;
+signed char doorIncrem;
+
+void doorUpdate()
+{
+    doorData        = objData[engCurrentObjectIdx];
+    doorState       = (unsigned char)(doorData[0]); // *(objData[engCurrentObjectIdx]);
+    doorPt1         = (unsigned char)(doorData[1]);
+    doorPt2         = (unsigned char)(doorData[2]);
+    doorIncrem      = doorData[3];
+    computeLogDistance();
+    if ((doorState == 0) && (openDoorRequest == 1) && (objLogDistance[engCurrentObjectIdx] < 40 )){ 
+        openDoorRequest     = 0;
+        doorState           = 1;
+    }
+    if (doorState != 0 && doorState < 7) {
+        doorState ++;
+        scene_00[doorPt1] += doorIncrem;
+        scene_00[doorPt2] += doorIncrem;
+        // *(objData[engCurrentObjectIdx])=state;
+        doorData[0] = doorState;
+        sceneUpdateRequest = 1;
+        // initScene (scene_00, texture_00);
+    } else if (doorState == 7) {
+        // objActive[engCurrentObjectIdx]=0;
+        doorData[4]=6;
+        doorData[0]=8;
+    } else if (doorState == 8) {
+        // TODO: check if player not in
+        doorData[4] -= 1;
+        if (doorData[4] == 0){
+            doorData[0]=9;
+        }
+    } else if (doorState >= 9 && doorState < 15) {
+        doorData[0] +=1;
+        scene_00[doorPt1] -= doorIncrem;
+        scene_00[doorPt2] -= doorIncrem;
+        sceneUpdateRequest = 1;
+        // initScene (scene_00, texture_00);
+    } else if (doorState == 15) {
+        doorData[0] = 0;
+    }
+}
+
+
 #ifdef USE_C_ENGINEPULSE
 void engInitObjects()
 {

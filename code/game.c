@@ -65,7 +65,11 @@ signed  char door5Data[] = {
 
 
 
-signed char soldierData [] = {0};
+signed char soldier1Data [] = {
+    1,          // state: 0=dead, 1=walking, 
+    0,          // direction
+    4,          // health
+    };
 
 extern unsigned char texture_gun[];
 
@@ -149,7 +153,7 @@ void gameInit(void){
 
     openDoorRequest     = 0;
     sceneUpdateRequest  = 0;
-
+    shootRequest        = 0;
 
     engInitObjects();
 
@@ -177,7 +181,7 @@ void gameInit(void){
     engObjType = OBJ_SOLDIER;
     engObjX     = -10; // 2; // 
     engObjY     = 27; // 0; // 
-    engObjData  = soldierData;
+    engObjData  = soldier1Data;
     engAddObjectASM();
     objTexture[3] = soldier_front;
 
@@ -238,6 +242,8 @@ void gamePulse(void){
         sceneUpdateRequest = 0;
     }
     shootRequest = 0;
+
+
     rayInitCasting();
 
     rayProcessPoints();
