@@ -98,6 +98,7 @@ void onKey(unsigned char c){
         openDoorRequest = 1;
     } else if (c == KEY_E) {
         if (ammo !=0) {
+            SHOOT();
             ammo--;
             shootRequest = 1;
         }

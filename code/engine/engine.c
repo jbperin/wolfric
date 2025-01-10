@@ -47,22 +47,31 @@ extern unsigned char sceneUpdateRequest;
 extern unsigned char shootRequest;
 extern unsigned char score;
 extern unsigned char ammo;
+extern unsigned char health;
 
 void engObjectPulse()
 {
     switch (objType[engCurrentObjectIdx])
     {
         case OBJ_LAMP:
-        case OBJ_PIECE_OF_MEAT:
         case OBJ_DEAD_SOLDIER:
             computeLogDistance();
             dichoInsert (engCurrentObjectIdx, objLogDistance[engCurrentObjectIdx]);
             break;
+        case OBJ_PIECE_OF_MEAT:
         case OBJ_AMMO:
             computeLogDistance();
             if (objLogDistance[engCurrentObjectIdx] < 30){
-                ammo += 4;
-                objActive[engCurrentObjectIdx] = 0;
+                if ((objType[engCurrentObjectIdx]==OBJ_AMMO) && (ammo <= 96)) {
+                    ammo += 4;
+                    objActive[engCurrentObjectIdx] = 0;
+                    PING();
+                }
+                if ((objType[engCurrentObjectIdx]==OBJ_PIECE_OF_MEAT) && (health <= 96)) {
+                    health += 4;
+                    objActive[engCurrentObjectIdx] = 0;
+                    PING();
+                }
             } else {
                 dichoInsert (engCurrentObjectIdx, objLogDistance[engCurrentObjectIdx]);
                 dichoInsertVal = objLogDistance[engCurrentObjectIdx];
@@ -216,6 +225,7 @@ void doorUpdate()
     if ((doorState == 0) && (openDoorRequest == 1) && (objLogDistance[engCurrentObjectIdx] < 40 )){ 
         openDoorRequest     = 0;
         doorState           = 1;
+        ZAP();
     }
     if (doorState != 0 && doorState < 7) {
         doorState ++;
