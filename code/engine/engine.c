@@ -61,13 +61,13 @@ void engObjectPulse()
         case OBJ_PIECE_OF_MEAT:
         case OBJ_AMMO:
             computeLogDistance();
-            if (objLogDistance[engCurrentObjectIdx] < 30){
+            if (objLogDistance[engCurrentObjectIdx] < 20){
                 if ((objType[engCurrentObjectIdx]==OBJ_AMMO) && (ammo <= 96)) {
                     ammo += 4;
                     objActive[engCurrentObjectIdx] = 0;
                     PING();
                 }
-                if ((objType[engCurrentObjectIdx]==OBJ_PIECE_OF_MEAT) && (health <= 96)) {
+                if ((objType[engCurrentObjectIdx]==OBJ_PIECE_OF_MEAT) && (health <= 146)) {
                     health += 4;
                     objActive[engCurrentObjectIdx] = 0;
                     PING();
