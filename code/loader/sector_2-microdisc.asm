@@ -290,9 +290,9 @@ sector_OK
 sector_counter    .byt (($FFFF-FLOPPY_LOADER_ADDRESS)+1)/256
 
 OsdkNameStart
-    .byt "OSDKNAME"
+    .byt "WOLFRIC"
     .byt " v"
-    .byt "VERSION"
+    .byt "0.2"
 OsdkNameEnd
 
 _END_

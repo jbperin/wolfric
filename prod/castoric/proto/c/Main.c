@@ -103,9 +103,10 @@ void keyPressed(unsigned char c){
     } else if (c == keyQuit) {
             running = 0;
     } else if (c ==  0x20) {
-        if ((rayCamPosY <= -4) && (doorState == 2)){
-            doorState = 1;
-        }
+        // if ((rayCamPosY <= -4) && (doorState == 2)){
+        //     doorState = 1;
+        // }
+        patch_basic_gun_into_gun_shoot();
     }
 
 }

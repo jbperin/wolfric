@@ -1,5 +1,5 @@
 // CAUTION !! GENERATED FILE. DO NOT MODIFY BY HAND
-// texture buffer generated from file : img\basic_gun_1.png
+// texture buffer generated from file : img\basic_gun.png
 // by script : img2forgrnd.py
 // [ref texture_file2buffer]
 unsigned char texture_gun[] = {

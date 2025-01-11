@@ -50,4 +50,14 @@ python tools\texture2buf.py img\texture_metalwall.bmp > proto\c\texture_metalwal
 
 python tools\texture2buf.py img\tree.bmp > proto\c\texture_tree.h
 
-python tools\img2forgrnd.py img\gun.png > proto\c\fg_gun.h
+python tools\img2forgrnd.py img\basic_gun.png > proto\c\fg_gun.h
+python tools\img2forgrnd.py img\gun_shoot.png > proto\c\fg_gun_shoot.h
+python tools\img2forgrnd.py img\basic_knife.png > proto\c\fg_knife.h
+python tools\img2forgrnd.py img\knife_shoot.png > proto\c\fg_knife_shoot.h
+
+python tools\gendiffbg.py img\basic_gun.png img\gun_shoot.png
+
+python tools\gendiffbg.py img\basic_gun.png img\gun_shoot.png > proto\c\patch_gun_shoot.s
+python tools\gendiffbg.py img\gun_shoot.png img\basic_gun.png > proto\c\patch_gun_unshoot.s
+python tools\gendiffbg.py img\basic_knife.png img\knife_shoot.png > proto\c\patch_knife_shoot.s
+python tools\gendiffbg.py img\knife_shoot.png img\basic_knife.png > proto\c\patch_knife_unshoot.s

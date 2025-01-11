@@ -15,6 +15,9 @@ unsigned char level           = 1;
 unsigned char lives           = 3;
 unsigned char ammo            = 8;
 
+unsigned char gunInHand; // 0 = knife, 1= gun
+extern unsigned char foreground_patched; // 0 = not patched, 1= patched
+
 unsigned char openDoorRequest;
 unsigned char shootRequest;
 unsigned char sceneUpdateRequest;
@@ -90,21 +93,36 @@ void onKey(unsigned char c){
             shiftLeft();
     } else if (c == KEY_1) {
         LoadFileAt(LOADER_FG_KNIFE, texture_gun);
+        gunInHand = 0;
     } else if (c == KEY_2) {
         if (ammo != 0) {
             LoadFileAt(LOADER_FG_GUN, texture_gun);
+            gunInHand = 1;
         }
     } else if (c == KEY_SPACE) {
         openDoorRequest = 1;
     } else if (c == KEY_E) {
-        if (ammo !=0) {
-            SHOOT();
-            ammo--;
-            shootRequest = 1;
+        // If player holds a knife
+        if (gunInHand == 0){
+            patch_basic_knife_into_knife_shoot();
+            foreground_patched = 1;
+        // If player holds a knife
+        } else {
+            
+            if (ammo !=0) {
+                SHOOT();
+                ammo--;
+                shootRequest = 1;
+                if (ammo == 0) {
+                    LoadFileAt(LOADER_FG_KNIFE, texture_gun);
+                } else {
+                    patch_basic_gun_into_gun_shoot();
+                    foreground_patched = 1;
+                }
+
         }
-        if (ammo == 0) {
-            LoadFileAt(LOADER_FG_KNIFE, texture_gun);
         }
+        
     } else if (c == KEY_LEFT_CONTROL) {
         if (ammo !=0) ammo--;
     }
@@ -152,6 +170,8 @@ void gameInit(void){
     lives               = 3;
     ammo                = 8;
 
+    gunInHand           = 1;
+    foreground_patched  = 0;
     openDoorRequest     = 0;
     sceneUpdateRequest  = 0;
     shootRequest        = 0;
@@ -257,6 +277,13 @@ void gamePulse(void){
     rayProcessPoints();
     rayProcessWalls();
     drawWalls();
+    if (foreground_patched != 0) {
+        if (gunInHand == 1) {
+            patch_gun_shoot_into_basic_gun();
+        } else {
+            patch_knife_shoot_into_basic_knife();
+        }
+    }
 
 
 
