@@ -48,7 +48,7 @@ extern unsigned char shootRequest;
 extern unsigned char score;
 extern unsigned char ammo;
 extern unsigned char health;
-
+extern signed char  *ptrCurrentScene;
 void engObjectPulse()
 {
     switch (objType[engCurrentObjectIdx])
@@ -229,8 +229,8 @@ void doorUpdate()
     }
     if (doorState != 0 && doorState < 7) {
         doorState ++;
-        scene_00[doorPt1] += doorIncrem;
-        scene_00[doorPt2] += doorIncrem;
+        ptrCurrentScene[doorPt1] += doorIncrem;
+        ptrCurrentScene[doorPt2] += doorIncrem;
         // *(objData[engCurrentObjectIdx])=state;
         doorData[0] = doorState;
         sceneUpdateRequest = 1;
@@ -247,8 +247,8 @@ void doorUpdate()
         }
     } else if (doorState >= 9 && doorState < 15) {
         doorData[0] +=1;
-        scene_00[doorPt1] -= doorIncrem;
-        scene_00[doorPt2] -= doorIncrem;
+        ptrCurrentScene[doorPt1] -= doorIncrem;
+        ptrCurrentScene[doorPt2] -= doorIncrem;
         sceneUpdateRequest = 1;
         // initScene (scene_00, texture_00);
     } else if (doorState == 15) {

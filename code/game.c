@@ -18,6 +18,8 @@ unsigned char ammo            = 8;
 unsigned char gunInHand; // 0 = knife, 1= gun
 extern unsigned char foreground_patched; // 0 = not patched, 1= patched
 
+unsigned char currentScene=0;
+signed char *ptrCurrentScene;
 unsigned char openDoorRequest;
 unsigned char shootRequest;
 unsigned char sceneUpdateRequest;
@@ -65,6 +67,32 @@ signed  char door5Data[] = {
 
 
 
+signed  char door_1_0_data[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        78,     
+        80,
+        1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 26 = 12(point n12)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+
+signed  char door_1_1_data[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        87,     
+        89,
+        1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 86 = 42(point n42)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+
+signed  char door_1_2_data[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        94,     
+        96,
+        -1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 94 = 46(point n46)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
 
 
 
@@ -156,14 +184,32 @@ void gameInit(void){
     //LoadFileAt(LOADER_CHARSET_STANDARD, 0xb400);
     LoadFileAt(LOADER_RAYTABLES, 0xEC00);
     // LoadFileAt(LOADER_TEXTURES_3, 0xc000);
-    // LoadFileAt(LOADER_TEXTURES, 0xc000);
-    LoadFileAt(LOADER_TEXTURES_01, 0xc000);
     // LoadFileAt(LOADER_ANIM, 0xd800);
     LoadFileAt(LOADER_HRSCREEN, 0x9800);
 	
     initCamera();
 
-    initScene (scene_01, texture_01);
+    currentScene=1;
+
+    switch (currentScene)
+    {
+    case 0:
+        LoadFileAt(LOADER_TEXTURES, 0xc000);
+        ptrCurrentScene = scene_00;       
+        initScene (scene_00, texture_00);
+
+        break;
+    case 1:
+        LoadFileAt(LOADER_TEXTURES_01, 0xc000);
+        ptrCurrentScene = scene_01;       
+        initScene (scene_01, texture_01);
+        break;
+    
+    default:
+        LoadFileAt(LOADER_TEXTURES, 0xc000);
+        initScene (scene_00, texture_00);
+        break;
+    }
 
     health              = 100;
     score               = 0;
@@ -179,83 +225,107 @@ void gameInit(void){
 
     engInitObjects();
 
-    // engObjType = OBJ_DEAD_SOLDIER;
-    // engObjX     = 0;
-    // engObjY     = 10;
-    // engObjData  = 0;
-    // engAddObjectASM();
-    // objTexture[0] = sprite_deadsoldier;
+    if (currentScene == 1) {
+        engObjType = OBJ_DOOR;
+        engObjX     = 54;
+        engObjY     = 0;
+        engObjData  = door_1_1_data;
+        engAddObjectASM();
+        objTexture[0] = 0;
 
-    // engObjType = OBJ_LAMP;
-    // engObjX     = 0;
-    // engObjY     = 27;
-    // engObjData  = 0;
-    // engAddObjectASM();
-    // objTexture[1] = lamp_1;
+        engObjType = OBJ_DOOR;
+        engObjX     = 0;
+        engObjY     = -30;
+        engObjData  = door_1_0_data;
+        engAddObjectASM();
+        objTexture[1] = 0;
 
-    // engObjType = OBJ_PIECE_OF_MEAT;
-    // engObjX     = 28;
-    // engObjY     = 27;
-    // engObjData  = 0;
-    // engAddObjectASM();
-    // objTexture[2] = pieceofmeat;
+        engObjType = OBJ_DOOR;
+        engObjX     = 0;
+        engObjY     = 30;
+        engObjData  = door_1_2_data;
+        engAddObjectASM();
+        objTexture[2] = 0;
 
-    // engObjType = OBJ_SOLDIER;
-    // engObjX     = -10; // 2; // 
-    // engObjY     = 27; // 0; // 
-    // engObjData  = soldier1Data;
-    // engAddObjectASM();
-    // objTexture[3] = soldier_front;
+    } else if (currentScene == 0) {
 
-    // engObjType = OBJ_DOOR;
-    // engObjX     = 0;
-    // engObjY     = 15;
-    // engObjData  = door1Data;
-    // engAddObjectASM();
-    // objTexture[4] = 0;
+        engObjType = OBJ_DEAD_SOLDIER;
+        engObjX     = 0;
+        engObjY     = 10;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[0] = sprite_deadsoldier;
 
-    // engObjType = OBJ_DOOR;
-    // engObjX     = -24;
-    // engObjY     = 15;
-    // engObjData  = door2Data;
-    // engAddObjectASM();
-    // objTexture[5] = 0;
+        engObjType = OBJ_LAMP;
+        engObjX     = 0;
+        engObjY     = 27;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[1] = lamp_1;
 
-    // engObjType = OBJ_DOOR;
-    // engObjX     = -36;
-    // engObjY     = 27;
-    // engObjData  = door3Data;
-    // engAddObjectASM();
-    // objTexture[6] = 0;
+        engObjType = OBJ_PIECE_OF_MEAT;
+        engObjX     = 28;
+        engObjY     = 27;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[2] = pieceofmeat;
 
-    // engObjType = OBJ_DOOR;
-    // engObjX     = -24;
-    // engObjY     = 39;
-    // engObjData  = door4Data;
-    // engAddObjectASM();
-    // objTexture[7] = 0;
+        engObjType = OBJ_SOLDIER;
+        engObjX     = -10; // 2; // 
+        engObjY     = 27; // 0; // 
+        engObjData  = soldier1Data;
+        engAddObjectASM();
+        objTexture[3] = soldier_front;
 
-    // engObjType = OBJ_DOOR;
-    // engObjX     = 0;
-    // engObjY     = 39;
-    // engObjData  = door5Data;
-    // engAddObjectASM();
-    // objTexture[8] = 0;
+        engObjType = OBJ_DOOR;
+        engObjX     = 0;
+        engObjY     = 15;
+        engObjData  = door1Data;
+        engAddObjectASM();
+        objTexture[4] = 0;
 
-    // engObjType = OBJ_LAMP;
-    // engObjX     = -24;
-    // engObjY     = 27;
-    // engObjData  = 0;
-    // engAddObjectASM();
-    // objTexture[9] = lamp_1;
+        engObjType = OBJ_DOOR;
+        engObjX     = -24;
+        engObjY     = 15;
+        engObjData  = door2Data;
+        engAddObjectASM();
+        objTexture[5] = 0;
 
-    // engObjType = OBJ_AMMO;
-    // engObjX     = 28;
-    // engObjY     = 54;
-    // engObjData  = 0;
-    // engAddObjectASM();
-    // objTexture[10] = texture_ammo_1;
+        engObjType = OBJ_DOOR;
+        engObjX     = -36;
+        engObjY     = 27;
+        engObjData  = door3Data;
+        engAddObjectASM();
+        objTexture[6] = 0;
 
+        engObjType = OBJ_DOOR;
+        engObjX     = -24;
+        engObjY     = 39;
+        engObjData  = door4Data;
+        engAddObjectASM();
+        objTexture[7] = 0;
+
+        engObjType = OBJ_DOOR;
+        engObjX     = 0;
+        engObjY     = 39;
+        engObjData  = door5Data;
+        engAddObjectASM();
+        objTexture[8] = 0;
+
+        engObjType = OBJ_LAMP;
+        engObjX     = -24;
+        engObjY     = 27;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[9] = lamp_1;
+
+        engObjType = OBJ_AMMO;
+        engObjX     = 28;
+        engObjY     = 54;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[10] = texture_ammo_1;
+    }
 }
 
 void gamePulse(void){
@@ -267,7 +337,11 @@ void gamePulse(void){
         openDoorRequest=0;
     }
     if (sceneUpdateRequest !=0) {
-        initScene (scene_01, texture_01);
+        if (currentScene == 1) {
+            initScene (scene_01, texture_01);
+        } else {
+            initScene (scene_00, texture_00);
+        }
         sceneUpdateRequest = 0;
     }
     shootRequest = 0;
