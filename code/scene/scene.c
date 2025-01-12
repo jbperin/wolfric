@@ -11,7 +11,12 @@
 
 extern unsigned char bluewall[];
 extern unsigned char metalwall[];
+extern unsigned char stone_wall[];
+extern unsigned char sculpture[];
+extern unsigned char flag[];
+extern unsigned char wood_wall[];
 extern unsigned char gridwall[];
+extern unsigned char portrait[];
 extern unsigned char door_1[];
 extern unsigned char soldier_front[];
 extern unsigned char soldier_back[];
@@ -211,7 +216,87 @@ unsigned char *texture_00[]= {
 
 };
 
+signed char scene_01[] = {
+    /* nbPoints = */ 26, /* nbWall = */ 24,
+        -3, -27 , 	// P0
+        -15, -27 , 	// P1
+        -15, -21 , 	// P2
+        -33, -21 , 	// P3
+        -39, -21 , // P4
+        -45, -21 , // P5
+        -45, -15 , // P6
+        -45, -9 , // P7
+        -45, 9 , // P8
+        -45, 15 , // P9
+        -45, 21 , // P10
+        -27, 21 , // P11
+        -21, 21 , // P12
+        -15, 21 , // P13
+        -15, 27 , // P14
+        -3, 27 , // P15
+         3, 27 , // P16
+        15, 27 , // P17
+        15, 21 , // P18
+        21, 21 , // P19
+        27, 21 , // P20
+        45, 21 , // P21
+        45, 15 , // P22
+        45, 9 , // P23
+        51, 9 , // P24
+        51, 3 , // P25
 
+    0, 1, //	S0 
+    1, 2, //	S1 
+    2, 3, //	S2 
+    3, 4, //	S3
+    4, 5, //	S4
+    5, 6, //	S5
+    6, 7, //	S6
+    7, 8, //	S7
+    8, 9, //	S8
+    9, 10, //	S9
+    10, 11, //	S10
+    11, 12, //	S11
+    12, 13, //	S12
+    13, 14, //	S13
+    14, 15, //	S14
+    16, 17, //	S15
+    17, 18, //	S16
+    18, 19, //	S17
+    19, 20, //	S18
+    20, 21, //	S19
+    21, 22, //	S20
+    22, 23, //	S21
+    23, 24, //	S22
+    24, 25, //	S23
+
+};
+unsigned char *texture_01[]= {
+	  bluewall      // W0
+	, bluewall      // W1
+	, stone_wall    // W2
+	, portrait      // W3
+	, stone_wall    // W4
+	, stone_wall    // W5
+	, sculpture     // W6
+	, stone_wall    // W7
+	, sculpture     // W8
+	, stone_wall    // W9
+	, stone_wall    // W10
+	, flag          // W11
+	, stone_wall    // W12
+	, stone_wall    // W13
+	, wood_wall     // W14
+	, wood_wall     // W15
+	, stone_wall    // W16
+	, stone_wall    // W17
+	, flag          // W18
+	, stone_wall    // W19
+	, stone_wall    // W20
+	, sculpture     // W21
+	, sculpture     // W22
+	, bluewall      // W23
+};
 // [ref scene_load]
 void precalculateWallsAngle() {
     unsigned char idxWall, idxPt1, idxPt2;

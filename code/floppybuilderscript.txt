@@ -85,6 +85,9 @@ AddDefine LOADER_HRSCREEN {FileIndex}
 AddFile ..\data\texture_base.bin
 AddDefine LOADER_TEXTURES {FileIndex}
 
+AddFile ..\data\texture_01.bin
+AddDefine LOADER_TEXTURES_01 {FileIndex}
+
 AddFile ..\data\fg_gun.bin
 AddDefine LOADER_FG_GUN {FileIndex}
 

@@ -122,15 +122,16 @@ void isInObject(){
 
 // Collision Detection 
 unsigned char isAllowedPosition(signed char X, signed char Y) {
-    collisionDestX = X;
-    collisionDestY = Y;
-    collisionIsAllowed = 1;
-    if ((collisionDestX >= -40) && (collisionDestX <= 70) && (collisionDestY >=- 12) && (collisionDestY <= 80)){
-        isInObject();
-    } else {
-        collisionIsAllowed  = 0;    
-    }
-    return (collisionIsAllowed);
+    // collisionDestX = X;
+    // collisionDestY = Y;
+    // collisionIsAllowed = 1;
+    // if ((collisionDestX >= -40) && (collisionDestX <= 70) && (collisionDestY >=- 12) && (collisionDestY <= 80)){
+    //     isInObject();
+    // } else {
+    //     collisionIsAllowed  = 0;    
+    // }
+    // return (collisionIsAllowed);
+    return 1;
 }
 // #endif
 signed int savRayCamPosX, savRayCamPosY;
