@@ -31,6 +31,9 @@ unsigned char start_round[]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 // #include "textures/gridwall.h"
 // #include "textures/sprite_deadsoldier.h"
 
+// wm $2000 11264 texture_01.bin
+// COPY %OSDK%\Oricutron\texture_01.bin ..\..\data
+
 #include "textures/bluewall.h"
 #include "textures/door_1.h"
 #include "textures/metalwall.h"

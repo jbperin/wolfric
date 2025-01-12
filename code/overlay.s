@@ -11,7 +11,7 @@ _wood_wall:
 _soldier_back           .dsb 1024
 _lustre:
 _soldier_front          .dsb 1024
-lamp:
+_lamp:
 _soldier_left           .dsb 1024
 _flag:
 _soldier_right          .dsb 1024
@@ -19,7 +19,7 @@ _sculpture:
 _pieceofmeat            .dsb 1024
 _portrait:
 _gridwall               .dsb 1024
-plant_1:
+_plant_1:
 _sprite_deadsoldier     .dsb 1024
 
 

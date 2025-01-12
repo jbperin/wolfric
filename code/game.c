@@ -173,6 +173,9 @@ extern unsigned char soldier_front[];
 extern unsigned char soldier_left[];
 extern unsigned char soldier_right[];
 extern unsigned char pieceofmeat[];
+extern unsigned char lamp[];
+extern unsigned char lustre[];
+extern unsigned char plant_1[];
 
 
 
@@ -246,6 +249,55 @@ void gameInit(void){
         engObjData  = door_1_2_data;
         engAddObjectASM();
         objTexture[2] = 0;
+
+        engObjType = OBJ_PLANT;
+        engObjX     = -42;
+        engObjY     = -18;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[3] = plant_1;
+
+        engObjType = OBJ_PLANT;
+        engObjX     = -42;
+        engObjY     = 18;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[4] = plant_1;
+
+        engObjType = OBJ_PLANT;
+        engObjX     = 42;
+        engObjY     = 18;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[5] = plant_1;
+
+        engObjType = OBJ_PLANT;
+        engObjX     = 42;
+        engObjY     = -18;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[6] = plant_1;
+
+        engObjType = OBJ_LUSTRE;
+        engObjX     = -30;
+        engObjY     = 0;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[7] = lustre;
+
+        engObjType = OBJ_LUSTRE;
+        engObjX     = 0;
+        engObjY     = 0;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[8] = lustre;
+
+        engObjType = OBJ_LUSTRE;
+        engObjX     = 30;
+        engObjY     = 0;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[9] = lustre;
 
     } else if (currentScene == 0) {
 

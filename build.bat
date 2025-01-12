@@ -93,7 +93,7 @@ python .\tools\texture2buf.py assets\textures\Lamp.png --name lamp_1 > .\prod\Ro
 python .\tools\texture2buf.py assets\textures\flag.png > .\prod\RomlessDataDump\code\textures\flag.h
 python .\tools\texture2buf.py assets\textures\sculpture.png > .\prod\RomlessDataDump\code\textures\sculpture.h
 python .\tools\texture2buf.py assets\textures\portrait.png > .\prod\RomlessDataDump\code\textures\portrait.h
-python .\tools\texture2buf.py assets\textures\plant_1.png --replace_color 0 0 0 12 > .\prod\RomlessDataDump\code\textures\plant_1.h
+python .\tools\texture2buf.py assets\textures\plant_1.png --replace_color 255 255 255 12 > .\prod\RomlessDataDump\code\textures\plant_1.h
 
 python .\tools\texture2buf.py assets\textures\skeleton.png > .\prod\RomlessDataDump\code\textures\skeleton.h
 

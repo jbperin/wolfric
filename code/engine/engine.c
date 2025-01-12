@@ -53,6 +53,8 @@ void engObjectPulse()
 {
     switch (objType[engCurrentObjectIdx])
     {
+        case OBJ_PLANT:
+        case OBJ_LUSTRE:
         case OBJ_LAMP:
         case OBJ_DEAD_SOLDIER:
             computeLogDistance();
