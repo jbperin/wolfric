@@ -217,7 +217,7 @@ unsigned char *texture_00[]= {
 };
 
 signed char scene_01[] = {
-    /* nbPoints = */ 26, /* nbWall = */ 24,
+    /* nbPoints = */ 36, /* nbWall = */ 33,
         -3, -27 , 	// P0
         -15, -27 , 	// P1
         -15, -21 , 	// P2
@@ -244,6 +244,16 @@ signed char scene_01[] = {
         45, 9 , // P23
         51, 9 , // P24
         51, 3 , // P25
+        51, -3 , // P26
+        51, -9 , // P27
+        45, -9 , // P28
+        45, -15 , // P29
+        45, -21 , // P30
+        33, -21 , // P31
+        27, -21 , // P32
+        15, -21 , // P33
+        15, -27 , // P34
+        3, -27 , // P35
 
     0, 1, //	S0 
     1, 2, //	S1 
@@ -269,6 +279,15 @@ signed char scene_01[] = {
     22, 23, //	S21
     23, 24, //	S22
     24, 25, //	S23
+    26, 27, //	S24
+    27, 28, //	S25
+    28, 29, //	S26
+    29, 30, //	S27
+    30, 31, //	S28
+    31, 32, //	S29
+    32, 33, //	S30
+    33, 34, //	S31
+    34, 35, //	S32
 
 };
 unsigned char *texture_01[]= {
@@ -296,6 +315,15 @@ unsigned char *texture_01[]= {
 	, sculpture     // W21
 	, sculpture     // W22
 	, bluewall      // W23
+	, bluewall      // W24
+	, sculpture     // W25
+	, sculpture     // W26
+	, stone_wall    // W27
+	, stone_wall    // W28
+	, portrait      // W29
+	, stone_wall    // W30
+	, stone_wall    // W31
+	, bluewall      // W32
 };
 // [ref scene_load]
 void precalculateWallsAngle() {
