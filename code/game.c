@@ -23,32 +23,7 @@ signed char *ptrCurrentScene;
 unsigned char openDoorRequest;
 unsigned char shootRequest;
 unsigned char sceneUpdateRequest;
-
-signed  char door1Data[] = {
-        0,      // state 0 : close,  1..6 : opening, 7: opened ,
-        // Points to animate are indexes in scene data of coordinate to change
-        26,     
-        28,
-        1,  // Direction to animate: 1 or -1
-        0,  // Place holder for temporisation
-        };    // 26 = 12(point n12)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
-signed  char door2Data[] = {
-        0,      // state 0 : close,  1..6 : opening, 7: opened ,
-        // Points to animate are indexes in scene data of coordinate to change
-        38,     
-        40,
-        1,  // Direction to animate: 1 or -1
-        0,  // Place holder for temporisation
-        };    // 38 = 18(point n18)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
-signed  char door3Data[] = {
-        0,      // state 0 : close,  1..6 : opening, 7: opened ,
-        // Points to animate are indexes in scene data of coordinate to change
-        48,     
-        50,
-        1,  // Direction to animate: 1 or -1
-        0,  // Place holder for temporisation
-        };    // 26 = 12(point n12)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
-signed  char door4Data[] = {
+signed  char door_0_0_data[] = {
         0,      // state 0 : close,  1..6 : opening, 7: opened ,
         // Points to animate are indexes in scene data of coordinate to change
         58,     
@@ -56,14 +31,43 @@ signed  char door4Data[] = {
         1,  // Direction to animate: 1 or -1
         0,  // Place holder for temporisation
         };    // 26 = 12(point n12)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
-signed  char door5Data[] = {
+
+signed  char door_0_1_data[] = {
         0,      // state 0 : close,  1..6 : opening, 7: opened ,
         // Points to animate are indexes in scene data of coordinate to change
-        68,     
-        70,
+        67,     
+        69,
         1,  // Direction to animate: 1 or -1
         0,  // Place holder for temporisation
-        };    // 26 = 12(point n12)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+        };    // 86 = 42(point n42)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+
+signed  char door_0_2_data[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        75,     
+        77,
+        -1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 94 = 46(point n46)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+
+signed  char door_0_3_data[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        83,     
+        85,
+        -1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 94 = 46(point n46)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+
+signed  char door_0_4_data[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        91,     
+        93,
+        -1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 94 = 46(point n46)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+
 
 
 
@@ -192,7 +196,7 @@ void gameInit(void){
 	
     initCamera();
 
-    currentScene=1;
+    currentScene        = 0;
 
     switch (currentScene)
     {
@@ -301,82 +305,106 @@ void gameInit(void){
 
     } else if (currentScene == 0) {
 
-        engObjType = OBJ_DEAD_SOLDIER;
-        engObjX     = 0;
-        engObjY     = 10;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[0] = sprite_deadsoldier;
-
-        engObjType = OBJ_LAMP;
-        engObjX     = 0;
-        engObjY     = 27;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[1] = lamp_1;
-
-        engObjType = OBJ_PIECE_OF_MEAT;
-        engObjX     = 28;
-        engObjY     = 27;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[2] = pieceofmeat;
-
-        engObjType = OBJ_SOLDIER;
-        engObjX     = -10; // 2; // 
-        engObjY     = 27; // 0; // 
-        engObjData  = soldier1Data;
-        engAddObjectASM();
-        objTexture[3] = soldier_front;
-
         engObjType = OBJ_DOOR;
         engObjX     = 0;
-        engObjY     = 15;
-        engObjData  = door1Data;
+        engObjY     = 42;
+        engObjData  = door_0_0_data;
+        engAddObjectASM();
+        objTexture[0] = 0;
+
+        engObjType = OBJ_DOOR;
+        engObjX     = -12;
+        engObjY     = 30;
+        engObjData  = door_0_1_data;
+        engAddObjectASM();
+        objTexture[1] = 0;
+
+        engObjType = OBJ_DOOR;
+        engObjX     = -12;
+        engObjY     = 0;
+        engObjData  = door_0_2_data;
+        engAddObjectASM();
+        objTexture[2] = 0;
+
+        engObjType = OBJ_DOOR;
+        engObjX     = 12;
+        engObjY     = 0;
+        engObjData  = door_0_3_data;
+        engAddObjectASM();
+        objTexture[3] = 0;
+
+        engObjType = OBJ_DOOR;
+        engObjX     = 12;
+        engObjY     = 30;
+        engObjData  = door_0_4_data;
         engAddObjectASM();
         objTexture[4] = 0;
 
-        engObjType = OBJ_DOOR;
-        engObjX     = -24;
-        engObjY     = 15;
-        engObjData  = door2Data;
+        engObjType = OBJ_SOLDIER;
+        engObjX     = 0; // 2; // 
+        engObjY     = -24; // 0; // 
+        engObjData  = soldier1Data;
         engAddObjectASM();
-        objTexture[5] = 0;
-
-        engObjType = OBJ_DOOR;
-        engObjX     = -36;
-        engObjY     = 27;
-        engObjData  = door3Data;
-        engAddObjectASM();
-        objTexture[6] = 0;
-
-        engObjType = OBJ_DOOR;
-        engObjX     = -24;
-        engObjY     = 39;
-        engObjData  = door4Data;
-        engAddObjectASM();
-        objTexture[7] = 0;
-
-        engObjType = OBJ_DOOR;
-        engObjX     = 0;
-        engObjY     = 39;
-        engObjData  = door5Data;
-        engAddObjectASM();
-        objTexture[8] = 0;
+        objTexture[5] = soldier_front;
 
         engObjType = OBJ_LAMP;
-        engObjX     = -24;
-        engObjY     = 27;
+        engObjX     = 0;
+        engObjY     = 30;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[6] = lamp_1;
+
+        engObjType = OBJ_LAMP;
+        engObjX     = 0;
+        engObjY     = 0;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[7] = lamp_1;
+
+        engObjType = OBJ_AMMO; //
+        engObjX     = 36;
+        engObjY     = -24;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[8] = texture_ammo_1;//
+
+        engObjType = OBJ_LAMP;
+        engObjX     = -30;
+        engObjY     = -24;
         engObjData  = 0;
         engAddObjectASM();
         objTexture[9] = lamp_1;
 
-        engObjType = OBJ_AMMO;
-        engObjX     = 28;
-        engObjY     = 54;
+        engObjType = OBJ_LAMP;
+        engObjX     = 30;
+        engObjY     = -24;
         engObjData  = 0;
         engAddObjectASM();
-        objTexture[10] = texture_ammo_1;
+        objTexture[10] = lamp_1;
+        
+        engObjType = OBJ_DEAD_SOLDIER;
+        engObjX     = -18;
+        engObjY     = 0;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[11] = sprite_deadsoldier;
+
+
+        engObjType = OBJ_PIECE_OF_MEAT;
+        engObjX     = 0;
+        engObjY     = -27;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[12] = pieceofmeat;
+
+        // #TODO Why can we add more objects?
+        // engObjType  = OBJ_LAMP;
+        // engObjX     = 0;
+        // engObjY     = -24;
+        // engObjData  = 0;
+        // engAddObjectASM();
+        // objTexture[8] = lamp_1;
+
     }
 }
 

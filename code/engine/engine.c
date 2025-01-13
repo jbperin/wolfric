@@ -58,25 +58,30 @@ void engObjectPulse()
         case OBJ_LAMP:
         case OBJ_DEAD_SOLDIER:
             computeLogDistance();
-            dichoInsert (engCurrentObjectIdx, objLogDistance[engCurrentObjectIdx]);
+            // dichoInsert (engCurrentObjectIdx, objLogDistance[engCurrentObjectIdx]);
+            // #TODO: Why can't we call ASM directly
+            dichoInsertVal = (unsigned char)objLogDistance[engCurrentObjectIdx];
+            dichoInsertIdx = engCurrentObjectIdx;
+            dichoASMInsert();
             break;
         case OBJ_PIECE_OF_MEAT:
         case OBJ_AMMO:
             computeLogDistance();
-            if (objLogDistance[engCurrentObjectIdx] < 20){
+            if ((unsigned char)(objLogDistance[engCurrentObjectIdx]) < 19){
                 if ((objType[engCurrentObjectIdx]==OBJ_AMMO) && (ammo <= 96)) {
                     ammo += 4;
                     objActive[engCurrentObjectIdx] = 0;
                     PING();
-                }
-                if ((objType[engCurrentObjectIdx]==OBJ_PIECE_OF_MEAT) && (health <= 146)) {
+                }else if ((objType[engCurrentObjectIdx]==OBJ_PIECE_OF_MEAT) && (health <= 146)) {
+                    // {asm(":breakhere:");}
                     health += 4;
                     objActive[engCurrentObjectIdx] = 0;
                     PING();
                 }
             } else {
-                dichoInsert (engCurrentObjectIdx, objLogDistance[engCurrentObjectIdx]);
-                dichoInsertVal = objLogDistance[engCurrentObjectIdx];
+                // dichoInsert (engCurrentObjectIdx, objLogDistance[engCurrentObjectIdx]);
+                // #TODO: Why can't we call ASM directly
+                dichoInsertVal = (unsigned char)objLogDistance[engCurrentObjectIdx];
                 dichoInsertIdx = engCurrentObjectIdx;
                 dichoASMInsert();
 
@@ -203,7 +208,7 @@ void soldierUpdate()
             }
         }
     }
-    dichoInsertVal = objLogDistance[engCurrentObjectIdx];
+    dichoInsertVal = (unsigned char)objLogDistance[engCurrentObjectIdx];
     dichoInsertIdx = engCurrentObjectIdx;
     dichoASMInsert();
 
@@ -224,7 +229,7 @@ void doorUpdate()
     doorPt2         = (unsigned char)(doorData[2]);
     doorIncrem      = doorData[3];
     computeLogDistance();
-    if ((doorState == 0) && (openDoorRequest == 1) && (objLogDistance[engCurrentObjectIdx] < 40 )){ 
+    if ((doorState == 0) && (openDoorRequest == 1) && ((unsigned char)objLogDistance[engCurrentObjectIdx] < 40 )){ 
         openDoorRequest     = 0;
         doorState           = 1;
         ZAP();

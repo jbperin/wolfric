@@ -29,191 +29,129 @@ unsigned char wallTexture_low[NB_MAX_WALL] ;
 
 // [ref scene_describe]
 signed char scene_00[] = {
-
-    /* nbPoints = */ 60, /* nbWall = */ 58,
-        -3, 12 , 	// P0
-        -9, 12 , 	// P1
-        -9, 0 , 	// P2
-        -9, -12 , 	// P3
-        -3, -12 , 	// P4
-        3, -12 , 	// P5
-        9, -12 , 	// P6
-        9, 0 , 	// P7
-        9, 12 , 	// P8
-        3, 12 , 	// P9
-        -3, 18 , // P10
-        3, 18 , // P11
-        -3, 15 , // P12
-        3, 15 , // P13
-		0, 0,    // P14
-        -9, 18 , // P15
-        -15, 18 , // P16
-        -21, 18 , // P17
-        -21, 15 , // P18
-        -27, 15 , // P19
-        -27, 18 , // P20
-        -33, 18 , // P21
-        -33, 24 , // P22
-        -36, 24 , // P23
-        -36, 30 , // P24
-        -33, 30 , // P25
-        -33, 36 , // P26
-        -27, 36 , // P27
-        -27, 39 , // P28
-        -21, 39 , // P29
-        -21, 36 , // P30
-        -15, 36 , // P31
-        -3, 36 , // P32
-        -3, 39 , // P33
-        3, 39 , // P34
-        3, 36 , // P35
-        15, 36 , // P36
-        15, 48 , // P37
-        15, 60 , // P38
-        15, 66 , // P39
-        27, 66 , // P40
-        33, 66 , // P41
-        33, 60 , // P42
-        33, 54 , // P43
-        33, 48 , // P44
-        33, 42 , // P45
-        33, 36 , // P46
-        33, 30 , // P47
-        33, 24 , // P48
-        33, 18 , // P49
-        33, 12 , // P50
-        33, 6 , // P51
-        33, 0 , // P52
-        33, -6 , // P53
-        33, -12 , // P54
-        27, -12 , // P55
-        15, -12 , // P56
-        15, -6 , // P57
-        15, 6 , // P58
-        15, 18 , // P59
-
-    0, 1, //	S0 = 6  Segment S0
-    1, 2, //	S1 = 12 Segment S1
-    2, 3, //	S2 = 12 Segment S2
-    3, 4, //	S3 = 6  Segment S3
-    4, 5, //	S4 = 6  Segment S4
-    5, 6, //	S5 = 6  Segment S5
-    6, 7, //	S6 = 12 Segment S6
-    7, 8, //	S7 = 12 Segment S7
-    8, 9, //	S8 = 6  Segment S8
-    0, 10, //	S9 = 6  Segment S9
-    9, 11, //	S10 = 6 Segment S10
-    12, 13, //	door S11 = 6 Segment S11
-    10, 15, //	S12 = 6 Segment S12
-    15, 16, //	S13 = 6 Segment S13
-    16, 17, //	S14 = 6 Segment S14
-    17, 18, //	S15 = 3 Segment S15
-    18, 19, //	door S16 = 6 Segment S16
-    19, 20, //	S17 = 3 Segment S17
-    20, 21, //	S18 = 6 Segment S18
-    21, 22, //	S19 = 6 Segment S19
-    22, 23, //	S20 = 3 Segment S20
-    23, 24, //	door S21 = 6 Segment S21
-    24, 25, //	S22 = 3 Segment S22
-    25, 26, //	S23 = 6 Segment S23
-    26, 27, //	S24 = 6 Segment S24
-    27, 28, //	S25 = 3 Segment S25
-    28, 29, //	door S26 = 6 Segment S26
-    29, 30, //	S27 = 3 Segment S27
-    30, 31, //	S28 = 6 Segment S28
-    31, 32, //	S29 = 12    Segment S29
-    32, 33, //	S30 = 3 Segment S30
-    33, 34, //	door S31 = 6 Segment S31
-    34, 35, //	S32 = 3 Segment S32
-    35, 36, //	S33 = 12    Segment S33
-    36, 37, //	S34 = 12    Segment S34
-    37, 38, //	S35 = 12    Segment S35
-    38, 39, //	S36 = 6 Segment S36
-    39, 40, //	S37 = 12    Segment S37
-    40, 41, //	S38 = 6 Segment S38
-    41, 42, //	S39 = 6 Segment S39
-    42, 43, //	S40 = 6 Segment S40
-    43, 44, //	S41 = 6 Segment S41
-    44, 45, //	S42 = 6 Segment S42
-    45, 46, //	S43 = 6 Segment S43
-    46, 47, //	S44 = 6 Segment S44
-    47, 48, //	S45 = 6 Segment S45
-    48, 49, //	S46 = 6 Segment S46
-    49, 50, //	S47 = 6 Segment S47
-    50, 51, //	S48 = 6 Segment S48
-    51, 52, //	S49 = 6 Segment S49
-    52, 53, //	S50 = 6 Segment S50
-    53, 54, //	S51 = 6 Segment S51
-    54, 55, //	S52 = 6 Segment S52
-    55, 56, //	S53 = 12    Segment S53
-    56, 57, //	S54 = 6 Segment S54
-    57, 58, //	S55 = 12    Segment S55
-    58, 59, //	S56 = 12    Segment S56
-    59, 11 //	S57 = 12    Segment S57
-
+    /* nbPoints = */ 46, /* nbWall = */ 36,
+        -3, 39 , 	// P0
+        -9, 39 , 	// P1
+        -9, 33 , 	// P2
+        -9, 27 , 	// P3
+        -9, 3 , 	// P4
+        -9, -3 , 	// P5
+        -9, -15 , 	// P6
+        -15, -15 , 	// P7
+        -39, -15 , 	// P8
+        -39, -33 , 	// P9
+        -33, -33 , 	// P10
+        -15, -33 , 	// P11
+        -9, -33 , 	// P12
+         9, -33 , 	// P13
+        15, -33 , 	// P14
+        33, -33 , 	// P15
+        39, -33 , 	// P16
+        39, -15 , 	// P17
+        15, -15 , 	// P18
+        9, -15 , 	// P19
+        9, -3 , 	// P20
+        9, 3 , 	// P21
+        9, 27 , 	// P22
+        9, 33 , 	// P23
+        9, 39 , 	// P24
+        3, 39 , 	// P25
+        3, 45 , 	// P26
+        -3, 45 , 	// P27
+        -3, 42 , 	// P28
+        3, 42 , 	// P29
+        -15, 33 , 	// P30
+        -15, 27 , 	// P31
+        -12, 27 , 	// P32
+        -12, 33 , 	// P33
+        -15, 3 , 	// P34
+        -15, -3 , 	// P35
+        -12, 3 , 	// P36
+        -12, -3 , 	// P37
+        15, 3 , 	// P38
+        15, -3 , 	// P39
+        12, -3 , 	// P40
+        12, 3 , 	// P41
+        15, 27 , 	// P42
+        15, 33 , 	// P43
+        12, 33 , 	// P44
+        12, 27 , 	// P45
+    0, 1, //	S0 
+    1, 2, //	S1
+    3, 4, //    S2
+    5, 6, //    S3
+    6, 7, //    S4
+    7, 8, //    S5
+    8, 9, //    S6
+    9, 10, //   S7
+    10, 11, //   S8
+    11, 12, //   S9
+    12, 13, //   S10
+    13, 14, //   S11
+    14, 15, //   S12
+    15, 16, //   S13
+    16, 17, //   S14
+    17, 18, //   S15
+    18, 19, //   S16
+    19, 20, //   S17
+    21, 22, //   S18
+    23, 24, //   S19
+    24, 25, //   S20
+    25, 26, //   S21
+     0, 27, //   S22
+    28, 29, //   S23 door_0_0 
+    2, 30,  //   S24
+     3, 31, //   S25
+    32, 33, //   S26 door_0_1 
+    4, 34,  //   S27
+     5, 35, //   S28
+    36, 37, //   S29 door_0_2 
+    21, 38,  //   S30
+    20, 39, //   S31
+    40, 41, //   S32 door_0_3
+    22, 42,  //   S33
+    23, 43, //   S34
+    44, 45, //   S35 door_0_4
 };
 
-// [ref texture_file2buffer]
 unsigned char *texture_00[]= {
-	  bluewall // texture_bluewall		// W0
-	, bluewall // , texture_bigleaves		// W1
-	, bluewall //, texture_bigsquares		// W2
-	, bluewall // , texture_dentwall			// W3
-	, bluewall // , texture_dentwall			// W4
-	, bluewall // , texture_dentwall			// W5
-	, bluewall // , texture_dentwall			// W6
-	, bluewall // , texture_dentwall			// W7
-	, bluewall // , texture_dentwall			// W8
-	, metalwall // , texture_dentwall			// W9
-	, metalwall // , texture_dentwall			// W10
-	, door_1
-	, bluewall // , texture_dentwall			// W12
-	, bluewall // , texture_dentwall			// W13
-	, bluewall // , texture_dentwall			// W14
-	, metalwall // , texture_dentwall			// W15
-	, door_1      // , texture_dentwall			// W16
-	, metalwall // , texture_dentwall			// W17
-	, bluewall // , texture_dentwall			// W18
-	, bluewall // , texture_dentwall			// W19
-	, metalwall // , texture_dentwall			// W20
-	, door_1       // , texture_dentwall			// W21
-	, metalwall // , texture_dentwall			// W22
-	, bluewall // , texture_dentwall			// W23
-	, bluewall // , texture_dentwall			// W24
-	, metalwall // , texture_dentwall			// W25
-	, door_1       // , texture_dentwall			// W26
-	, metalwall // , texture_dentwall			// W27
-	, bluewall // , texture_dentwall			// W28
-	, bluewall // , texture_dentwall			// W29
-	, metalwall // , texture_dentwall			// W30
-	, door_1       // , texture_dentwall			// W31
-	, metalwall // , texture_dentwall			// W32
-	, bluewall // , texture_dentwall			// W33
-	, bluewall // , texture_dentwall			// W34
-	, bluewall // , texture_dentwall			// W35
-	, bluewall // , texture_dentwall			// W36
-	, bluewall // , texture_dentwall			// W37
-	, bluewall // , texture_dentwall			// W38
-	, gridwall // , texture_dentwall			// W39
-	, bluewall // , texture_dentwall			// W40
-	, gridwall // , texture_dentwall			// W41
-	, bluewall // , texture_dentwall			// W42
-	, gridwall // , texture_dentwall			// W43
-	, bluewall // , texture_dentwall			// W44
-	, gridwall // , texture_dentwall			// W45
-	, bluewall // , texture_dentwall			// W46
-	, gridwall // , texture_dentwall			// W47
-	, bluewall // , texture_dentwall			// W48
-	, gridwall // , texture_dentwall			// W49
-	, bluewall // , texture_dentwall			// W50
-	, gridwall // , texture_dentwall			// W51
-	, bluewall // , texture_dentwall			// W52
-	, bluewall // , texture_dentwall			// W53
-	, bluewall // , texture_dentwall			// W54
-	, bluewall // , texture_dentwall			// W55
-	, bluewall // , texture_dentwall			// W56
-	, bluewall // , texture_dentwall			// W57
-
+	bluewall        // W0
+	, bluewall // W1
+	, bluewall // W2
+	, bluewall // W3
+	, bluewall // W4
+	, bluewall // W5
+	, bluewall // W6
+	, gridwall // W7
+	, bluewall // W8
+	, gridwall // W9
+	, bluewall // W10
+	, gridwall // W11
+	, bluewall // W12
+	, gridwall // W13
+	, bluewall // W14
+	, bluewall // W15
+	, bluewall // W16
+	, bluewall // W17
+	, bluewall // W18
+	, bluewall // W19
+	, bluewall // W20
+	, metalwall // W21
+	, metalwall // W22
+	, door_1 // W23 
+	, metalwall // W24
+	, metalwall // W25
+	, door_1 // W26 
+	, metalwall // W27
+	, metalwall // W28
+	, door_1 // W29 
+	, metalwall // W30
+	, metalwall // W31
+	, door_1 // W32 
+	, metalwall // W34
+	, metalwall // W34
+	, door_1 // W35 
+	// , door_1
 };
 
 signed char scene_01[] = {
