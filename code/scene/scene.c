@@ -29,7 +29,7 @@ unsigned char wallTexture_low[NB_MAX_WALL] ;
 
 // [ref scene_describe]
 signed char scene_00[] = {
-    /* nbPoints = */ 46, /* nbWall = */ 36,
+    /* nbPoints = */ 56, /* nbWall = */ 45,
         -3, 39 , 	// P0
         -9, 39 , 	// P1
         -9, 33 , 	// P2
@@ -76,6 +76,18 @@ signed char scene_00[] = {
         15, 33 , 	// P43
         12, 33 , 	// P44
         12, 27 , 	// P45
+
+        -9, 45 , 	// P46
+        -9, 69 , 	// P47
+        -3, 69 , 	// P48
+         3, 69 , 	// P49
+         9, 69 , 	// P50
+         9, 45 , 	// P51
+        -3, 75 , 	// P52
+         3, 75 , 	// P53
+         3, 72 , 	// P54
+        -3, 72 , 	// P55
+
     0, 1, //	S0 
     1, 2, //	S1
     3, 4, //    S2
@@ -112,6 +124,16 @@ signed char scene_00[] = {
     22, 42,  //   S33
     23, 43, //   S34
     44, 45, //   S35 door_0_4
+
+    27, 46, //   S36
+    46, 47, //   S37
+    47, 48, //   S38
+    49, 50, //   S39
+    50, 51, //   S40
+    51, 26, //   S41
+    48, 52, //   S42
+    49, 53, //   S43
+    55, 54, //   S44
 };
 
 unsigned char *texture_00[]= {
@@ -151,11 +173,20 @@ unsigned char *texture_00[]= {
 	, metalwall // W34
 	, metalwall // W34
 	, door_1 // W35 
-	// , door_1
+
+    , bluewall  //   W36
+    , bluewall  //   W37
+    , bluewall  //   W38
+    , bluewall  //   W39
+    , bluewall  //   W40
+    , bluewall  //   W41
+    , metalwall //   W42
+    , metalwall //   W43
+    , door_1    //   W44  door
 };
 
 signed char scene_01[] = {
-    /* nbPoints = */ 48, /* nbWall = */ 42,
+    /* nbPoints = */ 58, /* nbWall = */ 51,
         -3, -27 , 	// P0
         -15, -27 , 	// P1
         -15, -21 , 	// P2
@@ -205,6 +236,19 @@ signed char scene_01[] = {
         3, 30 , // P46
         -3, 30 , // P47
 
+
+        -9, -33 , // P48
+        -9, -57 , // P49
+        -3, -57 , // P50
+         3, -57 , // P51
+         9, -57 , // P52
+         9, -33 , // P53
+        -3, -63 , // P54
+         3, -63 , // P55
+         3, -60 , // P56
+        -3, -60 , // P57
+
+
     0, 1, //	S0 
     1, 2, //	S1 
     2, 3, //	S2 
@@ -247,6 +291,18 @@ signed char scene_01[] = {
     15, 44, //  S39
     16, 45, //  S40
     46, 47, //  S41 door_1_1
+
+    37, 48, //  S42
+    48, 49, //  S43
+    49, 50, //  S44
+    51, 52, //  S45
+    52, 53, //  S46
+    53, 36, //  S47
+    50, 54, //  S48
+    51, 55, //  S49
+    56, 57, //  S50 door
+
+
 };
 unsigned char *texture_01[]= {
 	  bluewall      // W0
@@ -291,6 +347,132 @@ unsigned char *texture_01[]= {
 	, metalwall     // W39
 	, metalwall     // W40
 	, door_1        // W41
+
+    , bluewall //  W42
+    , bluewall //  W43
+    , bluewall //  W44
+    , bluewall //  W45
+    , bluewall //  W46
+    , bluewall //  W47
+    , bluewall //  W48
+    , bluewall //  W49
+    , door_1   //  W50 door
+
+};
+
+
+signed char scene_02[] = {
+    /* nbPoints = */ 37, /* nbWall = */ 31,
+        -24, -3 , 	// P0
+        -24, -9 , 	// P1
+        -12, -9 , 	// P2
+        -12, -15 , 	// P3
+        -6, -15 , 	// P4
+        -6, -39 , 	// P5
+        -6, -57 , 	// P6
+        -6, -75 , 	// P7
+        12, -75 , 	// P8
+        12, -69 , 	// P9
+        12, -63 , 	// P10
+        12, -57 , 	// P11
+        6, -57 , 	// P12
+        6, -39 , 	// P13
+        6, -15 , 	// P14
+        12, -15 , 	// P15
+        12, -9 , 	// P16
+        30, -9 , 	// P17
+        30, -3 , 	// P18
+        30, 3 , 	// P19
+        30, 9 , 	// P20
+        6, 9 , 	// P21
+        -18, 9 , 	// P22
+        -24, 9 , 	// P23
+        -24, 3 , 	// P24
+
+        -30, 3 , 	// P25
+        -30, -3 , 	// P26
+        -27, -3 , 	// P27
+        -27, 3 , 	// P28
+
+        18, -69 , 	// P29
+        18, -63 , 	// P30
+        15, -63 , 	// P31
+        15, -69 , 	// P32
+
+        36, 3 , 	// P33
+        36, -3 , 	// P34
+        33, -3 , 	// P35
+        33, 3 , 	// P36
+
+
+    0, 1, //	S0 
+    1, 2, //	S1 
+    2, 3, //	S2 
+    3, 4, //	S3
+    4, 5, //	S4
+    5, 6, //	S5
+    6, 7, //	S6
+    7, 8, //	S7
+    8, 9, //	S8
+    10, 11, //	S9
+    11, 12, //	S10
+    12, 13, //	S11
+    13, 14, //	S12
+    14, 15, //	S13
+    15, 16, //  S14
+    16, 17, //	S15
+    17, 18, //	S16
+    19, 20, //	S17
+    20, 21, //	S18
+    21, 22, //	S19
+    22, 23, //	S20
+    23, 24, //	S21
+
+    24, 25, //	S22
+     0, 26, //	S23
+    27, 28, //	S24 door_02_00
+
+     9, 29, //	S25
+    10, 30, //	S26
+    31, 32, //	S27 door_02_01
+
+    18, 34, //	S28
+    19, 33, //	S29
+    35, 36, //	S30 door_02_02
+
+};
+unsigned char *texture_02[]= {
+	  bluewall      // W0
+	, bluewall      // W1
+	, bluewall    // W2
+	, bluewall      // W3
+	, bluewall    // W4
+	, bluewall    // W5
+	, bluewall     // W6
+	, bluewall    // W7
+	, bluewall     // W8
+	, bluewall    // W9
+	, bluewall    // W10
+	, bluewall          // W11
+	, bluewall    // W12
+	, bluewall    // W13
+	, bluewall     // W14
+	, bluewall     // W15
+	, bluewall    // W16
+	, bluewall    // W17
+	, bluewall          // W18
+	, bluewall    // W19
+	, bluewall    // W20
+	, bluewall     // W21
+	, metalwall     // W22
+	, metalwall     // W23
+	, door_1        // W24
+	, metalwall     // W25
+	, metalwall     // W26
+	, door_1        // W27
+	, metalwall     // W28
+	, metalwall     // W29
+	, door_1        // W30
 };
 // [ref scene_load]
 void precalculateWallsAngle() {

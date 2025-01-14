@@ -24,6 +24,8 @@ signed char *ptrCurrentScene;
 unsigned char openDoorRequest;
 unsigned char shootRequest;
 unsigned char sceneUpdateRequest;
+
+
 signed  char door_0_0_data[] = {
         0,      // state 0 : close,  1..6 : opening, 7: opened ,
         // Points to animate are indexes in scene data of coordinate to change
@@ -100,6 +102,24 @@ signed  char door_1_2_data[] = {
         };    // 94 = 46(point n46)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
 
 
+signed  char door_2_1_data[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        65,     
+        67,
+        -1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 64 = 31(point n42)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+
+signed  char door_2_2_data[] = {
+        0,      // state 0 : close,  1..6 : opening, 7: opened ,
+        // Points to animate are indexes in scene data of coordinate to change
+        73,     
+        75,
+        1,  // Direction to animate: 1 or -1
+        0,  // Place holder for temporisation
+        };    // 72 = 35(point n46)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
+
 
 signed char soldier1Data [] = {
     1,          // state: 0=dead, 1=walking, 
@@ -109,6 +129,7 @@ signed char soldier1Data [] = {
 
 extern unsigned char texture_gun[];
 extern unsigned char texture_ammo_1[];
+
 void onKey(unsigned char c){
     if (c == KEY_UP) {
             forward(); 
@@ -356,6 +377,23 @@ void engScene_01(){
         objTexture[9] = lustre;
 }
 
+void engScene_02(){
+        engObjType = OBJ_DOOR;
+        engObjX     = 15;
+        engObjY     = -66;
+        engObjData  = door_2_1_data;
+        engAddObjectASM();
+        objTexture[0] = 0;
+
+        engObjType = OBJ_DOOR;
+        engObjX     = 33;
+        engObjY     = 0;
+        engObjData  = door_2_2_data;
+        engAddObjectASM();
+        objTexture[1] = 0;
+
+}
+
 void gameInit(void){
 
     // LoadFileAt(LOADER_RAYTABLES, 0xED95);
@@ -368,6 +406,7 @@ void gameInit(void){
 	
     initCamera();
 
+    // currentScene            = 0;
     currentScene            = 0;
     previousScene            = 0;
 
@@ -392,6 +431,13 @@ void gameInit(void){
     engInitObjects();
     engScene_00();
 
+            // LoadFileAt(LOADER_TEXTURES_01, 0xc000);
+            // ptrCurrentScene = scene_01;       
+            // initScene (scene_01, texture_01);
+            // engInitObjects();
+            // engScene_01();
+
+
 }
 
 void gamePulse(void){
@@ -400,12 +446,12 @@ void gamePulse(void){
 
     previousScene           = currentScene;
 
-    if ((currentScene == 0) && (rayCamPosY >= 42)) {
+    if ((currentScene == 0) && (rayCamPosY >= 57)) {
         currentScene = 1;
-        rayCamPosY  = -29;
-    } else if ((currentScene == 1) && (rayCamPosY <= -30)){
+        rayCamPosY  = -44;
+    } else if ((currentScene == 1) && (rayCamPosY <= -45)){
         currentScene = 0;
-        rayCamPosY  = 41;
+        rayCamPosY  = 56;
     }
 
     if (currentScene != previousScene) {
@@ -424,6 +470,12 @@ void gamePulse(void){
             initScene (scene_01, texture_01);
             engScene_01();
             break;
+        case 2:
+            LoadFileAt(LOADER_TEXTURES, 0xc000);
+            ptrCurrentScene = scene_02;       
+            initScene (scene_02, texture_02);
+            engScene_02();
+            break;
         
         default:
             LoadFileAt(LOADER_TEXTURES, 0xc000);
@@ -439,10 +491,12 @@ void gamePulse(void){
         openDoorRequest=0;
     }
     if (sceneUpdateRequest !=0) {
-        if (currentScene == 1) {
-            initScene (scene_01, texture_01);
-        } else {
+        if (currentScene == 0) {
             initScene (scene_00, texture_00);
+        } if (currentScene == 1) {
+            initScene (scene_01, texture_01);
+        } if (currentScene == 2){
+            initScene (scene_02, texture_02);
         }
         sceneUpdateRequest = 0;
     }
