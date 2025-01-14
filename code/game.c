@@ -16,7 +16,7 @@ unsigned char lives           = 3;
 unsigned char ammo            = 8;
 
 unsigned char gunInHand; // 0 = knife, 1= gun
-extern unsigned char foreground_patched; // 0 = not patched, 1= patched
+// extern unsigned char foreground_patched; // 0 = not patched, 1= patched
 
 unsigned char currentScene=0;
 unsigned char previousScene=0;
@@ -158,8 +158,8 @@ void onKey(unsigned char c){
     } else if (c == KEY_E) {
         // If player holds a knife
         if (gunInHand == 0){
-            patch_basic_knife_into_knife_shoot();
-            foreground_patched = 1;
+            // patch_basic_knife_into_knife_shoot();
+            // foreground_patched = 1;
         // If player holds a knife
         } else {
             
@@ -170,8 +170,8 @@ void onKey(unsigned char c){
                 if (ammo == 0) {
                     LoadFileAt(LOADER_FG_KNIFE, texture_gun);
                 } else {
-                    patch_basic_gun_into_gun_shoot();
-                    foreground_patched = 1;
+                    // patch_basic_gun_into_gun_shoot();
+                    // foreground_patched = 1;
                 }
 
         }
@@ -393,7 +393,19 @@ void engScene_02(){
         objTexture[1] = 0;
 
 }
+#define CHANGE_INK_TO_RED	            1		
+#define CHANGE_INK_TO_GREEN	            2		
+#define CHANGE_INK_TO_BLUE	            4	
+void prepareRGB(){
+    int ii;
 
+    // parcours de lignes de 3 en 3
+    for (ii=0; ii < (TEXT_SCREEN_HEIGHT - NB_LESS_LINES_4_COLOR)*8;  ii+=3){
+        poke (HIRES_SCREEN_ADDRESS+((ii)*NEXT_SCANLINE_INCREMENT),CHANGE_INK_TO_RED);
+        poke (HIRES_SCREEN_ADDRESS+((ii+1)*NEXT_SCANLINE_INCREMENT),CHANGE_INK_TO_GREEN);
+        poke (HIRES_SCREEN_ADDRESS+((ii+2)*NEXT_SCANLINE_INCREMENT),CHANGE_INK_TO_BLUE);
+    }
+}
 void gameInit(void){
 
     // LoadFileAt(LOADER_RAYTABLES, 0xED95);
@@ -403,7 +415,10 @@ void gameInit(void){
     // LoadFileAt(LOADER_TEXTURES_3, 0xc000);
     // LoadFileAt(LOADER_ANIM, 0xd800);
     LoadFileAt(LOADER_HRSCREEN, 0x9800);
-	
+  	prepareRGB();
+
+    GETKEY();
+
     initCamera();
 
     // currentScene            = 0;
@@ -418,7 +433,7 @@ void gameInit(void){
     ammo                = 8;
 
     gunInHand           = 1;
-    foreground_patched  = 0;
+    // foreground_patched  = 0;
     openDoorRequest     = 0;
     sceneUpdateRequest  = 0;
     shootRequest        = 0;
@@ -520,13 +535,13 @@ void gamePulse(void){
     rayProcessWalls();
     drawWalls();
     
-    if (foreground_patched != 0) {
-        if (gunInHand == 1) {
-            patch_gun_shoot_into_basic_gun();
-        } else {
-            patch_knife_shoot_into_basic_knife();
-        }
-    }
+    // if (foreground_patched != 0) {
+    //     if (gunInHand == 1) {
+    //         patch_gun_shoot_into_basic_gun();
+    //     } else {
+    //         patch_knife_shoot_into_basic_knife();
+    //     }
+    // }
 
 
 
