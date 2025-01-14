@@ -106,7 +106,7 @@ void keyPressed(unsigned char c){
         // if ((rayCamPosY <= -4) && (doorState == 2)){
         //     doorState = 1;
         // }
-        patch_basic_gun_into_gun_shoot();
+        // patch_basic_gun_into_gun_shoot();
     }
 
 }
