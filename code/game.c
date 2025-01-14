@@ -407,8 +407,8 @@ void gameInit(void){
     initCamera();
 
     // currentScene            = 0;
-    currentScene            = 0;
-    previousScene            = 0;
+    currentScene            = 1;
+    previousScene            = 1;
 
 
     health              = 100;
@@ -423,19 +423,19 @@ void gameInit(void){
     sceneUpdateRequest  = 0;
     shootRequest        = 0;
 
-    LoadFileAt(LOADER_TEXTURES, 0xc000);
+    // LoadFileAt(LOADER_TEXTURES, 0xc000);
 
-    ptrCurrentScene = scene_00;       
-    initScene (scene_00, texture_00);
+    // ptrCurrentScene = scene_00;       
+    // initScene (scene_00, texture_00);
 
-    engInitObjects();
-    engScene_00();
+    // engInitObjects();
+    // engScene_00();
 
-            // LoadFileAt(LOADER_TEXTURES_01, 0xc000);
-            // ptrCurrentScene = scene_01;       
-            // initScene (scene_01, texture_01);
-            // engInitObjects();
-            // engScene_01();
+            LoadFileAt(LOADER_TEXTURES_01, 0xc000);
+            ptrCurrentScene = scene_01;       
+            initScene (scene_01, texture_01);
+            engInitObjects();
+            engScene_01();
 
 
 }
@@ -449,9 +449,20 @@ void gamePulse(void){
     if ((currentScene == 0) && (rayCamPosY >= 57)) {
         currentScene = 1;
         rayCamPosY  = -44;
-    } else if ((currentScene == 1) && (rayCamPosY <= -45)){
-        currentScene = 0;
-        rayCamPosY  = 56;
+    } else if (currentScene == 1){
+        if (rayCamPosY <= -45) {
+            currentScene = 0;
+            rayCamPosY  = 56;
+        } else if (rayCamPosX > 60) {
+            currentScene = 2;
+            rayCamPosX  = -20;
+        }
+    } else if (currentScene == 2){
+        if (rayCamPosX < -20) {
+            currentScene = 1;
+            rayCamPosX = 59;
+        }
+
     }
 
     if (currentScene != previousScene) {

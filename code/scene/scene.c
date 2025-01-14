@@ -186,7 +186,7 @@ unsigned char *texture_00[]= {
 };
 
 signed char scene_01[] = {
-    /* nbPoints = */ 58, /* nbWall = */ 51,
+    /* nbPoints = */ 77, /* nbWall = */ 68,
         -3, -27 , 	// P0
         -15, -27 , 	// P1
         -15, -21 , 	// P2
@@ -236,7 +236,7 @@ signed char scene_01[] = {
         3, 30 , // P46
         -3, 30 , // P47
 
-
+        // transition to scene 00
         -9, -33 , // P48
         -9, -57 , // P49
         -3, -57 , // P50
@@ -247,6 +247,28 @@ signed char scene_01[] = {
          3, -63 , // P55
          3, -60 , // P56
         -3, -60 , // P57
+
+        // transition to scene 02
+        57,  -9 , // P58
+        69,  -9 , // P59
+        69, -15 , // P60
+        75, -15 , // P61
+        87, -15 , // P62
+        93, -15 , // P63
+        93,  -9 , // P64
+        111, -9 , // P65
+        111, -3 , // P66
+        111,  3 , // P67
+        111,  9 , // P68
+        87,  9 ,  // P69
+        63,  9 ,  // P70
+        57,  9 ,  // P71
+
+        117,  3 , // P72
+        117, -3 , // P73
+        114, -3 , // P74
+        114,  3 , // P75
+        87, -39,  // P76
 
 
     0, 1, //	S0 
@@ -302,6 +324,25 @@ signed char scene_01[] = {
     51, 55, //  S49
     56, 57, //  S50 door
 
+    // transition to scene 02
+    41, 58, //  S51
+    58, 59, //  S52
+    59, 60, //  S53
+    60, 61, //  S54
+    62, 63, //  S55
+    63, 64, //  S56
+    64, 65, //  S57
+    65, 66, //  S58
+    67, 68, //  S59
+    68, 69, //  S60
+    69, 70, //  S61
+    70, 71, //  S62
+    40, 71, //  S63
+
+    67, 72, //  S64
+    66, 73, //  S65
+    74, 75, //  S66
+    62, 76, //  S67
 
 };
 unsigned char *texture_01[]= {
@@ -357,6 +398,25 @@ unsigned char *texture_01[]= {
     , bluewall //  W48
     , bluewall //  W49
     , door_1   //  W50 door
+
+    , bluewall //  W51
+    , bluewall //  W52
+    , bluewall //  W53
+    , bluewall //  W54
+    , bluewall //  W55
+    , bluewall //  W56
+    , bluewall //  W57
+    , bluewall //  W58
+    , bluewall //  W59
+    , bluewall //  W60
+    , bluewall //  W61
+    , bluewall //  W62
+    , bluewall //  W63
+
+    , metalwall //  S64
+    , metalwall //  S65
+    , door_1 //  S66
+    , bluewall //  S67
 
 };
 

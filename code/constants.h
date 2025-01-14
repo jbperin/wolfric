@@ -28,8 +28,8 @@
 #define EMPTY_ALPHA                     34
 
 // [ref scene_describe]
-#define NB_MAX_WALL                     64
-#define NB_MAX_POINT                    64
+#define NB_MAX_WALL                     72
+#define NB_MAX_POINT                    80
 
 #define NB_LESS_LINES_4_COLOR           2
 
