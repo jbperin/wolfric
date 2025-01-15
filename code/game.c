@@ -18,8 +18,8 @@ unsigned char ammo            = 8;
 unsigned char gunInHand; // 0 = knife, 1= gun
 extern unsigned char foreground_patched; // 0 = not patched, 1= patched
 
-unsigned char currentScene=0;
-unsigned char previousScene=0;
+unsigned char currentScene;
+unsigned char previousScene;
 signed char *ptrCurrentScene;
 unsigned char openDoorRequest;
 unsigned char shootRequest;
@@ -202,6 +202,11 @@ extern unsigned char pieceofmeat[];
 extern unsigned char lamp[];
 extern unsigned char lustre[];
 extern unsigned char plant_1[];
+
+extern unsigned char barrel[];
+extern unsigned char table[];
+extern unsigned char well[];
+extern unsigned char puddle[];
 
 void engScene_00(){
         engObjType = OBJ_DOOR;
@@ -392,6 +397,48 @@ void engScene_02(){
         engAddObjectASM();
         objTexture[1] = 0;
 
+        engObjType = OBJ_PLANT;
+        engObjX     = 72;
+        engObjY     = 21;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[2] = barrel;
+
+        engObjType = OBJ_PLANT;
+        engObjX     = 60;
+        engObjY     = 9;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[3] = table;
+
+        engObjType = OBJ_PLANT;
+        engObjX     = 51;
+        engObjY     = -30;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[4] = well;
+
+        engObjType = OBJ_PLANT;
+        engObjX     = 69;
+        engObjY     = -30;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[5] = well;
+
+        engObjType = OBJ_PLANT;
+        engObjX     = 60;
+        engObjY     = 21;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[6] = puddle;
+
+        // engObjType = OBJ_SOLDIER;
+        // engObjX     = 54; // 2; // 
+        // engObjY     = 0; // 0; // 
+        // engObjData  = soldier2Data;
+        // engAddObjectASM();
+        // objTexture[7] = soldier_front;
+
 }
 
 void gameInit(void){
@@ -431,11 +478,11 @@ void gameInit(void){
     engInitObjects();
     engScene_00();
 
-            // LoadFileAt(LOADER_TEXTURES_01, 0xc000);
-            // ptrCurrentScene = scene_01;       
-            // initScene (scene_01, texture_01);
+            // LoadFileAt(LOADER_TEXTURES_021, 0xc000);
+            // ptrCurrentScene = scene_02;       
+            // initScene (scene_02, texture_02);
             // engInitObjects();
-            // engScene_01();
+            // engScene_02();
 
 
 }
@@ -482,7 +529,7 @@ void gamePulse(void){
             engScene_01();
             break;
         case 2:
-            LoadFileAt(LOADER_TEXTURES, 0xc000);
+            LoadFileAt(LOADER_TEXTURES_021, 0xc000);
             ptrCurrentScene = scene_02;       
             initScene (scene_02, texture_02);
             engScene_02();

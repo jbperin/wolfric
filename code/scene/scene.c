@@ -492,7 +492,7 @@ unsigned char *texture_01[]= {
 
 
 signed char scene_02[] = {
-    /* nbPoints = */ 37, /* nbWall = */ 31,
+    /* nbPoints = */ 52, /* nbWall = */ 47,
         -24, -3 , 	// P0
         -24, -9 , 	// P1
         -12, -9 , 	// P2
@@ -534,6 +534,22 @@ signed char scene_02[] = {
         33, -3 , 	// P35
         33, 3 , 	// P36
 
+        36 , -27, 	// P37
+        48 , -27, 	// P38
+        48, -33 , 	// P39
+        54, -33 , 	// P40
+        54 ,-27,  	// P41
+        66 ,-27,  	// P42
+        66, -33 , 	// P43
+        72, -33 , 	// P44
+        72, -27, 	// P45
+        84, -27 , 	// P46
+        84, -3 , 	// P47
+        84, 3 , 	// P48
+        84, 27 , 	// P49
+        60, 27, 	// P50
+        36, 27, 	// P51
+
 
     0, 1, //	S0 
     1, 2, //	S1 
@@ -570,6 +586,24 @@ signed char scene_02[] = {
     19, 33, //	S29
     35, 36, //	S30 door_02_02
 
+    34  , 37 , // S31
+    37  , 38 , // S32
+    38  , 39 , // S33
+    39  , 40 , // S34
+    40  , 41 , // S35
+    41  , 42 , // S36
+    42  , 43 , // S37
+    43  , 44 , // S38
+    44  , 45 , // S39
+    45  , 46 , // S40
+    46  , 47 , // S41
+    47  , 48 , // S42
+    48  , 49 , // S43
+    49  , 50 , // S44
+    50  , 51 , // S45
+    51  , 33 , // S46
+
+
 };
 unsigned char *texture_02[]= {
 	  bluewall      // W0
@@ -603,6 +637,24 @@ unsigned char *texture_02[]= {
 	, metalwall     // W28
 	, metalwall     // W29
 	, door_1        // W30
+
+    , bluewall      // W31
+    , bluewall      // W32
+    , bluewall      // W33
+    , bluewall      // W34
+    , bluewall      // W35
+    , bluewall      // W36
+    , bluewall      // W37
+    , bluewall      // W38
+    , bluewall      // W39
+    , bluewall      // W40
+    , bluewall      // W41
+    , bluewall      // W42
+    , bluewall      // W43
+    , bluewall      // W44
+    , bluewall      // W45
+    , bluewall      // W46
+
 };
 // [ref scene_load]
 void precalculateWallsAngle() {

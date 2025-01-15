@@ -34,17 +34,44 @@ unsigned char start_round[]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 // wm $2000 11264 texture_01.bin
 // COPY %OSDK%\Oricutron\texture_01.bin ..\..\data
 
+// #include "textures/bluewall.h"
+// #include "textures/door_1.h"
+// #include "textures/metalwall.h"
+// #include "textures/stone_wall.h"
+// #include "textures/wood_wall.h"
+// #include "textures/lustre.h"
+// #include "textures/lamp_1.h"
+// #include "textures/flag.h"
+// #include "textures/sculpture.h"
+// #include "textures/portrait.h"
+// #include "textures/plant_1.h"
+
+// wm $2000 11264 texture_021.bin
+// COPY %OSDK%\Oricutron\texture_021.bin ..\..\data
+
+// #include "textures/bluewall.h"
+// #include "textures/door_1.h"
+// #include "textures/metalwall.h"
+// #include "textures/barrel.h"
+// #include "textures/soldier_back.h"
+// #include "textures/soldier_front.h"
+// #include "textures/soldier_left.h"
+// #include "textures/soldier_right.h"
+// #include "textures/table.h"
+// #include "textures/well.h"
+// #include "textures\puddle.h"
+
+// wm $2000 11264 texture_022.bin
+// COPY %OSDK%\Oricutron\texture_022.bin ..\..\data
+
 #include "textures/bluewall.h"
 #include "textures/door_1.h"
 #include "textures/metalwall.h"
-#include "textures/stone_wall.h"
-#include "textures/wood_wall.h"
-#include "textures/lustre.h"
-#include "textures/lamp_1.h"
-#include "textures/flag.h"
-#include "textures/sculpture.h"
-#include "textures/portrait.h"
-#include "textures/plant_1.h"
-
-
-// #include "textures/ammo_1.h"
+#include "textures/gridwall.h"
+#include "textures/dog_attacks.h"
+#include "textures/dog_dead.h"
+#include "textures/dog_hurt.h"
+#include "textures/bowl.h"
+#include "textures/jar.h"
+#include "textures/ammo_1.h"
+#include "textures/pieceofmeat.h"

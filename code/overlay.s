@@ -5,6 +5,7 @@
 _bluewall               .dsb 1024
 _door_1                 .dsb 1024
 _metalwall              .dsb 1024
+_barrel:
 _stone_wall:
 _lamp_1                 .dsb 1024
 _wood_wall:
@@ -15,10 +16,13 @@ _lamp:
 _soldier_left           .dsb 1024
 _flag:
 _soldier_right          .dsb 1024
+_table:
 _sculpture:
 _pieceofmeat            .dsb 1024
+_well:
 _portrait:
 _gridwall               .dsb 1024
+_puddle:
 _plant_1:
 _sprite_deadsoldier     .dsb 1024
 

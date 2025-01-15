@@ -1,5 +1,6 @@
 
-
+python tools\tile.py  assets\NonBlockingObjects.png 4 4 -skipgrid 1
+python tools\tile.py  assets\BlockingObjects.png 5 4 -skipgrid 1
 
 python tools\tile.py  assets\GunNAmmo.png 1 3 -skipgrid 1
 python tools\tile.py  assets\HurtSoldier.png 1 4 -skipgrid 1
@@ -94,6 +95,19 @@ python .\tools\texture2buf.py assets\textures\flag.png > .\prod\RomlessDataDump\
 python .\tools\texture2buf.py assets\textures\sculpture.png > .\prod\RomlessDataDump\code\textures\sculpture.h
 python .\tools\texture2buf.py assets\textures\portrait.png > .\prod\RomlessDataDump\code\textures\portrait.h
 python .\tools\texture2buf.py assets\textures\plant_1.png --replace_color 255 255 255 12 > .\prod\RomlessDataDump\code\textures\plant_1.h
+
+
+python .\tools\texture2buf.py assets\textures\barrel.png > .\prod\RomlessDataDump\code\textures\barrel.h
+python .\tools\texture2buf.py assets\textures\bowl.png > .\prod\RomlessDataDump\code\textures\bowl.h
+python .\tools\texture2buf.py assets\textures\dog_attacks.png > .\prod\RomlessDataDump\code\textures\dog_attacks.h
+python .\tools\texture2buf.py assets\textures\dog_dead.png > .\prod\RomlessDataDump\code\textures\dog_dead.h
+python .\tools\texture2buf.py assets\textures\dog_hurt.png > .\prod\RomlessDataDump\code\textures\dog_hurt.h
+python .\tools\texture2buf.py assets\textures\jar.png > .\prod\RomlessDataDump\code\textures\jar.h
+python .\tools\texture2buf.py assets\textures\puddle.png --name lamp_1 > .\prod\RomlessDataDump\code\textures\puddle.h
+python .\tools\texture2buf.py assets\textures\table.png > .\prod\RomlessDataDump\code\textures\table.h
+python .\tools\texture2buf.py assets\textures\well.png > .\prod\RomlessDataDump\code\textures\well.h
+
+
 
 python .\tools\texture2buf.py assets\textures\skeleton.png > .\prod\RomlessDataDump\code\textures\skeleton.h
 

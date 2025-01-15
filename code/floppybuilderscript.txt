@@ -88,6 +88,12 @@ AddDefine LOADER_TEXTURES {FileIndex}
 AddFile ..\data\texture_01.bin
 AddDefine LOADER_TEXTURES_01 {FileIndex}
 
+AddFile ..\data\texture_021.bin
+AddDefine LOADER_TEXTURES_021 {FileIndex}
+
+AddFile ..\data\texture_022.bin
+AddDefine LOADER_TEXTURES_022 {FileIndex}
+
 AddFile ..\data\fg_gun.bin
 AddDefine LOADER_FG_GUN {FileIndex}
 
