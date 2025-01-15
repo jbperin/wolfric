@@ -29,7 +29,7 @@ unsigned char wallTexture_low[NB_MAX_WALL] ;
 
 // [ref scene_describe]
 signed char scene_00[] = {
-    /* nbPoints = */ 56, /* nbWall = */ 45,
+    /* nbPoints = */ 72, /* nbWall = */ 65,
         -3, 39 , 	// P0
         -9, 39 , 	// P1
         -9, 33 , 	// P2
@@ -88,6 +88,26 @@ signed char scene_00[] = {
          3, 72 , 	// P54
         -3, 72 , 	// P55
 
+        -15, -9 , 	// P56
+        -39, -9 , 	// P57
+        -39, 9  , 	// P58
+        -15, 9 , 	// P59
+
+        -15, 15 , 	// P60
+        -39, 15 , 	// P61
+        -39, 39  , 	// P62
+        -15, 39 , 	// P63
+
+        15, 39 , 	// P64
+        39, 39 , 	// P65
+        39, 15  , 	// P66
+        15, 15 , 	// P67
+
+        15, 9 , 	// P68
+        39, 9 , 	// P69
+        39, -9  , 	// P70
+        15, -9 , 	// P71
+
     0, 1, //	S0 
     1, 2, //	S1
     3, 4, //    S2
@@ -134,6 +154,31 @@ signed char scene_00[] = {
     48, 52, //   S42
     49, 53, //   S43
     55, 54, //   S44
+
+    35, 56, //   S45
+    56, 57, //   S46
+    57, 58, //   S47
+    58, 59, //   S48
+    59, 34, //   S49
+
+    31, 60, //   S50
+    60, 61, //   S51
+    61, 62, //   S52
+    62, 63, //   S53
+    63, 30, //   S54
+
+    43, 64, //   S55
+    64, 65, //   S56
+    65, 66, //   S57
+    66, 67, //   S58
+    67, 42, //   S59
+
+    38, 68, //   S60
+    68, 69, //   S61
+    69, 70, //   S62
+    70, 71, //   S63
+    71, 39, //   S64
+
 };
 
 unsigned char *texture_00[]= {
@@ -183,6 +228,31 @@ unsigned char *texture_00[]= {
     , metalwall //   W42
     , metalwall //   W43
     , door_1    //   W44  door
+
+    , bluewall  //   W45
+    , bluewall  //   W46
+    , bluewall  //   W47
+    , bluewall  //   W48
+    , bluewall  //   W49
+
+    , bluewall  //   W50
+    , bluewall  //   W51
+    , bluewall  //   W52
+    , bluewall  //   W53
+    , bluewall  //   W54
+
+    , bluewall  //   W55
+    , bluewall  //   W56
+    , bluewall  //   W57
+    , bluewall  //   W58
+    , bluewall  //   W59
+
+    , bluewall  //   W60
+    , bluewall  //   W61
+    , bluewall  //   W62
+    , bluewall  //   W63
+    , bluewall  //   W64
+
 };
 
 signed char scene_01[] = {

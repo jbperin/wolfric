@@ -185,9 +185,9 @@ void onKey(unsigned char c){
 void onIT(){;}
 
 void initCamera(){
-    rayCamPosX               = 0;
+    rayCamPosX               = -33;
     rayCamPosY               = 0; 
-    rayCamRotZ               = 64;
+    rayCamRotZ               = 0;
     RayLeftAlpha            = rayCamRotZ + HALF_FOV_FIX_ANGLE;
 
 }
@@ -407,8 +407,8 @@ void gameInit(void){
     initCamera();
 
     // currentScene            = 0;
-    currentScene            = 1;
-    previousScene            = 1;
+    currentScene            = 0;
+    previousScene            = 0;
 
 
     health              = 100;
@@ -423,19 +423,19 @@ void gameInit(void){
     sceneUpdateRequest  = 0;
     shootRequest        = 0;
 
-    // LoadFileAt(LOADER_TEXTURES, 0xc000);
+    LoadFileAt(LOADER_TEXTURES, 0xc000);
 
-    // ptrCurrentScene = scene_00;       
-    // initScene (scene_00, texture_00);
+    ptrCurrentScene = scene_00;       
+    initScene (scene_00, texture_00);
 
-    // engInitObjects();
-    // engScene_00();
+    engInitObjects();
+    engScene_00();
 
-            LoadFileAt(LOADER_TEXTURES_01, 0xc000);
-            ptrCurrentScene = scene_01;       
-            initScene (scene_01, texture_01);
-            engInitObjects();
-            engScene_01();
+            // LoadFileAt(LOADER_TEXTURES_01, 0xc000);
+            // ptrCurrentScene = scene_01;       
+            // initScene (scene_01, texture_01);
+            // engInitObjects();
+            // engScene_01();
 
 
 }
