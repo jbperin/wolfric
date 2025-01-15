@@ -24,7 +24,7 @@
 #define VIEWPORT_START_COLUMN           12
 #define VIEWPORT_START_LINE             12
 #define TEXTURE_SIZE                    32
-#define HALF_FOV_FIX_ANGLE              40
+#define HALF_FOV_FIX_ANGLE              28
 #define EMPTY_ALPHA                     34
 
 // [ref scene_describe]
