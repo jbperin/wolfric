@@ -103,6 +103,9 @@ AddDefine LOADER_FG_KNIFE {FileIndex}
 AddFile ..\data\splash.bin
 AddDefine LOADER_SPLASH {FileIndex}
 
+AddFile ..\data\byescreen.bin
+AddDefine LOADER_BYESCREEN {FileIndex}
+
 ;
 ; Some reserved sectors
 ;

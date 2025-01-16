@@ -19,10 +19,13 @@ void main()
 	LoadFileAt(LOADER_SPLASH, 0xA000);
 	GETKEY();
 	gameInit();
-	while(1){
+	running = 1;
+	while(running){
 		lsys();
 		gamePulse();
 	}
+	LoadFileAt(LOADER_BYESCREEN, 0x9800);
+	while(1);
 	// // Load the first picture at the default address specified in the script
 	// LoadFileAt(LOADER_PICTURE_FIRSTPROGRAM,0xa000);
 

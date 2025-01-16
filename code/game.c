@@ -9,6 +9,8 @@
 #include "engine/engine.h"
 #define ROT_ANGLE_STEP 16
 
+unsigned char running         ;
+
 unsigned char health          = 100;
 unsigned char score           = 0;
 unsigned char level           = 1;
@@ -200,7 +202,7 @@ void onKey(unsigned char c){
 void onIT(){;}
 
 void initCamera(){
-    rayCamPosX               = 0;
+    rayCamPosX               = -33;
     rayCamPosY               = 0; 
     rayCamRotZ               = 0;
     RayLeftAlpha            = rayCamRotZ + HALF_FOV_FIX_ANGLE;
@@ -485,19 +487,19 @@ void gameInit(void){
     sceneUpdateRequest  = 0;
     shootRequest        = 0;
 
-    // LoadFileAt(LOADER_TEXTURES, 0xc000);
+    LoadFileAt(LOADER_TEXTURES, 0xc000);
 
-    // ptrCurrentScene = scene_00;       
-    // initScene (scene_00, texture_00);
+    ptrCurrentScene = scene_00;       
+    initScene (scene_00, texture_00);
 
-    // engInitObjects();
-    // engScene_00();
+    engInitObjects();
+    engScene_00();
 
-            LoadFileAt(LOADER_TEXTURES_021, 0xc000);
-            ptrCurrentScene = scene_02;       
-            initScene (scene_02, texture_02);
-            engInitObjects();
-            engScene_02();
+            // LoadFileAt(LOADER_TEXTURES_021, 0xc000);
+            // ptrCurrentScene = scene_02;       
+            // initScene (scene_02, texture_02);
+            // engInitObjects();
+            // engScene_02();
 
 
 }
@@ -518,6 +520,8 @@ void gamePulse(void){
         } else if (rayCamPosX > 60) {
             currentScene = 2;
             rayCamPosX  = -20;
+        }if (rayCamPosY >= 45) {
+            running = 0;
         }
     } else if (currentScene == 2){
         if (rayCamPosX < -20) {

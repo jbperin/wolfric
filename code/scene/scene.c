@@ -256,7 +256,7 @@ unsigned char *texture_00[]= {
 };
 
 signed char scene_01[] = {
-    /* nbPoints = */ 77, /* nbWall = */ 68,
+    /* nbPoints = */ 89, /* nbWall = */ 79,
         -3, -27 , 	// P0
         -15, -27 , 	// P1
         -15, -21 , 	// P2
@@ -340,6 +340,19 @@ signed char scene_01[] = {
         114,  3 , // P75
         87, -39,  // P76
 
+        -9,  33,  // P77
+        -9,  57,  // P78
+        -21, 63,  // P79
+        -9,  63,  // P80
+        -9, 87,  // P81
+        -3, 87,  // P82
+        3, 87,  // P83
+        9,  87,  // P84
+        9, 63,  // P85
+        21, 63,  // P86
+        9,  57,  // P87
+        9, 33,  // P88
+
 
     0, 1, //	S0 
     1, 2, //	S1 
@@ -413,6 +426,21 @@ signed char scene_01[] = {
     66, 73, //  S65
     74, 75, //  S66
     62, 76, //  S67
+
+    44, 77, //  S68
+    77, 78, //  S69
+    79, 80, //  S70
+    80, 81, //  S71
+    81, 82, //  S72
+    83, 84, //  S73
+    84, 85, //  S74
+    85, 86, //  S75
+    87, 88, //  S76
+    88, 45, //  S77
+    
+    82, 83, //  S78
+
+
 
 };
 unsigned char *texture_01[]= {
@@ -488,6 +516,18 @@ unsigned char *texture_01[]= {
     , door_1 //  S66
     , bluewall //  S67
 
+    , wood_wall     //  W68
+    , wood_wall     //  W69
+    , wood_wall     //  W70
+    , wood_wall     //  W71
+    , wood_wall     //  W72
+    , wood_wall     //  W73
+    , wood_wall     //  W74
+    , wood_wall     //  W75
+    , wood_wall     //  W76
+    , wood_wall     //  W77
+
+    , door_1 //  S78
 };
 
 
