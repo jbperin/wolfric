@@ -22,7 +22,6 @@ _pieceofmeat            .dsb 1024
 _well:
 _portrait:
 _gridwall               .dsb 1024
-_puddle:
 _plant_1:
 _sprite_deadsoldier     .dsb 1024
 

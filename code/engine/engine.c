@@ -148,7 +148,9 @@ void soldierUpdate()
     computeLogDistance();
 
     if (soldierData[0]==0) {
-        
+        objPosX[engCurrentObjectIdx] = soldierData[3];
+        objPosY[engCurrentObjectIdx] = soldierData[4];
+        objTexture[engCurrentObjectIdx] = sprite_deadsoldier;
     } else {
         if ((shootRequest == 1) && (abs (objAngle[engCurrentObjectIdx]) < 16)) { // && (abs (objAngle[engCurrentObjectIdx]) < 16)
             // health
@@ -156,6 +158,9 @@ void soldierUpdate()
             if (soldierData[2] == 0){
                 // state = dead
                 soldierData[0]=0;
+                // remember death position
+                soldierData[3]=ex;
+                soldierData[4]=ey;
                 objTexture[engCurrentObjectIdx] = sprite_deadsoldier;
                 score += 2;
             } else {
@@ -163,13 +168,13 @@ void soldierUpdate()
             }
         } else {
             direction = (signed char )(soldierData[1]);
-            if (ex == 12) { //(ex == 24) 
+            if (ex == soldierData[6]) { //(ex == 24) 
                 if (direction == -128){
                     ex --;
                 } else {
                     direction += 16;
                 }
-            } else if (ex == -12) {
+            } else if (ex == soldierData[5]) {
                 if (direction == 0){
                     ex ++;
                 } else {

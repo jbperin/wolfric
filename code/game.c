@@ -122,10 +122,25 @@ signed  char door_2_2_data[] = {
 
 
 signed char soldier1Data [] = {
-    1,          // state: 0=dead, 1=walking, 
-    0,          // direction
-    4,          // health
+    1,          // [0] state: 0=dead, 1=walking, 
+    0,          // [1] direction
+    4,          // [2] health
+    0,          // [3] placeholder for xDeathPos
+    0,          // [4] placeholder for yDeathPos
+    -12,        // [5] min excursion
+    12          // [6] max excursion
     };
+
+signed char soldier2Data [] = {
+    1,          // [0] state: 0=dead, 1=walking, 
+    0,          // [1] direction
+    4,          // [2] health
+    0,          // [3] placeholder for xDeathPos
+    0,          // [4] placeholder for yDeathPos
+    48,        // [5] min excursion
+    72          // [6] max excursion
+    };
+
 
 extern unsigned char texture_gun[];
 extern unsigned char texture_ammo_1[];
@@ -185,7 +200,7 @@ void onKey(unsigned char c){
 void onIT(){;}
 
 void initCamera(){
-    rayCamPosX               = -33;
+    rayCamPosX               = 0;
     rayCamPosY               = 0; 
     rayCamRotZ               = 0;
     RayLeftAlpha            = rayCamRotZ + HALF_FOV_FIX_ANGLE;
@@ -206,7 +221,7 @@ extern unsigned char plant_1[];
 extern unsigned char barrel[];
 extern unsigned char table[];
 extern unsigned char well[];
-extern unsigned char puddle[];
+// extern unsigned char puddle[];
 
 void engScene_00(){
         engObjType = OBJ_DOOR;
@@ -430,14 +445,14 @@ void engScene_02(){
         engObjY     = 21;
         engObjData  = 0;
         engAddObjectASM();
-        objTexture[6] = puddle;
+        objTexture[6] = barrel;
 
-        // engObjType = OBJ_SOLDIER;
-        // engObjX     = 54; // 2; // 
-        // engObjY     = 0; // 0; // 
-        // engObjData  = soldier2Data;
-        // engAddObjectASM();
-        // objTexture[7] = soldier_front;
+        engObjType = OBJ_SOLDIER;
+        engObjX     = 60; // 2; // 
+        engObjY     = 0; // 0; // 
+        engObjData  = soldier2Data;
+        engAddObjectASM();
+        objTexture[7] = soldier_front;
 
 }
 
@@ -454,8 +469,8 @@ void gameInit(void){
     initCamera();
 
     // currentScene            = 0;
-    currentScene            = 0;
-    previousScene            = 0;
+    currentScene            = 2;
+    previousScene            = 2;
 
 
     health              = 100;
@@ -470,19 +485,19 @@ void gameInit(void){
     sceneUpdateRequest  = 0;
     shootRequest        = 0;
 
-    LoadFileAt(LOADER_TEXTURES, 0xc000);
+    // LoadFileAt(LOADER_TEXTURES, 0xc000);
 
-    ptrCurrentScene = scene_00;       
-    initScene (scene_00, texture_00);
+    // ptrCurrentScene = scene_00;       
+    // initScene (scene_00, texture_00);
 
-    engInitObjects();
-    engScene_00();
+    // engInitObjects();
+    // engScene_00();
 
-            // LoadFileAt(LOADER_TEXTURES_021, 0xc000);
-            // ptrCurrentScene = scene_02;       
-            // initScene (scene_02, texture_02);
-            // engInitObjects();
-            // engScene_02();
+            LoadFileAt(LOADER_TEXTURES_021, 0xc000);
+            ptrCurrentScene = scene_02;       
+            initScene (scene_02, texture_02);
+            engInitObjects();
+            engScene_02();
 
 
 }
