@@ -61,8 +61,10 @@ void engObjectPulse()
             // dichoInsert (engCurrentObjectIdx, objLogDistance[engCurrentObjectIdx]);
             // #TODO: Why can't we call ASM directly
             dichoInsertVal = (unsigned char)objLogDistance[engCurrentObjectIdx];
-            dichoInsertIdx = engCurrentObjectIdx;
-            dichoASMInsert();
+            if (dichoInsertVal > 10) {
+                dichoInsertIdx = engCurrentObjectIdx;
+                dichoASMInsert();
+            }
             break;
         case OBJ_PIECE_OF_MEAT:
         case OBJ_AMMO:
