@@ -471,8 +471,8 @@ void gameInit(void){
     initCamera();
 
     // currentScene            = 0;
-    currentScene            = 2;
-    previousScene            = 2;
+    currentScene            = 0;
+    previousScene            = 0;
 
 
     health              = 100;
