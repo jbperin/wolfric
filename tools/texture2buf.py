@@ -4,6 +4,13 @@ import codegen
 import argparse
 import math
 
+
+def RGBval2texel(val):
+    if val<43: return 0
+    if val > 223: return 3
+    if val >=128: return 2
+    return 1
+
 ## [ref texture_file2buffer]
 def image2TextureBuf(filepathname, replace_colors=None, fill_option=None, fill_color=None, output_name=None):
     base = os.path.basename(filepathname)
@@ -42,7 +49,7 @@ def image2TextureBuf(filepathname, replace_colors=None, fill_option=None, fill_c
                         r, g, b = default_replacement_color
                         break  # Arrête la vérification dès qu'une couleur correspond
             
-            texel_value = (r // 64) * 16 + (g // 64) * 4 + (b // 64)
+            texel_value = (RGBval2texel(r)) * 16 + (RGBval2texel(g)) * 4 + (RGBval2texel(b))
             bufimgtranslat.append(texel_value)
 
     # Utiliser output_name pour remplacer namerad si spécifié
