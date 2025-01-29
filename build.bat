@@ -46,17 +46,24 @@ python .\tools\texture2buf.py assets\textures\texture_metalwall.png --name metal
 python .\tools\texture2buf.py assets\textures\sprite_ammo_1.png --replace_color 0 0 0 12 --name ammo_1 > .\prod\RomlessDataDump\code\textures\ammo_1.h
 
 
-python .\tools\texture2buf.py assets\textures\bluewall.png --name texture_bluewall > .\prod\RomlessDataDump\code\textures\bluewall.h
+python .\tools\texture2buf.py assets\textures\texture_bluewall.bmp --name texture_bluewall > .\prod\RomlessDataDump\code\textures\bluewall.h
 python .\tools\texture2buf.py assets\textures\texture_door.bmp --name door_1 > .\prod\RomlessDataDump\code\textures\door_1.h
 python .\tools\texture2buf.py assets\textures\texture_metalwall.bmp --name metalwall > .\prod\RomlessDataDump\code\textures\metalwall.h
 python .\tools\texture2buf.py assets\textures\Lamp.png --name lamp_1 > .\prod\RomlessDataDump\code\textures\lamp_1.h
-python .\tools\texture2buf.py assets\textures\sprite_soldier_front.png --name soldier_front > .\prod\RomlessDataDump\code\textures\soldier_front.h
-python .\tools\texture2buf.py assets\textures\sprite_soldier_back.png --name soldier_back > .\prod\RomlessDataDump\code\textures\soldier_back.h
-python .\tools\texture2buf.py assets\textures\sprite_soldier_left.png --name soldier_left > .\prod\RomlessDataDump\code\textures\soldier_left.h
-python .\tools\texture2buf.py assets\textures\sprite_soldier_right.png --name soldier_right > .\prod\RomlessDataDump\code\textures\soldier_right.h
-python .\tools\texture2buf.py assets\textures\meat.png --name pieceofmeat > .\prod\RomlessDataDump\code\textures\pieceofmeat.h
+python .\tools\texture2buf.py assets\textures\sprite_soldier_front.bmp --name soldier_front > .\prod\RomlessDataDump\code\textures\soldier_front.h
+python .\tools\texture2buf.py assets\textures\sprite_soldier_back.bmp --name soldier_back > .\prod\RomlessDataDump\code\textures\soldier_back.h
+python .\tools\texture2buf.py assets\textures\sprite_soldier_left.bmp --name soldier_left > .\prod\RomlessDataDump\code\textures\soldier_left.h
+python .\tools\texture2buf.py assets\textures\sprite_soldier_right.bmp --name soldier_right > .\prod\RomlessDataDump\code\textures\soldier_right.h
+python .\tools\texture2buf.py assets\textures\meat.bmp --replace_color 0 0 0 12 --name pieceofmeat > .\prod\RomlessDataDump\code\textures\pieceofmeat.h
 python .\tools\texture2buf.py assets\textures\gridwall.png --name texture_gridwall > .\prod\RomlessDataDump\code\textures\gridwall.h
-python .\tools\texture2buf.py assets\textures\dead_soldier.png --name deadsoldier > .\prod\RomlessDataDump\code\textures\deadsoldier.h
+python .\tools\texture2buf.py assets\textures\dead_soldier.bmp --name deadsoldier > .\prod\RomlessDataDump\code\textures\deadsoldier.h
+python .\tools\texture2buf.py assets\textures\hurt_soldier.bmp --name hurt_soldier > .\prod\RomlessDataDump\code\textures\hurt_soldier.h
+
+
+python .\tools\texture2buf.py assets\textures\stone_wall.bmp > .\prod\RomlessDataDump\code\textures\stone_wall.h
+python .\tools\texture2buf.py assets\textures\flag.bmp > .\prod\RomlessDataDump\code\textures\flag.h
+python .\tools\texture2buf.py assets\textures\sculture.bmp > .\prod\RomlessDataDump\code\textures\sculpture.h
+python .\tools\texture2buf.py assets\textures\portrait.bmp > .\prod\RomlessDataDump\code\textures\portrait.h
 
 @REM python .\tools\texture2buf.py assets\textures\texture_door_1.png --name door_1 > .\prod\RomlessDataDump\code\textures\door_1.h
 python .\tools\texture2buf.py assets\textures\ammo.png --replace_color 0 0 0 12 --name ammo_1 > .\prod\RomlessDataDump\code\textures\ammo_1.h
