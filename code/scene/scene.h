@@ -1,12 +1,14 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-extern signed char scene_00[];
-extern unsigned char *texture_00[];
-extern signed char scene_01[];
-extern unsigned char *texture_01[];
-extern signed char scene_02[];
-extern unsigned char *texture_02[];
+extern signed char scene_03[];
+extern unsigned char *texture_03[];
+extern signed char scene_04[];
+extern unsigned char *texture_04[];
+extern signed char scene_05[];
+extern unsigned char *texture_05[];
+extern signed char scene_06[];
+extern unsigned char *texture_06[];
 
 extern unsigned char texture_tree[];
 extern unsigned char texture_smily_back[];

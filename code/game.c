@@ -225,239 +225,246 @@ extern unsigned char table[];
 extern unsigned char well[];
 // extern unsigned char puddle[];
 
-void engScene_00(){
-        engObjType = OBJ_DOOR;
-        engObjX     = 0;
-        engObjY     = 42;
-        engObjData  = door_0_0_data;
-        engAddObjectASM();
-        objTexture[0] = 0;
+// void engScene_00(){
+//         engObjType = OBJ_DOOR;
+//         engObjX     = 0;
+//         engObjY     = 42;
+//         engObjData  = door_0_0_data;
+//         engAddObjectASM();
+//         objTexture[0] = 0;
 
-        engObjType = OBJ_DOOR;
-        engObjX     = -12;
-        engObjY     = 30;
-        engObjData  = door_0_1_data;
-        engAddObjectASM();
-        objTexture[1] = 0;
+//         engObjType = OBJ_DOOR;
+//         engObjX     = -12;
+//         engObjY     = 30;
+//         engObjData  = door_0_1_data;
+//         engAddObjectASM();
+//         objTexture[1] = 0;
 
-        engObjType = OBJ_DOOR;
-        engObjX     = -12;
-        engObjY     = 0;
-        engObjData  = door_0_2_data;
-        engAddObjectASM();
-        objTexture[2] = 0;
+//         engObjType = OBJ_DOOR;
+//         engObjX     = -12;
+//         engObjY     = 0;
+//         engObjData  = door_0_2_data;
+//         engAddObjectASM();
+//         objTexture[2] = 0;
 
-        engObjType = OBJ_DOOR;
-        engObjX     = 12;
-        engObjY     = 0;
-        engObjData  = door_0_3_data;
-        engAddObjectASM();
-        objTexture[3] = 0;
+//         engObjType = OBJ_DOOR;
+//         engObjX     = 12;
+//         engObjY     = 0;
+//         engObjData  = door_0_3_data;
+//         engAddObjectASM();
+//         objTexture[3] = 0;
 
-        engObjType = OBJ_DOOR;
-        engObjX     = 12;
-        engObjY     = 30;
-        engObjData  = door_0_4_data;
-        engAddObjectASM();
-        objTexture[4] = 0;
+//         engObjType = OBJ_DOOR;
+//         engObjX     = 12;
+//         engObjY     = 30;
+//         engObjData  = door_0_4_data;
+//         engAddObjectASM();
+//         objTexture[4] = 0;
 
-        engObjType = OBJ_SOLDIER;
-        engObjX     = 0; // 2; // 
-        engObjY     = -24; // 0; // 
-        engObjData  = soldier1Data;
-        engAddObjectASM();
-        objTexture[5] = soldier_front;
+//         engObjType = OBJ_SOLDIER;
+//         engObjX     = 0; // 2; // 
+//         engObjY     = -24; // 0; // 
+//         engObjData  = soldier1Data;
+//         engAddObjectASM();
+//         objTexture[5] = soldier_front;
 
-        engObjType = OBJ_LAMP;
-        engObjX     = 0;
-        engObjY     = 30;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[6] = lamp_1;
+//         engObjType = OBJ_LAMP;
+//         engObjX     = 0;
+//         engObjY     = 30;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[6] = lamp_1;
 
-        engObjType = OBJ_LAMP;
-        engObjX     = 0;
-        engObjY     = 0;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[7] = lamp_1;
+//         engObjType = OBJ_LAMP;
+//         engObjX     = 0;
+//         engObjY     = 0;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[7] = lamp_1;
 
-        engObjType = OBJ_AMMO; //
-        engObjX     = 36;
-        engObjY     = -24;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[8] = texture_ammo_1;//
+//         engObjType = OBJ_AMMO; //
+//         engObjX     = 36;
+//         engObjY     = -24;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[8] = texture_ammo_1;//
 
-        engObjType = OBJ_LAMP;
-        engObjX     = -30;
-        engObjY     = -24;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[9] = lamp_1;
+//         engObjType = OBJ_LAMP;
+//         engObjX     = -30;
+//         engObjY     = -24;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[9] = lamp_1;
 
-        engObjType = OBJ_LAMP;
-        engObjX     = 30;
-        engObjY     = -24;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[10] = lamp_1;
+//         engObjType = OBJ_LAMP;
+//         engObjX     = 30;
+//         engObjY     = -24;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[10] = lamp_1;
         
-        engObjType = OBJ_DEAD_SOLDIER;
-        engObjX     = -18;
-        engObjY     = 0;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[11] = sprite_deadsoldier;
+//         engObjType = OBJ_DEAD_SOLDIER;
+//         engObjX     = -18;
+//         engObjY     = 0;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[11] = sprite_deadsoldier;
 
 
-        engObjType = OBJ_PIECE_OF_MEAT;
-        engObjX     = 0;
-        engObjY     = -27;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[12] = pieceofmeat;
+//         engObjType = OBJ_PIECE_OF_MEAT;
+//         engObjX     = 0;
+//         engObjY     = -27;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[12] = pieceofmeat;
 
-        // #TODO Why can we add more objects?
-        // engObjType  = OBJ_LAMP;
-        // engObjX     = 0;
-        // engObjY     = -24;
-        // engObjData  = 0;
-        // engAddObjectASM();
-        // objTexture[8] = lamp_1;
+//         // #TODO Why can we add more objects?
+//         // engObjType  = OBJ_LAMP;
+//         // engObjX     = 0;
+//         // engObjY     = -24;
+//         // engObjData  = 0;
+//         // engAddObjectASM();
+//         // objTexture[8] = lamp_1;
 
-}
-void engScene_01(){
-        engObjType = OBJ_DOOR;
-        engObjX     = 54;
-        engObjY     = 0;
-        engObjData  = door_1_1_data;
-        engAddObjectASM();
-        objTexture[0] = 0;
+// }
+// void engScene_01(){
+//         engObjType = OBJ_DOOR;
+//         engObjX     = 54;
+//         engObjY     = 0;
+//         engObjData  = door_1_1_data;
+//         engAddObjectASM();
+//         objTexture[0] = 0;
 
-        engObjType = OBJ_DOOR;
-        engObjX     = 0;
-        engObjY     = -30;
-        engObjData  = door_1_0_data;
-        engAddObjectASM();
-        objTexture[1] = 0;
+//         engObjType = OBJ_DOOR;
+//         engObjX     = 0;
+//         engObjY     = -30;
+//         engObjData  = door_1_0_data;
+//         engAddObjectASM();
+//         objTexture[1] = 0;
 
-        engObjType = OBJ_DOOR;
-        engObjX     = 0;
-        engObjY     = 30;
-        engObjData  = door_1_2_data;
-        engAddObjectASM();
-        objTexture[2] = 0;
+//         engObjType = OBJ_DOOR;
+//         engObjX     = 0;
+//         engObjY     = 30;
+//         engObjData  = door_1_2_data;
+//         engAddObjectASM();
+//         objTexture[2] = 0;
 
-        engObjType = OBJ_PLANT;
-        engObjX     = -42;
-        engObjY     = -18;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[3] = plant_1;
+//         engObjType = OBJ_PLANT;
+//         engObjX     = -42;
+//         engObjY     = -18;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[3] = plant_1;
 
-        engObjType = OBJ_PLANT;
-        engObjX     = -42;
-        engObjY     = 18;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[4] = plant_1;
+//         engObjType = OBJ_PLANT;
+//         engObjX     = -42;
+//         engObjY     = 18;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[4] = plant_1;
 
-        engObjType = OBJ_PLANT;
-        engObjX     = 42;
-        engObjY     = 18;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[5] = plant_1;
+//         engObjType = OBJ_PLANT;
+//         engObjX     = 42;
+//         engObjY     = 18;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[5] = plant_1;
 
-        engObjType = OBJ_PLANT;
-        engObjX     = 42;
-        engObjY     = -18;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[6] = plant_1;
+//         engObjType = OBJ_PLANT;
+//         engObjX     = 42;
+//         engObjY     = -18;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[6] = plant_1;
 
-        engObjType = OBJ_LUSTRE;
-        engObjX     = -30;
-        engObjY     = 0;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[7] = lustre;
+//         engObjType = OBJ_LUSTRE;
+//         engObjX     = -30;
+//         engObjY     = 0;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[7] = lustre;
 
-        engObjType = OBJ_LUSTRE;
-        engObjX     = 0;
-        engObjY     = 0;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[8] = lustre;
+//         engObjType = OBJ_LUSTRE;
+//         engObjX     = 0;
+//         engObjY     = 0;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[8] = lustre;
 
-        engObjType = OBJ_LUSTRE;
-        engObjX     = 30;
-        engObjY     = 0;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[9] = lustre;
-}
+//         engObjType = OBJ_LUSTRE;
+//         engObjX     = 30;
+//         engObjY     = 0;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[9] = lustre;
+// }
 
-void engScene_02(){
-        engObjType = OBJ_DOOR;
-        engObjX     = 15;
-        engObjY     = -66;
-        engObjData  = door_2_1_data;
-        engAddObjectASM();
-        objTexture[0] = 0;
+// void engScene_02(){
+//         engObjType = OBJ_DOOR;
+//         engObjX     = 15;
+//         engObjY     = -66;
+//         engObjData  = door_2_1_data;
+//         engAddObjectASM();
+//         objTexture[0] = 0;
 
-        engObjType = OBJ_DOOR;
-        engObjX     = 33;
-        engObjY     = 0;
-        engObjData  = door_2_2_data;
-        engAddObjectASM();
-        objTexture[1] = 0;
+//         engObjType = OBJ_DOOR;
+//         engObjX     = 33;
+//         engObjY     = 0;
+//         engObjData  = door_2_2_data;
+//         engAddObjectASM();
+//         objTexture[1] = 0;
 
-        engObjType = OBJ_PLANT;
-        engObjX     = 72;
-        engObjY     = 21;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[2] = barrel;
+//         engObjType = OBJ_PLANT;
+//         engObjX     = 72;
+//         engObjY     = 21;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[2] = barrel;
 
-        engObjType = OBJ_PLANT;
-        engObjX     = 60;
-        engObjY     = 9;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[3] = table;
+//         engObjType = OBJ_PLANT;
+//         engObjX     = 60;
+//         engObjY     = 9;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[3] = table;
 
-        engObjType = OBJ_PLANT;
-        engObjX     = 51;
-        engObjY     = -30;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[4] = well;
+//         engObjType = OBJ_PLANT;
+//         engObjX     = 51;
+//         engObjY     = -30;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[4] = well;
 
-        engObjType = OBJ_PLANT;
-        engObjX     = 69;
-        engObjY     = -30;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[5] = well;
+//         engObjType = OBJ_PLANT;
+//         engObjX     = 69;
+//         engObjY     = -30;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[5] = well;
 
-        engObjType = OBJ_PLANT;
-        engObjX     = 60;
-        engObjY     = 21;
-        engObjData  = 0;
-        engAddObjectASM();
-        objTexture[6] = barrel;
+//         engObjType = OBJ_PLANT;
+//         engObjX     = 60;
+//         engObjY     = 21;
+//         engObjData  = 0;
+//         engAddObjectASM();
+//         objTexture[6] = barrel;
 
-        engObjType = OBJ_SOLDIER;
-        engObjX     = 60; // 2; // 
-        engObjY     = 0; // 0; // 
-        engObjData  = soldier2Data;
-        engAddObjectASM();
-        objTexture[7] = soldier_front;
+//         engObjType = OBJ_SOLDIER;
+//         engObjX     = 60; // 2; // 
+//         engObjY     = 0; // 0; // 
+//         engObjData  = soldier2Data;
+//         engAddObjectASM();
+//         objTexture[7] = soldier_front;
 
-}
-
+// }
+void engScene_03(){
+};
+void engScene_04(){
+};
+void engScene_05(){
+};
+void engScene_06(){
+};
 void gameInit(void){
 
     // LoadFileAt(LOADER_RAYTABLES, 0xED95);
@@ -489,17 +496,17 @@ void gameInit(void){
 
     LoadFileAt(LOADER_TEXTURES, 0xc000);
 
-    ptrCurrentScene = scene_00;       
-    initScene (scene_00, texture_00);
+    ptrCurrentScene = scene_04;       
+    initScene (scene_04, texture_04);
 
     engInitObjects();
-    engScene_00();
+    engScene_04();
 
-            // LoadFileAt(LOADER_TEXTURES_021, 0xc000);
-            // ptrCurrentScene = scene_02;       
-            // initScene (scene_02, texture_02);
+            // LoadFileAt(LOADER_TEXTURES_01, 0xc000);
+            // ptrCurrentScene = scene_06;       
+            // initScene (scene_06, texture_06);
             // engInitObjects();
-            // engScene_02();
+            // engScene_06();
 
 
 }
@@ -537,26 +544,21 @@ void gamePulse(void){
         {
         case 0:
             LoadFileAt(LOADER_TEXTURES, 0xc000);
-            ptrCurrentScene = scene_00;       
-            initScene (scene_00, texture_00);
-            engScene_00();
+            ptrCurrentScene = scene_04;       
+            initScene (scene_04, texture_04);
+            engScene_04();
             break;
         case 1:
             LoadFileAt(LOADER_TEXTURES_01, 0xc000);
-            ptrCurrentScene = scene_01;       
-            initScene (scene_01, texture_01);
-            engScene_01();
+            ptrCurrentScene = scene_03;       
+            initScene (scene_03, texture_03);
+            engScene_03();
             break;
         case 2:
             LoadFileAt(LOADER_TEXTURES_021, 0xc000);
-            ptrCurrentScene = scene_02;       
-            initScene (scene_02, texture_02);
-            engScene_02();
-            break;
-        
-        default:
-            LoadFileAt(LOADER_TEXTURES, 0xc000);
-            initScene (scene_00, texture_00);
+            ptrCurrentScene = scene_05;       
+            initScene (scene_05, texture_05);
+            engScene_05();
             break;
         }
     }
@@ -569,11 +571,11 @@ void gamePulse(void){
     }
     if (sceneUpdateRequest !=0) {
         if (currentScene == 0) {
-            initScene (scene_00, texture_00);
+            initScene (scene_04, texture_04);
         } if (currentScene == 1) {
-            initScene (scene_01, texture_01);
+            initScene (scene_03, texture_03);
         } if (currentScene == 2){
-            initScene (scene_02, texture_02);
+            initScene (scene_05, texture_05);
         }
         sceneUpdateRequest = 0;
     }
