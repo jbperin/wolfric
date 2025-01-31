@@ -20,7 +20,7 @@ signed char scene_06[] = {
         -21, 9, // P17
         -21, 3, // P18
 
-        // East door
+        // West door
         -27, 3, // P19
         -27, -3, // P20
         -24, -3 , // P21
@@ -32,7 +32,7 @@ signed char scene_06[] = {
         3, -12, // P25
         -3, -12, // P26
 
-        // West door
+        // East door
         27, -3, // P27
         27, 3, // P28
         24, 3 , // P29

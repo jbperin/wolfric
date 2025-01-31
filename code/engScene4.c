@@ -49,6 +49,16 @@ signed  char door_0_4_data[] = {
         0,  // Place holder for temporisation
         };    // 88 = 43(point n46)*2 (2 coord/point) + 2 (header nbPoints + nbWall)
 
+signed char soldier1Data [] = {
+    1,          // [0] state: 0=dead, 1=walking, 
+    0,          // [1] direction
+    4,          // [2] health
+    0,          // [3] placeholder for xDeathPos
+    0,          // [4] placeholder for yDeathPos
+    -15,        // [5] min excursion
+    15          // [6] max excursion
+    };
+
 
 void engScene_04(){
 
@@ -92,62 +102,62 @@ void engScene_04(){
         engAddObjectASM();
         objTexture[4] = 0;
 
-        // engObjType = OBJ_SOLDIER;
-        // engObjX     = 0; // 2; // 
-        // engObjY     = -24; // 0; // 
-        // engObjData  = soldier1Data;
-        // engAddObjectASM();
-        // objTexture[5] = soldier_front;
+        engObjType = OBJ_SOLDIER;
+        engObjX     = 0; // 2; // 
+        engObjY     = -18; // 0; // 
+        engObjData  = soldier1Data;
+        engAddObjectASM();
+        objTexture[5] = soldier_front;
 
-        // engObjType = OBJ_LAMP;
-        // engObjX     = 0;
-        // engObjY     = 30;
-        // engObjData  = 0;
-        // engAddObjectASM();
-        // objTexture[6] = lamp_1;
+        engObjType = OBJ_LAMP;
+        engObjX     = 0;
+        engObjY     = 18;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[6] = lamp_1;
 
-        // engObjType = OBJ_LAMP;
-        // engObjX     = 0;
-        // engObjY     = 0;
-        // engObjData  = 0;
-        // engAddObjectASM();
-        // objTexture[7] = lamp_1;
+        engObjType = OBJ_LAMP;
+        engObjX     = 0;
+        engObjY     = 0;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[7] = lamp_1;
 
-        // engObjType = OBJ_AMMO; //
-        // engObjX     = 36;
-        // engObjY     = -24;
-        // engObjData  = 0;
-        // engAddObjectASM();
-        // objTexture[8] = texture_ammo_1;//
+        engObjType = OBJ_LAMP;
+        engObjX     = -21;
+        engObjY     = -18;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[8] = lamp_1;
 
-        // engObjType = OBJ_LAMP;
-        // engObjX     = -30;
-        // engObjY     = -24;
-        // engObjData  = 0;
-        // engAddObjectASM();
-        // objTexture[9] = lamp_1;
-
-        // engObjType = OBJ_LAMP;
-        // engObjX     = 30;
-        // engObjY     = -24;
-        // engObjData  = 0;
-        // engAddObjectASM();
-        // objTexture[10] = lamp_1;
+        engObjType = OBJ_LAMP;
+        engObjX     = 21;
+        engObjY     = -18;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[9] = lamp_1;
         
-        // engObjType = OBJ_DEAD_SOLDIER;
-        // engObjX     = -18;
-        // engObjY     = 0;
-        // engObjData  = 0;
-        // engAddObjectASM();
-        // objTexture[11] = sprite_deadsoldier;
+        engObjType = OBJ_AMMO; //
+        engObjX     = 30;
+        engObjY     = -18;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[10] = texture_ammo_1;//
+
+        engObjType = OBJ_DEAD_SOLDIER;
+        engObjX     = -18;
+        engObjY     = 0;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[11] = sprite_deadsoldier;
 
 
-        // engObjType = OBJ_PIECE_OF_MEAT;
-        // engObjX     = 0;
-        // engObjY     = -27;
-        // engObjData  = 0;
-        // engAddObjectASM();
-        // objTexture[12] = pieceofmeat;
+        engObjType = OBJ_PIECE_OF_MEAT;
+        engObjX     = 0;
+        engObjY     = -27;
+        engObjData  = 0;
+        engAddObjectASM();
+        objTexture[12] = pieceofmeat;
 
         // #TODO Why can we add more objects?
         // engObjType  = OBJ_LAMP;

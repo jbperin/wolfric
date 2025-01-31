@@ -42,7 +42,7 @@ signed char scene_03[] = {
         3, 21 , 	// P35
         -3, 21 , 	// P36
 
-        // West door
+        // East door
         30, 3 , 	// P37
         30, -3, 	// P38
         33, -3 , 	// P39
