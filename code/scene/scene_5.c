@@ -235,7 +235,7 @@ unsigned char *texture_05[]= {
 	, bluewall      // W37
 	, bluewall      // W38
 	, bluewall      // W39
-	, gridwall      // W40
+	, bluewall      // W40
 	, bluewall      // W41
     , bluewall      //  W42
     , bluewall      //  W43

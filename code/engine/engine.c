@@ -236,7 +236,7 @@ void doorUpdate()
     doorPt2         = (unsigned char)(doorData[2]);
     doorIncrem      = doorData[3];
     computeLogDistance();
-    if ((doorState == 0) && (openDoorRequest == 1) && ((unsigned char)objLogDistance[engCurrentObjectIdx] < 40 )){ 
+    if ((doorState == 0) && (openDoorRequest == 1) && ((unsigned char)objLogDistance[engCurrentObjectIdx] <= 50 )){ 
         openDoorRequest     = 0;
         doorState           = 1;
         ZAP();

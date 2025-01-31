@@ -110,19 +110,19 @@ signed char scene_04[] = {
 
     1, 26,  //	S20
     24, 25, //	S21
-    27, 28, //	S22 door_x_x
+    27, 28, //	S22 // North door
     3, 30, //	S23    
     4, 29, //	S24
-    32, 31,  //  S25 door_x_x
+    32, 31,  //  S25 // North West door
     5, 33, //  S26
     6, 34, //  S27 
-    35, 36, //  S28 door_x_x
+    35, 36, //  S28 // South West door
     19, 37, //  S29
-    20, 38, //  S30 
-    39, 40, //  S31 door_x_x
+    38, 20, //  S30 
+    40, 39, //  S31 //  South East door
     21, 41, //  S32
     22, 42, //  S33 
-    43, 44, //	S34 door_x_x
+    43, 44, //	S34 //  North East door
 
     45, 46, //	S35
     46, 47, //	S36

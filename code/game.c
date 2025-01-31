@@ -34,9 +34,9 @@ extern unsigned char texture_ammo_1[];
 
 void onKey(unsigned char c){
     if (c == KEY_UP) {
-            forward();
+            forward();forward();
     } else if (c == KEY_DOWN) {
-            backward();
+            backward();backward();
     } else if (c == KEY_LEFT) {
             rayCamRotZ      += ROT_ANGLE_STEP;
             RayLeftAlpha    = rayCamRotZ + HALF_FOV_FIX_ANGLE;
@@ -44,9 +44,9 @@ void onKey(unsigned char c){
             rayCamRotZ      -= ROT_ANGLE_STEP; 
             RayLeftAlpha    = rayCamRotZ + HALF_FOV_FIX_ANGLE;
     } else if (c == KEY_J) {
-            shiftRight();
+            shiftRight();shiftRight();
     } else if (c == KEY_H) {
-            shiftLeft();
+            shiftLeft();shiftLeft();
     } else if (c == KEY_1) {
         LoadFileAt(LOADER_FG_KNIFE, texture_gun);
         gunInHand = 0;

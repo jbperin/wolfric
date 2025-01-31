@@ -68,15 +68,15 @@ void engScene_03(){
         objTexture[4] = plant_1;
 
         engObjType = OBJ_PLANT;
-        engObjX     = -6;
-        engObjY     = 12;
+        engObjX     = -12;
+        engObjY     = 6;
         engObjData  = 0;
         engAddObjectASM();
         objTexture[5] = plant_1;
 
         engObjType = OBJ_PLANT;
-        engObjX     = 6;
-        engObjY     = 12;
+        engObjX     = 12;
+        engObjY     = 6;
         engObjData  = 0;
         engAddObjectASM();
         objTexture[6] = plant_1;
