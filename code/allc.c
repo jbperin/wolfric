@@ -27,6 +27,7 @@
 #include "raycast/texel.c"
 #include "raycast/viewport.c"
 #include "raycast/vertcolbuf.c"
+#include "raycast/lgdist.c"
 
 #include "raycast/dichobuf.c"
 #include "scene/scene.c"

@@ -49,6 +49,9 @@ extern unsigned char score;
 extern unsigned char ammo;
 extern unsigned char health;
 extern signed char  *ptrCurrentScene;
+
+unsigned char logDist;
+
 void engObjectPulse()
 {
     switch (objType[engCurrentObjectIdx])
@@ -68,8 +71,11 @@ void engObjectPulse()
             break;
         case OBJ_PIECE_OF_MEAT:
         case OBJ_AMMO:
+            logDist = logdist (rayCamPosX, rayCamPosY, objPosX[engCurrentObjectIdx], objPosY[engCurrentObjectIdx]);
+
             computeLogDistance();
-            if ((unsigned char)(objLogDistance[engCurrentObjectIdx]) < 19){
+            // if ((unsigned char)(objLogDistance[engCurrentObjectIdx]) < 19){
+            if (logDist < 19){
                 if ((objType[engCurrentObjectIdx]==OBJ_AMMO) && (ammo <= 96)) {
                     ammo += 4;
                     objActive[engCurrentObjectIdx] = 0;
@@ -235,8 +241,9 @@ void doorUpdate()
     doorPt1         = (unsigned char)(doorData[1]);
     doorPt2         = (unsigned char)(doorData[2]);
     doorIncrem      = doorData[3];
-    computeLogDistance();
-    if ((doorState == 0) && (openDoorRequest == 1) && ((unsigned char)objLogDistance[engCurrentObjectIdx] <= 50 )){ 
+    // computeLogDistance();
+    logDist = logdist (rayCamPosX, rayCamPosY, objPosX[engCurrentObjectIdx], objPosY[engCurrentObjectIdx]);
+    if ((doorState == 0) && (openDoorRequest == 1) && (logDist <= 80 )){ 
         openDoorRequest     = 0;
         doorState           = 1;
         ZAP();

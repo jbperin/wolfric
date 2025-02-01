@@ -23,6 +23,7 @@
 
 #include "raycast/dist_s.s"
 #include "raycast/vertcolbuf_s.s"
+#include "raycast/lgdist_s.s"
 #include "raycast/sprite_s.s"
 #include "raycast/raycast_s.s"
 #include "raycast/foreground_s.s"
