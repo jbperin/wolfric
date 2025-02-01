@@ -32,6 +32,42 @@ unsigned char sceneUpdateRequest;
 extern unsigned char texture_gun[];
 extern unsigned char texture_ammo_1[];
 
+#define CHANGE_INK_TO_BLACK	            0
+#define CHANGE_INK_TO_RED	            1
+#define CHANGE_INK_TO_GREEN	            2
+#define CHANGE_INK_TO_YELLOW	            3
+#define CHANGE_INK_TO_BLUE	            4		
+#define CHANGE_INK_TO_MAGENTA	            5
+#define CHANGE_INK_TO_CYAN	            6
+#define CHANGE_INK_TO_WHITE	            7
+unsigned char color_1;
+unsigned char color_2;
+unsigned char color_3;
+
+// RGB -> YCM -> B&W
+void change_color(){
+    int ii;
+    if (color_1 == CHANGE_INK_TO_RED) {
+        color_1 = CHANGE_INK_TO_YELLOW;
+        color_2 = CHANGE_INK_TO_CYAN;
+        color_3 = CHANGE_INK_TO_MAGENTA;
+    } else if (color_1 == CHANGE_INK_TO_WHITE) {
+        color_1 = CHANGE_INK_TO_RED;
+        color_2 = CHANGE_INK_TO_GREEN;
+        color_3 = CHANGE_INK_TO_BLUE;
+    } else if (color_1 == CHANGE_INK_TO_YELLOW) {
+        color_1 = CHANGE_INK_TO_WHITE;
+        color_2 = CHANGE_INK_TO_WHITE;
+        color_3 = CHANGE_INK_TO_WHITE;
+    }
+    // parcours de lignes de 3 en 3
+    for (ii=0; ii < (TEXT_SCREEN_HEIGHT - NB_LESS_LINES_4_COLOR)*8;  ii+=3){
+        pk (HIRES_SCREEN_ADDRESS+((ii)*NEXT_SCANLINE_INCREMENT),color_1);
+        pk (HIRES_SCREEN_ADDRESS+((ii+1)*NEXT_SCANLINE_INCREMENT),color_2);
+        pk (HIRES_SCREEN_ADDRESS+((ii+2)*NEXT_SCANLINE_INCREMENT),color_3);
+    }
+}
+
 void onKey(unsigned char c){
     if (c == KEY_UP) {
             forward();forward();
@@ -47,6 +83,8 @@ void onKey(unsigned char c){
             shiftRight();shiftRight();
     } else if (c == KEY_H) {
             shiftLeft();shiftLeft();
+    } else if (c == KEY_C) {
+            change_color();
     } else if (c == KEY_1) {
         LoadFileAt(LOADER_FG_KNIFE, texture_gun);
         gunInHand = 0;
@@ -132,6 +170,9 @@ void gameInit(void){
     currentScene            = 4;
     previousScene            = 0;
 
+    color_1 = CHANGE_INK_TO_RED;
+    color_2 = CHANGE_INK_TO_GREEN;
+    color_3 = CHANGE_INK_TO_BLUE;
 
     health              = 100;
     score               = 0;

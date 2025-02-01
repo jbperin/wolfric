@@ -21,27 +21,27 @@ strcallbackfct          *txtinputcallback = 0;
 
 #define min(a,b)            (((a) < (b)) ? (a) : (b))
 
-void inputText(unsigned char l, unsigned char c, unsigned char maxlen, char *target){
-    cursorL = l;
-    cursorC = c;
-    enteredTextMaxlen = min(maxlen, NB_MAX_ENTER_TEXT);
-    MEMSET((unsigned char*)enteredText, 0, NB_MAX_ENTER_TEXT);
-    nbEnteredChar = 0;
-    enteringText = 1;
-    while (enteringText){
-        lsys();
-    }
-    MEMCPY((unsigned char*)target, (unsigned char*)enteredText, maxlen);
-}
-void asyncInputText(unsigned char l, unsigned char c, unsigned char maxlen, strcallbackfct *callback){
-    cursorL = l;
-    cursorC = c;
-    enteredTextMaxlen = min(maxlen, NB_MAX_ENTER_TEXT);
-    MEMSET((unsigned char*)enteredText, 0, NB_MAX_ENTER_TEXT);
-    nbEnteredChar = 0;
-    enteringText = 1;
-    txtinputcallback = callback;
-}
+// void inputText(unsigned char l, unsigned char c, unsigned char maxlen, char *target){
+//     cursorL = l;
+//     cursorC = c;
+//     enteredTextMaxlen = min(maxlen, NB_MAX_ENTER_TEXT);
+//     MEMSET((unsigned char*)enteredText, 0, NB_MAX_ENTER_TEXT);
+//     nbEnteredChar = 0;
+//     enteringText = 1;
+//     while (enteringText){
+//         lsys();
+//     }
+//     MEMCPY((unsigned char*)target, (unsigned char*)enteredText, maxlen);
+// }
+// void asyncInputText(unsigned char l, unsigned char c, unsigned char maxlen, strcallbackfct *callback){
+//     cursorL = l;
+//     cursorC = c;
+//     enteredTextMaxlen = min(maxlen, NB_MAX_ENTER_TEXT);
+//     MEMSET((unsigned char*)enteredText, 0, NB_MAX_ENTER_TEXT);
+//     nbEnteredChar = 0;
+//     enteringText = 1;
+//     txtinputcallback = callback;
+// }
 unsigned char getKey(){
     waitingKey = 1;
     while (waitingKey){

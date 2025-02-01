@@ -166,62 +166,62 @@ decprint_write		sta $0123, Y
 ; sp+2 => Y coordinate
 ; sp+4 => Adress of the message to display
 ;
-_AdvancedPrint
+; _AdvancedPrint
 
-	; Initialise display adress
-	; this uses self-modifying code
-	; (the $0123 is replaced by display adress)
+; 	; Initialise display adress
+; 	; this uses self-modifying code
+; 	; (the $0123 is replaced by display adress)
 	
-	; The idea is to get the Y position from the stack,
-	; and use it as an index in the two adress tables.
-	; We also need to add the value of the X position,
-	; also taken from the stack to the resulting value.
+; 	; The idea is to get the Y position from the stack,
+; 	; and use it as an index in the two adress tables.
+; 	; We also need to add the value of the X position,
+; 	; also taken from the stack to the resulting value.
 	
-	ldy #2
-	lda (sp),y				; Access Y coordinate
-	tax
+; 	ldy #2
+; 	lda (sp),y				; Access Y coordinate
+; 	tax
 	
-	lda _ScreenAdressLow,x	; Get the LOW part of the screen adress
-	clc						; Clear the carry (because we will do an addition after)
-	ldy #0
-	adc (sp),y				; Add X coordinate
-	sta write+1
-	lda _ScreenAdressHigh,x	; Get the HIGH part of the screen adress
-	adc #0					; Eventually add the carry to complete the 16 bits addition
-	sta write+2				
+; 	lda _ScreenAdressLow,x	; Get the LOW part of the screen adress
+; 	clc						; Clear the carry (because we will do an addition after)
+; 	ldy #0
+; 	adc (sp),y				; Add X coordinate
+; 	sta write+1
+; 	lda _ScreenAdressHigh,x	; Get the HIGH part of the screen adress
+; 	adc #0					; Eventually add the carry to complete the 16 bits addition
+; 	sta write+2				
 
 
 
-	; Initialise message adress using the stack parameter
-	; this uses self-modifying code
-	; (the $0123 is replaced by message adress)
-	ldy #4
-	lda (sp),y
-	sta read+1
-	iny
-	lda (sp),y
-	sta read+2
+; 	; Initialise message adress using the stack parameter
+; 	; this uses self-modifying code
+; 	; (the $0123 is replaced by message adress)
+; 	ldy #4
+; 	lda (sp),y
+; 	sta read+1
+; 	iny
+; 	lda (sp),y
+; 	sta read+2
 
 
-	; Start at the first character
-	ldx #0
-loop_char
+; 	; Start at the first character
+; 	ldx #0
+; loop_char
 
-	; Read the character, exit if it is a 0
-read
-	lda $0123,x
-	beq end_loop_char
+; 	; Read the character, exit if it is a 0
+; read
+; 	lda $0123,x
+; 	beq end_loop_char
 
-	; Write the character on screen
-write
-	sta $0123,x
+; 	; Write the character on screen
+; write
+; 	sta $0123,x
 
-	; Next character, and loop
-	inx
-	jmp loop_char  
+; 	; Next character, and loop
+; 	inx
+; 	jmp loop_char  
 
-	; Finished !
-end_loop_char
-	rts
+; 	; Finished !
+; end_loop_char
+; 	rts
 
-end_AdvancedPrint
+; end_AdvancedPrint
