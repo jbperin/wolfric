@@ -17,8 +17,8 @@ void main()
     // PRINTS(4,14,"Your name is: ");
     // PRINTS(4+15,14,gameData.name);
 
-	// LoadFileAt(LOADER_SPLASH, 0xA000);
-	// GETKEY();
+	LoadFileAt(LOADER_SPLASH, 0xA000);
+	GETKEY();
 
 	
 	gameInit();

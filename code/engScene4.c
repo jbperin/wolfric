@@ -154,7 +154,7 @@ void engScene_04(){
 
         engObjType = OBJ_PIECE_OF_MEAT;
         engObjX     = 0;
-        engObjY     = -27;
+        engObjY     = -25;
         engObjData  = 0;
         engAddObjectASM();
         objTexture[12] = pieceofmeat;
